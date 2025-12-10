@@ -1,6 +1,6 @@
 # Personal AI Context Repository
 
-A software engineering-focused context system for coding agents, (loosely) inspired by Daniel Miessler's [Personal AI Infrastructure](https://danielmiessler.com/blog/personal-ai-infrastructure).
+Software engineering context system for coding agents, (loosely) inspired by Daniel Miessler's [Personal AI Infrastructure](https://danielmiessler.com/blog/personal-ai-infrastructure).
 
 ## file structure
 
@@ -29,3 +29,10 @@ A software engineering-focused context system for coding agents, (loosely) inspi
 - Prevent common AI failure modes
 - Software engineering best practices
 - Easy sharing and version control of AI instructions
+
+## roadmap
+
+- document how to use write repo-specific instructions
+- create an auto-updating thing
+  - can't rely on git alone
+- what about people who'll install in a project instead of their $HOME?

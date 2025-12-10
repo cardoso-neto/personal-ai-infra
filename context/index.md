@@ -1,6 +1,6 @@
 # instructions
 
-## Gemeral coding and testing
+## coding and testing
 
 See @programming/coding.md
 

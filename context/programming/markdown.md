@@ -1,5 +1,10 @@
 # markdown
 
+- Write like you're explaining to a competent peer, not selling to a novice.
+  - State facts directly, use casual language, and cut everything that doesn't add information.
+  - Assume the reader is smart enough to infer context and figure things out.
+  - No marketing, no hand-holding, no fluff.
+- Use ATX-style headings (i.e., `# Heading 1`, `## Heading 2`, etc.) instead of Setext-style (`Heading 1\n=========`).
 - Use `markdownlint` to lint markdown files.
   - `markdownlint --disable MD013 <somefile.md>`
   - if not installed, install with `npm install -g markdownlint-cli`
@@ -33,7 +38,7 @@ project/
 └── pyproject.toml
 ```
 
-Prefer bulletpoing lists; they're more easily editable by humans.
+Prefer bulletpoint lists; they're more easily editable by humans.
 
 - project/
   - src/

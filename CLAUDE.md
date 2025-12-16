@@ -1,1 +1,3 @@
-See @./AGENTS.md
+# instructions
+
+See @context/index.md

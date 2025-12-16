@@ -1,12 +1,15 @@
 # instructions
 
+Always read the language document before writing or editing code in that language.
+Paths are relative to this file.
+
 ## coding and testing
 
 See @programming/coding.md
 
 ## Markdown
 
-See @programming/markdown.md
+`programming/markdown.md`
 
 ## Python
 

@@ -1,0 +1,8 @@
+{
+  "alwaysThinkingEnabled": true,
+  "permissions": {
+    "additionalDirectories": [
+      "context"
+    ]
+  } 
+}

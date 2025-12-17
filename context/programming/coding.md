@@ -1,6 +1,4 @@
-# instructions
-
-## coding
+# coding
 
 - Avoid adding comments to code; they usually clutter the code and get stale easily.
   - Only use them to explain difficult to read behavior and other out-of-band info.
@@ -23,11 +21,3 @@
     - Place functions that are dependent on one another close together to make it easier to follow the flow of logic.
       - Place functions in a downward direction, with higher-level functions appearing before lower-level ones.
 - When writing validation logic, prefer early returns on errors.
-
-## software testing
-
-- When writing tests, avoid mocking too much otherwise your tests will be unmaintainable.
-  - Always prefer one or two integration tests over a bunch of fully mocked unit tests.
-- Print local variables to stdout on tests.
-  - Focus on inputs and outputs to make it easier to debug it when tests fail.
-  - Prefer running tests individually rather than the entire suite when facing errors.

@@ -1,19 +1,15 @@
 # instructions
 
-Always read the language document before writing or editing code in that language.
+Always read the relevant context files before proceeding.
+It is imperative as these contain important instructions and guidelines.
 Paths are relative to this file.
 
-## coding and testing
+## context files
 
-See @programming/coding.md
-
-## Markdown
-
-`programming/markdown.md`
-
-## Python
-
-See @programming/python.md
+- See @programming/coding.md
+- `programming/markdown.md`
+- See @programming/python.md
+- `programming/testing.md`
 
 ## version control software
 

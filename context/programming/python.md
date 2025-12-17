@@ -1,4 +1,4 @@
-# Python
+# python
 
 - Keep lines short and avoid horizontal alignment.
 - isort and black (unless the project specifies otherwise).

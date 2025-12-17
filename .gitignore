@@ -7,3 +7,4 @@ shell-snapshots/
 statsig/
 telemetry/
 todos/
+settings.local.json

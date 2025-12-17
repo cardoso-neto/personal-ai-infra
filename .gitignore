@@ -5,4 +5,5 @@ plugins/
 projects/
 shell-snapshots/
 statsig/
+telemetry/
 todos/

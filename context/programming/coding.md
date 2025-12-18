@@ -6,6 +6,11 @@
   - Use intention-revealing names instead and maintain a consistent vocabulary across the codebase.
 - Functions
   - Prefer stateless/pure functions, as they're easier to test and reason about.
+  - Separate I/O operations from business logic (Functional Core, Imperative Shell pattern).
+    - (Googleblog source)[context/programming/docs/functional-core.md]
+    - Extract decision logic into pure functions that operate only on provided data.
+    - Keep side effects (database calls, API requests, file I/O) in the outer shell layer.
+    - This makes core logic testable without mocking and reusable across features.
   - Aim for one level of abstraction per function.
   - Try to keep them short.
   - If a function needs many arguments, consider using an object or splitting it into multiple functions.

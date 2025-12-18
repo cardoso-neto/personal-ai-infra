@@ -1,6 +1,7 @@
 debug/
 file-history/
 ide/
+plans/
 plugins/
 projects/
 shell-snapshots/
@@ -8,3 +9,4 @@ statsig/
 telemetry/
 todos/
 settings.local.json
+stats-cache.json

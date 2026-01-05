@@ -1,4 +1,8 @@
-# testing
+---
+name: software-testing
+description: Always use this skill when writing or editing software tests!
+---
+# software-testing
 
 - When writing tests, avoid mocking too much otherwise your tests will be unmaintainable.
   - Always prefer one or two simple integration tests over a bunch of fully mocked unit tests.

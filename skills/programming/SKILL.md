@@ -1,4 +1,8 @@
-# coding
+---
+name: programming
+description: Always use this skill when writing or editing code of any sort!
+---
+# programming
 
 - Avoid adding comments to code; they usually clutter the code and get stale easily.
   - Only use them to explain difficult to read behavior and other out-of-band info.
@@ -7,8 +11,8 @@
 - Functions
   - Prefer stateless/pure functions, as they're easier to test and reason about.
   - Separate I/O operations from business logic (Functional Core, Imperative Shell pattern).
-    - (Googleblog source)[context/programming/docs/functional-core.md]
-    - Extract decision logic into pure functions that operate only on provided data.
+    - [Googleblog source](references/functional-core.md)
+    - Extract decision logic into pure functions.
     - Keep side effects (database calls, API requests, file I/O) in the outer shell layer.
     - This makes core logic testable without mocking and reusable across features.
   - Aim for one level of abstraction per function.

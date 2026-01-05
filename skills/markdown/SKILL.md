@@ -1,9 +1,12 @@
+---
+name: markdown
+description: Always use this skill when writing or editing markdown files!
+---
 # markdown
 
-- Write like you're explaining to a competent peer, not selling to a novice.
-  - State facts directly, use casual language, and cut everything that doesn't add information.
+- Write like you're explaining to a competent peer, not selling to a novice (no handholding).
+  - State facts directly and cut everything that doesn't add information.
   - Assume the reader is smart enough to infer context and figure things out.
-  - No marketing, no hand-holding, no fluff.
 - Use ATX-style headings (i.e., `# Heading 1`, `## Heading 2`, etc.) instead of Setext-style (`Heading 1\n=========`).
 - Use `markdownlint` to lint markdown files.
   - `markdownlint --disable MD013 <somefile.md>`

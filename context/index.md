@@ -1,16 +1,5 @@
 # instructions
 
-Always read the relevant context files before proceeding.
-It is imperative as these contain important instructions and guidelines.
-Paths are relative to this file.
-
-## context files
-
-- See @programming/coding.md
-- `programming/markdown.md`
-- See @programming/python.md
-- `programming/testing.md`
-
 ## version control software
 
 - Never use `git add -A` or `git add .` or checking to make sure only your changes are going to be included.

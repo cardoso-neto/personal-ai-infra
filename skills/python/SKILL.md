@@ -1,3 +1,7 @@
+---
+name: python
+description: Always use this skill when writing or editing python code!
+---
 # python
 
 - Keep lines short and avoid horizontal alignment.
@@ -20,7 +24,7 @@
   - Access the attributes directly.
 - Don't setup `logging` in libraries; leave that to the application using the library.
 
-## dependencies 
+## dependencies
 
 - Prefer adding dependencies without version constraints unless absolutely necessary.
 - Never try except missing imports; assume users of our code will install all needed dependencies.

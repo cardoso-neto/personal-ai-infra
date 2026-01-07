@@ -15,24 +15,11 @@ Software engineering context system for coding agents, (loosely) inspired by Dan
   - Ours just points to AGENTS.md (maintaining a single source of truth).
   - Claude Code doesn't natively support the AGENTS.md yet.
 
-### Directory Structure
-
-- **context/**: all instructions and guidelines live here
-  - `index.md`: Main index
-  - **programming/**: all files here should be @ referenced by index.md, so they're auto-loaded by agents
-    - `coding.md`
-    - `markdown.md`
-    - `python.md`
-
-## Installation
-
-`./install.sh`
-
-## Philosophy
+## philosophy
 
 - Prevent common AI failure modes
 - Software engineering best practices
-- Easy sharing and version control of AI instructions
+- Easily share and version control AI instructions
 
 ## roadmap
 
@@ -40,3 +27,4 @@ Software engineering context system for coding agents, (loosely) inspired by Dan
 - create an auto-updating thing
   - can't rely on git alone
 - what about people who'll install in a project instead of their $HOME?
+- some sort of "approval" system for skills (e.g.: "Anthropic approved this skill.")

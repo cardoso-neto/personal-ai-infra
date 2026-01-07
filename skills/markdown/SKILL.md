@@ -9,7 +9,7 @@ description: Always use this skill when writing or editing markdown files!
   - Assume the reader is smart enough to infer context and figure things out.
 - Use ATX-style headings (i.e., `# Heading 1`, `## Heading 2`, etc.) instead of Setext-style (`Heading 1\n=========`).
 - Use `markdownlint` to lint markdown files.
-  - `markdownlint --disable MD013 <somefile.md>`
+  - `markdownlint --disable MD013 -- <somefile.md>`
   - if not installed, install with `npm install -g markdownlint-cli`
   - `markdownlint --disable MD013 --fix <somefile.md>` to auto-fix issues.
 

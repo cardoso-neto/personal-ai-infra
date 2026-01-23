@@ -5,5 +5,9 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "model": "opus"
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ./statuslines/statusline.sh"
+  }
 }

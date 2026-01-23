@@ -14,12 +14,6 @@ base="$(basename "$path")"
 # Display current directory
 printf '\033[90m%s/\033[0m\033[1;36m%s\033[0m' "$(dirname "$path")" "$base"
 
-# Display git branch if in a git repository
-if git rev-parse --git-dir >/dev/null 2>&1; then
-    branch="$(git branch --show-current 2>/dev/null || echo 'detached')"
-    printf ' \033[90m⎇\033[0m \033[1;33m%s\033[0m' "$branch"
-fi
-
 # Display Node.js version if it's a Node project
 if [ -d node_modules ] || [ -f package.json ]; then
     node_ver="$(node --version 2>/dev/null || echo 'N/A')"
@@ -42,3 +36,9 @@ printf ' \033[90m|\033[0m '
 
 # Pipe the original JSON input to ccstatusline
 echo "$input" | npx ccstatusline@latest
+
+# Add cost tracking line
+bash ~/.claude/statuslines/cost-tracking.sh
+
+# Add rate limit tracking line
+bash ~/.claude/statuslines/rate-limit-tracking.sh

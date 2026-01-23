@@ -1,5 +1,5 @@
 ---
-description: git fetch, git rebase, get push.
+description: git fetch, git rebase, get push. i.e. Rebase the current branch onto the latest master from origin and force-push the result.
 argument-hint: [branch]
 ---
 # git-rebase

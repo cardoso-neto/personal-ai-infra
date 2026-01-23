@@ -8,6 +8,6 @@
   "model": "opus",
   "statusLine": {
     "type": "command",
-    "command": "bash ./statuslines/statusline.sh"
+    "command": "bash ~/.claude/statuslines/statusline.sh"
   }
 }

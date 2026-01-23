@@ -3,15 +3,9 @@
 # ============================================================================
 # Claude Code Rate Limit Tracking for Status Line
 # ============================================================================
-# Shows time remaining until rate limit reset using ccusage
+# Shows time remaining until rate limit reset using ccusage (via npx)
 # Displays: ⌛ 3h 7m until reset at 01:00 (37%) [===-------]
 # ============================================================================
-
-# Check if ccusage is available
-if ! command -v ccusage >/dev/null 2>&1; then
-    printf '\n\033[38;5;210m⚠ Rate limit tracking requires ccusage. Install with: npm install -g ccusage\033[0m'
-    exit 1
-fi
 
 # Check if jq is available
 if ! command -v jq >/dev/null 2>&1; then
@@ -78,11 +72,11 @@ main() {
 
     # Try ccusage with timeout
     if command -v timeout >/dev/null 2>&1; then
-        blocks_output=$(timeout 5s ccusage blocks --json 2>/dev/null)
+        blocks_output=$(timeout 5s npx -y ccusage blocks --json 2>/dev/null)
     elif command -v gtimeout >/dev/null 2>&1; then
-        blocks_output=$(gtimeout 5s ccusage blocks --json 2>/dev/null)
+        blocks_output=$(gtimeout 5s npx -y ccusage blocks --json 2>/dev/null)
     else
-        blocks_output=$(ccusage blocks --json 2>/dev/null)
+        blocks_output=$(npx -y ccusage blocks --json 2>/dev/null)
     fi
 
     if [ -z "$blocks_output" ]; then

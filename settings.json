@@ -1,8 +1,9 @@
 {
-  "alwaysThinkingEnabled": true,
   "permissions": {
     "additionalDirectories": [
       "context"
     ]
-  }
+  },
+  "alwaysThinkingEnabled": true,
+  "model": "opus"
 }

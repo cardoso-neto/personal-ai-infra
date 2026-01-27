@@ -12,6 +12,14 @@ description: Always use this skill when writing or editing markdown files!
   - `markdownlint --disable MD013 -- <somefile.md>`
   - if not installed, install with `npm install -g markdownlint-cli`
   - `markdownlint --disable MD013 --fix <somefile.md>` to auto-fix issues.
+- Nest supplementary details.
+  - When a list item has supplementary information that extends the line or interrupts the main point, move it to a nested list item.
+  - Main point stays short and scannable.
+    - Supporting details, examples, clarifications, conditions, or caveats go here.
+    - Lines never grow too long.
+- Use only characters present on the keyboard.
+  - e.g.: ñ, é, ->, =>, >=, etc. are all fine.
+  - Fancy quotes, dashes, etc. are not.
 
 ## numbered lists should be contiguous
 

@@ -10,26 +10,28 @@ Claude Code stores conversation history as JSONL files in `~/.claude/projects/`.
 ## File locations
 
 - `~/.claude/projects/{encoded-project-path}/`
-  - `{session-id}.jsonl` - main conversation files (UUID format)
-  - `agent-{hash}.jsonl` - subagent conversation files
-  - `{session-id}/` - directories may exist alongside some conversations
-- `~/.claude/history.jsonl` - command history (not conversation content)
+  - `{session-id}.jsonl`
+    - main conversation files (UUID format)
+  - `agent-{hash}.jsonl`
+    - subagent conversation files
+  - `{session-id}/`
+    - directories may exist alongside some conversations
+- `~/.claude/history.jsonl`
+  - command history (not conversation content)
 
 Project paths are encoded by replacing `/` with `-` (e.g.: `/Users/foo/my-project` -> `-Users-foo-my-project`).
 
 ## Size warnings
 
-Before reading conversation files:
-
-1. Check file size first (`ls -lah` or `wc -l`).
-2. Check max line length - single lines can exceed 500KB.
-3. Never read entire files blindly - use line-by-line processing.
-
-Typical sizes observed:
-
-- Files range from empty to 12+ MB
-- Lines can be 100KB-500KB+ (tool results, assistant responses)
-- A single project folder can contain 50+ MB across all conversations
+- Don't read conversation files naively.
+  - Files can range from empty to 12+ MB
+  - Check file size first (`ls -lah`).
+  - Use line-by-line processing if it's bigger than 60KB.
+- Also don't read lines blindly.
+  - Single lines can be 100KB-500KB+ (tool results, assistant responses).
+  - Check line length before reading.
+  - `awk 'NR==5 { print length; exit }' file.jsonl` to check line number 5.
+  - if lines are too long, filter for the fields you need using `jq` or code.
 
 ## JSONL record types
 
@@ -79,6 +81,8 @@ User messages.
   "cwd": "/path/to/project",
   "gitBranch": "branch-name",
   "version": "2.1.11",
+  "isSidechain": false,
+  "userType": "external",
   "message": {
     "role": "user",
     "content": [
@@ -99,13 +103,19 @@ Assistant responses, may contain multiple content types.
   "uuid": "uuid",
   "timestamp": "...",
   "sessionId": "uuid",
+  "requestId": "req_...",
   "cwd": "/path/to/project",
   "gitBranch": "branch-name",
   "version": "2.1.11",
+  "isSidechain": false,
+  "userType": "external",
   "message": {
     "model": "claude-opus-4-5-20251101",
     "id": "msg_...",
+    "type": "message",
     "role": "assistant",
+    "stop_reason": "end_turn|tool_use|null",
+    "stop_sequence": "...|null",
     "content": [
       {"type": "thinking", "thinking": "...", "signature": "..."},
       {"type": "text", "text": "response text"},
@@ -114,7 +124,13 @@ Assistant responses, may contain multiple content types.
     "usage": {
       "input_tokens": 10,
       "output_tokens": 100,
-      "cache_read_input_tokens": 0
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "service_tier": "standard"
     }
   }
 }
@@ -159,7 +175,13 @@ Status updates during long operations.
   "parentToolUseID": "toolu_...|null",
   "parentUuid": "uuid",
   "uuid": "uuid",
-  "timestamp": "..."
+  "timestamp": "...",
+  "sessionId": "uuid",
+  "cwd": "/path/to/project",
+  "gitBranch": "branch-name",
+  "version": "2.1.11",
+  "isSidechain": false,
+  "userType": "external"
 }
 ```
 
@@ -184,11 +206,17 @@ System-level events and metadata.
   "type": "system",
   "subtype": "event-type",
   "content": "...",
-  "isMeta": true,
+  "isMeta": true|false,
   "level": "info",
-  "parentUuid": "uuid",
+  "parentUuid": "uuid|null",
   "uuid": "uuid",
-  "timestamp": "..."
+  "timestamp": "...",
+  "sessionId": "uuid",
+  "cwd": "/path/to/project",
+  "gitBranch": "branch-name",
+  "version": "2.1.11",
+  "isSidechain": false,
+  "userType": "external"
 }
 ```
 
@@ -206,45 +234,96 @@ Command/session history (not conversation content).
 }
 ```
 
-## Example: extracting user messages
+## Code references
+
+### Useful shell one-liners
+
+```bash
+# List keys from first record
+head -1 file.jsonl | jq -c 'keys'
+
+# Find and pretty-print a specific record type
+grep '"type":"user"' file.jsonl | head -1 | jq '.'
+
+# Show record structure without large content fields
+grep '"type":"assistant"' file.jsonl | head -1 | jq 'del(.message.content)'
+
+# Search across all files in a project folder, extract the JSON part
+grep '"type":"summary"' *.jsonl | head -1 | cut -d: -f2- | jq '.'
+
+# Count records by type
+jq -r '.type' file.jsonl | sort | uniq -c | sort -rn
+
+# List all unique record types across all files
+cat *.jsonl | jq -r '.type' | sort -u
+```
+
+### Extracting user messages
 
 ```python
 import json
+from collections.abc import Iterator
+from pathlib import Path
 
-def extract_user_messages(jsonl_path):
-    messages = []
+def extract_user_messages(jsonl_path: str | Path) -> Iterator[str]:
     with open(jsonl_path) as f:
         for line in f:
             record = json.loads(line)
             if record.get('type') != 'user':
                 continue
-            content = record.get('message', {}).get('content', [])
-            for block in content:
-                if block.get('type') == 'text':
-                    messages.append(block.get('text', ''))
-    return messages
+            for block in record.get('message', {}).get('content', []):
+                if block.get('type') == 'text' and (text := block.get('text')):
+                    yield text
+
+if __name__ == '__main__':
+    import sys
+    for msg in extract_user_messages(sys.argv[1]):
+        print(msg)
 ```
 
-## Example: finding conversations by keyword
+### Finding conversations by keyword
 
 ```python
 import json
-import os
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from typing import TypedDict
 
-def search_conversations(base_path, keyword):
-    results = []
-    for fname in os.listdir(base_path):
-        if not fname.endswith('.jsonl'):
-            continue
-        fpath = os.path.join(base_path, fname)
+class SearchResult(TypedDict):
+    file: str
+    line: int
+    type: str | None
+
+def search_conversations(
+    base_path: str | Path,
+    keyword: str,
+    *,
+    parallel: bool = False,
+) -> list[SearchResult]:
+    keyword_lower = keyword.lower()
+    files = list(Path(base_path).glob('*.jsonl'))
+
+    def search_file(fpath: Path) -> list[SearchResult]:
+        results: list[SearchResult] = []
         with open(fpath) as f:
             for line_num, line in enumerate(f, 1):
-                if keyword.lower() in line.lower():
+                if keyword_lower in line.lower():
                     record = json.loads(line)
                     results.append({
-                        'file': fname,
+                        'file': fpath.name,
                         'line': line_num,
-                        'type': record.get('type')
+                        'type': record.get('type'),
                     })
-    return results
+        return results
+
+    if parallel and len(files) > 1:
+        with ThreadPoolExecutor() as executor:
+            all_results = executor.map(search_file, files)
+        return [r for batch in all_results for r in batch]
+    return [r for fpath in files for r in search_file(fpath)]
+
+if __name__ == '__main__':
+    import sys
+    for result in search_conversations(sys.argv[1], sys.argv[2]):
+        print(f"{result['file']}:{result['line']} ({result['type']})")
 ```

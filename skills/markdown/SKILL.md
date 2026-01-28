@@ -41,7 +41,7 @@ description: Always use this skill when writing or editing markdown files!
 
 Avoid using code blocks with tree structures; they're hard to edit and maintain.
 
-```
+```txt
 project/
 ├── src/
 │   ├── task.py

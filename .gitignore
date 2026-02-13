@@ -13,3 +13,4 @@ tests/
 todos/
 settings.local.json
 stats-cache.json
+.credentials.json

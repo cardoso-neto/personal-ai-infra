@@ -2,6 +2,7 @@
 description: Distill knowledge from source files into target file with merge conflict syntax
 argument-hint: [source-file-1] [source-file-2] ... [target-file]
 ---
+# distill
 
 Perform a knowledge distillation + style transfer task.
 The user provided one or more source files and a target file:

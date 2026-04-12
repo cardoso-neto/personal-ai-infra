@@ -6,8 +6,9 @@ argument-hint: [branch]
 
 Land a feature branch onto master via fast-forward merge.
 
-1. `git fetch origin`
+1. `git fetch -p origin master:master`
 2. `git rebase origin/master`
+   - `git stash` if uncommitted changes exist, then `git stash pop` after rebase.
    - If no branch argument provided, rebase current branch.
    - If conflicts arise, fix them preserving master's changes unless the feature branch explicitly updates them.
    - `git add <files>` then `git rebase --continue`

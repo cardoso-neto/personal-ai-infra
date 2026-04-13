@@ -26,6 +26,13 @@
     "command": "bash ~/.claude/statuslines/statusline.sh"
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "voiceEnabled": true,
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "skipDangerousModePermissionPrompt": true,
-  "effortLevel": "high"
+  "teammateMode": "tmux",
+  "cleanupPeriodDays": 99999
 }

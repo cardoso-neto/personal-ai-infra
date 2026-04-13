@@ -17,7 +17,7 @@ description: Always use this skill when writing or editing markdown files!
   - Main point stays short and scannable.
     - Supporting details, examples, clarifications, conditions, or caveats go here.
     - Lines never grow too long.
-- Use only characters present on the keyboard.
+- Use only characters present on the US international keyboard.
   - e.g.: ñ, é, ->, =>, >=, etc. are all fine.
   - Fancy quotes, dashes, etc. are not.
 

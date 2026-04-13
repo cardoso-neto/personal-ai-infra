@@ -14,23 +14,6 @@ base="$(basename "$path")"
 # Display current directory
 printf '\033[90m%s/\033[0m\033[1;36m%s\033[0m' "$(dirname "$path")" "$base"
 
-# Display Node.js version if it's a Node project
-if [ -d node_modules ] || [ -f package.json ]; then
-    node_ver="$(node --version 2>/dev/null || echo 'N/A')"
-    printf ' \033[90m⬢\033[0m \033[1;32m%s\033[0m' "$node_ver"
-fi
-
-# Display Python version/virtualenv if it's a Python project
-if [ -f requirements.txt ] || [ -f setup.py ] || [ -f pyproject.toml ]; then
-    if [ -n "$VIRTUAL_ENV" ]; then
-        venv_name="$(basename "$VIRTUAL_ENV")"
-        printf ' \033[90m🐍\033[0m \033[1;34m%s\033[0m' "$venv_name"
-    elif command -v python3 >/dev/null 2>&1; then
-        py_ver="$(python3 --version 2>/dev/null | cut -d' ' -f2 | cut -d'.' -f1-2)"
-        printf ' \033[90m🐍\033[0m \033[1;34mpy%s\033[0m' "$py_ver"
-    fi
-fi
-
 # Add a separator before ccstatusline output
 printf ' \033[90m|\033[0m '
 
@@ -38,7 +21,7 @@ printf ' \033[90m|\033[0m '
 echo "$input" | npx ccstatusline@latest
 
 # Add cost tracking line
-bash ~/.claude/statuslines/cost-tracking.sh
+# bash ~/.claude/statuslines/cost-tracking.sh
 
 # Add rate limit tracking line
 bash ~/.claude/statuslines/rate-limit-tracking.sh

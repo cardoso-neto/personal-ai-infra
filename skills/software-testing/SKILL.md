@@ -9,7 +9,7 @@ description: Always use this skill when writing or editing software tests!
   - Use real models and data structures whenever possible.
 - Print local variables to stdout on tests.
   - Except when they're going to be tested against a particular expected value.
-    - e.g.: `print(f"{header_count=}")\nassert header_count == 1`
+    - e.g.: don't do `print(f"{header_count=}")\nassert header_count == 1`
   - Focus on inputs and outputs to make it easier to debug it when tests fail.
 - Prefer running tests individually rather than the entire suite when facing errors.
 - Validate using models (e.g.: pydantic) instead of countless field-by-field assertions.

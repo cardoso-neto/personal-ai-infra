@@ -10,3 +10,7 @@ description: Always use this skill when using git!
   - Bulletpoint lists and other markdown syntaxes are encouraged inside commit message descriptions.
 - Do not create branches or commits unless explicitly told to do so.
 - When updating from the remote, always use `git pull --rebase` to avoid unnecessary merge commits.
+- Fix merge/rebase artifacts on the source branch, not the merge target.
+  - When a merge or rebase introduces a problem (duplicate imports, bad conflict resolution, etc.), trace it back to the feature branch that owns the change and fix it there.
+  - Amend the commit on the feature branch, force-push it, then redo the merge cleanly.
+  - Never patch these on master/main directly as it'd dirty up the commit history.

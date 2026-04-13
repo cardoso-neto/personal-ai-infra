@@ -8,7 +8,7 @@
       "context"
     ]
   },
-  "model": "opus",
+  "model": "sonnet[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/home/nei/.claude/hooks/bash-to-eternal-history.sh"
+            "command": "/Users/neicardosoneto/.claude/hooks/bash-to-eternal-history.sh"
           }
         ]
       }
@@ -25,6 +25,9 @@
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statuslines/statusline.sh"
+  },
+  "enabledPlugins": {
+    "pyright-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",

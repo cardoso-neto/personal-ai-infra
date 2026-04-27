@@ -39,16 +39,22 @@ Each line is a JSON object. The `type` field determines the record structure.
 
 ### queue-operation
 
-Session lifecycle events.
+Session lifecycle events. Follow-up user messages appear as `enqueue` operations with a `content` field containing the full message text (including pasted content). This is the best source for follow-up message full text.
 
 ```json
 {
   "type": "queue-operation",
-  "operation": "dequeue",
+  "operation": "enqueue",
   "timestamp": "2026-01-28T14:54:06.011Z",
-  "sessionId": "uuid"
+  "sessionId": "uuid",
+  "content": "the full user-typed message including pasted text"
 }
 ```
+
+- `operation` - `enqueue` (new message queued), `dequeue` (processing started), `remove` (done)
+- `content` - only present on `enqueue` records for user follow-up messages
+  - Also contains `<task-notification>` XML for agent notifications (filter these out)
+  - NOT present for the initial message of a session (that's in the `parentUuid=null` user record)
 
 ### file-history-snapshot
 
@@ -69,7 +75,15 @@ File state tracking for undo/restore.
 
 ### user
 
-User messages.
+User messages. Two distinct formats:
+
+1. **Initial message** (`parentUuid: null`): content is a flat list of single-character strings.
+   - Concatenate all strings to reconstruct the full text.
+   - Contains system context (CLAUDE.md, system-reminders) followed by the user's actual message.
+   - User message starts after the last `</system-reminder>` tag.
+2. **Tool results** (`parentUuid: "uuid"`): content is a list of `tool_result` or `text` dicts.
+   - `text` blocks here are mostly skill expansions (`Base directory for this skill:...`) or interrupts (`[Request interrupted by user]`), not user-typed messages.
+   - Real follow-up user messages are in `queue-operation` records, not here.
 
 ```json
 {
@@ -222,17 +236,26 @@ System-level events and metadata.
 
 ## history.jsonl schema
 
-Command/session history (not conversation content).
+Every user-typed message across all projects, one record per message.
+Best source for extracting what the user actually typed (conversation JSONL files mix user messages with system context, skill expansions, and tool results).
 
 ```json
 {
-  "display": "/command-name",
-  "pastedContents": {},
+  "display": "the full user-typed message text",
+  "pastedContents": {"1": {"id": "int", "type": "text", "contentHash": "hex"}},
   "timestamp": 1765934747869,
   "project": "/Users/foo/project",
   "sessionId": "uuid"
 }
 ```
+
+- `display` - the complete message text as typed by the user
+- `pastedContents` - references to pasted text blocks (content stored by hash, not inline)
+  - Messages referencing pasted content show `[Pasted text #1 +N lines]` in `display`
+- `timestamp` - epoch milliseconds
+- `project` - absolute path to the project directory
+- `sessionId` - maps to `{sessionId}.jsonl` in the project's conversation directory
+- Slash commands (e.g. `/model`) also appear here
 
 ## Code references
 
@@ -260,24 +283,100 @@ cat *.jsonl | jq -r '.type' | sort -u
 
 ### Extracting user messages
 
+Three data sources, combined for completeness:
+
+1. `history.jsonl` - has every message with timestamps, but pasted content shows as `[Pasted text #1 +N lines]`
+2. `queue-operation` records (in conversation JSONL) - full text of follow-up messages including pasted content
+3. `parentUuid=null` user records (in conversation JSONL) - full text of initial session messages (reconstruct from single-char string blocks)
+
+Quick approach (history.jsonl only, loses pasted content):
+
+```bash
+python3 -c "
+import json, sys
+with open('$HOME/.claude/history.jsonl') as f:
+    for line in f:
+        r = json.loads(line)
+        if r.get('project') == sys.argv[1]:
+            d = r.get('display', '')
+            if d and not (d.startswith('/') and ' ' not in d):
+                print(d)
+" /path/to/project
+```
+
+Full approach (resolves pasted content):
+
 ```python
 import json
-from collections.abc import Iterator
 from pathlib import Path
 
-def extract_user_messages(jsonl_path: str | Path) -> Iterator[str]:
-    with open(jsonl_path) as f:
-        for line in f:
-            record = json.loads(line)
-            if record.get('type') != 'user':
-                continue
-            for block in record.get('message', {}).get('content', []):
-                if block.get('type') == 'text' and (text := block.get('text')):
-                    yield text
+def extract_user_messages(
+    project_path: str,
+    *,
+    exclude_sessions: set[str] | None = None,
+) -> list[tuple[int, str]]:
+    """Return [(timestamp, message)] for all user-typed messages in a project."""
+    history = Path("~/.claude/history.jsonl").expanduser()
+    exclude = exclude_sessions or set()
+    encoded = project_path.replace("/", "-")
+    convo_dir = Path("~/.claude/projects").expanduser() / encoded
 
-if __name__ == '__main__':
+    # Collect full-text follow-ups from queue-operation records
+    queue_msgs: dict[tuple[str, str], str] = {}  # (session_id, timestamp) -> content
+    initial_msgs: dict[str, str] = {}  # session_id -> initial message text
+    for jsonl_file in convo_dir.glob("*.jsonl"):
+        sid = jsonl_file.stem
+        if sid in exclude or sid.startswith("agent-"):
+            continue
+        with open(jsonl_file) as f:
+            for line in f:
+                record = json.loads(line.strip() or "{}")
+                rtype = record.get("type")
+                if rtype == "queue-operation" and "content" in record:
+                    content = record["content"].strip()
+                    if content and not content.startswith("<task-notification>"):
+                        queue_msgs[(sid, record.get("timestamp", ""))] = content
+                elif rtype == "user" and not record.get("parentUuid"):
+                    blocks = record.get("message", {}).get("content", [])
+                    if blocks and isinstance(blocks[0], str):
+                        full = "".join(b for b in blocks if isinstance(b, str))
+                        pos = full.rfind("</system-reminder>")
+                        msg = full[pos + 18:].strip() if pos >= 0 else full.strip()
+                        if msg and sid not in initial_msgs:
+                            initial_msgs[sid] = msg
+
+    # Build list from history, replacing with full text where available
+    messages: list[tuple[int, str]] = []
+    seen_initial: set[str] = set()
+    with open(history) as f:
+        for line in f:
+            record = json.loads(line.strip() or "{}")
+            if record.get("project") != project_path:
+                continue
+            sid = record.get("sessionId", "")
+            if sid in exclude:
+                continue
+            display = record.get("display", "").strip()
+            ts = record.get("timestamp", 0)
+            if not display or (display.startswith("/") and " " not in display):
+                continue
+            text = display
+            if sid not in seen_initial:
+                seen_initial.add(sid)
+                if sid in initial_msgs:
+                    text = initial_msgs[sid]
+            else:
+                for (qsid, _qts), qcontent in queue_msgs.items():
+                    if qsid == sid and display[:30].lower().replace(" ", "") == qcontent[:30].lower().replace(" ", ""):
+                        text = qcontent
+                        break
+            messages.append((ts, text))
+    messages.sort(key=lambda x: x[0])
+    return messages
+
+if __name__ == "__main__":
     import sys
-    for msg in extract_user_messages(sys.argv[1]):
+    for _ts, msg in extract_user_messages(sys.argv[1]):
         print(msg)
 ```
 

@@ -24,4 +24,4 @@ echo "$input" | npx ccstatusline@latest
 # bash ~/.claude/statuslines/cost-tracking.sh
 
 # Add rate limit tracking line
-bash ~/.claude/statuslines/rate-limit-tracking.sh
+# bash ~/.claude/statuslines/rate-limit-tracking.sh

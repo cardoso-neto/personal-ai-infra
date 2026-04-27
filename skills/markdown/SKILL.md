@@ -62,12 +62,12 @@ Prefer bulletpoint lists; they're more easily editable by humans.
 
 ## represent tables with bulletpoints
 
-Whenever the one of the columns of a table is a key/indexing field, this works well.
+Whenever one of the columns of a table is a key/indexing field, this works well.
 
-| id | mission | market cap | 
-|---|---|
-| `apple` | to create technology that empowers people and enriches their lives. | $3.93T
-| `meta` | to build the future of human connection and the technology that makes it possible. | $1.72T
+| id | mission | market cap |
+|---|---|---|
+| `apple` | to create technology that empowers people and enriches their lives. | $3.93T |
+| `meta` | to build the future of human connection and the technology that makes it possible. | $1.72T |
 
 They're easier to edit and less horizontally long.
 

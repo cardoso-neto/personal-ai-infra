@@ -20,6 +20,9 @@ description: Always use this skill when writing or editing markdown files!
 - Use only characters present on the US international keyboard.
   - e.g.: ñ, é, ->, =>, >=, etc. are all fine.
   - Fancy quotes, dashes, etc. are not.
+- When writing text, use semantic linebreaks, after full stops.
+  - Avoid hard-wrapping paragraphs at a fixed column-width.
+  - It's painful to maintain; deleting one word forces every following line to shift.
 
 ## numbered lists should be contiguous
 
@@ -56,3 +59,28 @@ Prefer bulletpoint lists; they're more easily editable by humans.
     - task.py
     - config.py
   - pyproject.toml
+
+## represent tables with bulletpoints
+
+Whenever the one of the columns of a table is a key/indexing field, this works well.
+
+| id | mission | market cap | 
+|---|---|
+| `apple` | to create technology that empowers people and enriches their lives. | $3.93T
+| `meta` | to build the future of human connection and the technology that makes it possible. | $1.72T
+
+They're easier to edit and less horizontally long.
+
+- `apple`
+  - to create technology that empowers people and enriches their lives.
+  - $3.93T
+- `meta`
+  - to build the future of human connection and the technology that makes it possible.
+  - $1.72T
+
+- Always prefer to omit the column names as it'd lead to a lot of repetition.
+- The above is a naive example of direct conversion.
+- Design-wise, it could look better if:
+  - columns with consistently shorter values came first.
+  - columns with fixed short length to be inlined along with the "id" or some other short field
+    - e.g.: "`meta` ($1.72T)"

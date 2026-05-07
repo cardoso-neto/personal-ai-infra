@@ -13,6 +13,7 @@ description: Always use this skill when writing or editing python code!
   - Prefer `|` over `Union[]` and `| None` over `Optional`.
   - Run a type checker (pyright or whatever the project specifies) and fix all errors.
   - Prefer strict, tight type hints.
+- Never import things from `__future__`, just use the latest Python features and require a modern Python version.
 - Whenever possible, extract logic out to staticmethods and classmethods.
 - Don't return multiline statements; prefer assigning then returning.
 - Don't setup `logging` in libraries; leave that to the application using the library.

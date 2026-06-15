@@ -5,424 +5,244 @@ description: Explore and search previous Claude Code conversations stored in ~/.
 
 # cc-convo-explorer
 
-Claude Code stores conversation history as JSONL files in `~/.claude/projects/`.
+Claude Code stores conversation history as JSONL files in `~/.claude/projects/`, one JSON object per line.
 
 ## File locations
 
 - `~/.claude/projects/{encoded-project-path}/`
-  - `{session-id}.jsonl`
-    - main conversation files (UUID format)
-  - `agent-{hash}.jsonl`
-    - subagent conversation files
-  - `{session-id}/`
-    - directories may exist alongside some conversations
-- `~/.claude/history.jsonl`
-  - command history (not conversation content)
+  - `{session-id}.jsonl` - main conversation files (session id is a UUID)
+  - `{session-id}/` - per-session subdirectory holding ancillary data
+    - `subagents/agent-{hash}.jsonl` - subagent transcripts (records have `isSidechain: true`)
+    - `subagents/agent-{hash}.meta.json` - sidecar (`agentType`, `description`, `name`, `toolUseId`)
+    - `subagents/journal.jsonl`, `subagents/agent-compact-{hash}.jsonl` - workflow/compaction state
+    - `tool-results/*.txt` - raw tool-result payloads (not JSONL)
+    - `workflows/` - workflow run state
+  - `sessions-index.json`, `memory`, `debug-{digits}.jsonl` - other per-project entries
+- `~/.claude/history.jsonl` - every user-typed message across all projects (see below)
 
-Project paths are encoded by replacing `/` with `-` (e.g.: `/Users/foo/my-project` -> `-Users-foo-my-project`).
+### Path encoding
+
+The project dir name is the absolute project path with each of `/`, `.`, and `_` collapsed to a single `-`.
+
+- `/home/user/company/proj` -> `-home-user-company-proj`
+- `/home/user/.claude` -> `-home-user--claude`
+- `/home/user/svc_410439` -> `-home-user-svc-410439`
 
 ## Size warnings
 
-- Don't read conversation files naively.
-  - Files can range from empty to 12+ MB
-  - Check file size first (`ls -lah`).
-  - Use line-by-line processing if it's bigger than 60KB.
-- Also don't read lines blindly.
-  - Single lines can be 100KB-500KB+ (tool results, assistant responses).
-  - Check line length before reading.
-  - `awk 'NR==5 { print length; exit }' file.jsonl` to check line number 5.
-  - if lines are too long, filter for the fields you need using `jq` or code.
+- Don't read conversation files or lines naively.
+  - Files run up to ~18 MB (avg ~350 KB); single lines can exceed 1.5 MB (large tool results, thinking blocks).
+  - Check file size first (`ls -lah`); process line-by-line above ~60 KB.
+  - `awk 'NR==5 { print length; exit }' file.jsonl` checks the length of line 5 before reading it.
+  - When lines are huge, project to the fields you need with `jq` instead of reading whole lines.
+- Exclude `history*.jsonl` and `*/tool-results/*.txt` when scanning a tree for JSONL records - they are not conversation lines and pollute a naive census.
 
-## JSONL record types
+## Record envelope
 
-Each line is a JSON object. The `type` field determines the record structure.
+Heavyweight records (`user`, `assistant`, `attachment`, `system`, `progress`) share a common envelope; the rest carry only `type`, `sessionId`, and their own payload.
 
-### queue-operation
+- `type` - record type
+- `uuid` / `parentUuid` - record id and its parent (`parentUuid: null` marks a session's initial message)
+- `timestamp` - ISO-8601 string
+- `sessionId`, `cwd`, `gitBranch`, `version`, `entrypoint` - session context (`entrypoint`: `cli` / `sdk-cli` / `sdk-ts`)
+- `isSidechain` - `true` only in subagent files
+- `userType` - `external`
 
-Session lifecycle events. Follow-up user messages appear as `enqueue` operations with a `content` field containing the full message text (including pasted content). This is the best source for follow-up message full text.
+`version` is `2.1.x`. Model ids (`message.model`) are `claude-opus-4-x` / `claude-sonnet-4-x` / `claude-fable-x` / `claude-haiku-4-x`, plus `<synthetic>` for injected or error turns.
+Don't hardcode either - they move constantly.
 
-```json
-{
-  "type": "queue-operation",
-  "operation": "enqueue",
-  "timestamp": "2026-01-28T14:54:06.011Z",
-  "sessionId": "uuid",
-  "content": "the full user-typed message including pasted text"
-}
-```
-
-- `operation` - `enqueue` (new message queued), `dequeue` (processing started), `remove` (done)
-- `content` - only present on `enqueue` records for user follow-up messages
-  - Also contains `<task-notification>` XML for agent notifications (filter these out)
-  - NOT present for the initial message of a session (that's in the `parentUuid=null` user record)
-
-### file-history-snapshot
-
-File state tracking for undo/restore.
-
-```json
-{
-  "type": "file-history-snapshot",
-  "messageId": "uuid",
-  "snapshot": {
-    "messageId": "uuid",
-    "trackedFileBackups": {},
-    "timestamp": "..."
-  },
-  "isSnapshotUpdate": false
-}
-```
+## Conversation record types
 
 ### user
 
-User messages. Two distinct formats:
+User-side turns: initial prompts, follow-ups, and tool-result carriers.
 
-1. **Initial message** (`parentUuid: null`): content is a flat list of single-character strings.
-   - Concatenate all strings to reconstruct the full text.
-   - Contains system context (CLAUDE.md, system-reminders) followed by the user's actual message.
-   - User message starts after the last `</system-reminder>` tag.
-2. **Tool results** (`parentUuid: "uuid"`): content is a list of `tool_result` or `text` dicts.
-   - `text` blocks here are mostly skill expansions (`Base directory for this skill:...`) or interrupts (`[Request interrupted by user]`), not user-typed messages.
-   - Real follow-up user messages are in `queue-operation` records, not here.
+- Initial message (`parentUuid: null`): `message.content` is a plain string (or a short list of `{type: "text", text}` blocks) holding the clean user prompt.
+  - It no longer embeds CLAUDE.md or system-reminders, so no stripping is needed.
+- Tool results (`parentUuid` set): `message.content` is a list of `tool_result` blocks (`tool_use_id`, `content`); structured tool metadata is mirrored in a top-level `toolUseResult`.
+  - `text` blocks here are mostly skill expansions or `[Request interrupted by user]`, not user-typed text.
+- Useful extra fields: `promptId`, `permissionMode`, `promptSource`, `origin`.
 
 ```json
-{
-  "type": "user",
-  "parentUuid": "uuid|null",
-  "uuid": "uuid",
-  "timestamp": "...",
-  "sessionId": "uuid",
-  "cwd": "/path/to/project",
-  "gitBranch": "branch-name",
-  "version": "2.1.11",
-  "isSidechain": false,
-  "userType": "external",
-  "message": {
-    "role": "user",
-    "content": [
-      {"type": "text", "text": "user message here"}
-    ]
-  }
-}
+{"type": "user", "parentUuid": null, "message": {"role": "user", "content": "the prompt"}}
 ```
 
 ### assistant
 
-Assistant responses, may contain multiple content types.
+Model turns. `message.content` is a list of blocks:
+
+- `thinking` - reasoning (`thinking`, `signature`)
+- `text` - response text
+- `tool_use` - tool call (`id`, `name`, `input`)
+
+`message` also has `model`, `id`, `stop_reason`, and `usage` (with `input_tokens`, `output_tokens`, `cache_read_input_tokens`, `cache_creation_input_tokens`).
+A turn may be attributed to a skill or MCP tool via top-level `attributionSkill` / `attributionMcpServer` / `attributionMcpTool`.
+
+### queue-operation
+
+Message-queue lifecycle. The best source for the full text of follow-up messages, including pasted content.
 
 ```json
-{
-  "type": "assistant",
-  "parentUuid": "uuid",
-  "uuid": "uuid",
-  "timestamp": "...",
-  "sessionId": "uuid",
-  "requestId": "req_...",
-  "cwd": "/path/to/project",
-  "gitBranch": "branch-name",
-  "version": "2.1.11",
-  "isSidechain": false,
-  "userType": "external",
-  "message": {
-    "model": "claude-opus-4-5-20251101",
-    "id": "msg_...",
-    "type": "message",
-    "role": "assistant",
-    "stop_reason": "end_turn|tool_use|null",
-    "stop_sequence": "...|null",
-    "content": [
-      {"type": "thinking", "thinking": "...", "signature": "..."},
-      {"type": "text", "text": "response text"},
-      {"type": "tool_use", "id": "toolu_...", "name": "ToolName", "input": {...}}
-    ],
-    "usage": {
-      "input_tokens": 10,
-      "output_tokens": 100,
-      "cache_read_input_tokens": 0,
-      "cache_creation_input_tokens": 0,
-      "cache_creation": {
-        "ephemeral_5m_input_tokens": 0,
-        "ephemeral_1h_input_tokens": 0
-      },
-      "service_tier": "standard"
-    }
-  }
-}
+{"type": "queue-operation", "operation": "enqueue", "sessionId": "...", "timestamp": "...", "content": "full follow-up text"}
 ```
 
-Content block types in assistant messages:
-
-- `thinking` - Claude's reasoning (has `thinking` and `signature` fields)
-- `text` - Response text
-- `tool_use` - Tool invocation (has `id`, `name`, `input` fields)
-
-### tool_result (inside user message)
-
-Tool results appear as content blocks in user-type records.
-
-```json
-{
-  "type": "user",
-  "message": {
-    "role": "user",
-    "content": [
-      {
-        "type": "tool_result",
-        "tool_use_id": "toolu_...",
-        "content": [{"type": "text", "text": "result here"}]
-      }
-    ]
-  }
-}
-```
-
-### progress
-
-Status updates during long operations.
-
-```json
-{
-  "type": "progress",
-  "slug": "progress-indicator-name",
-  "data": {...},
-  "toolUseID": "toolu_...",
-  "parentToolUseID": "toolu_...|null",
-  "parentUuid": "uuid",
-  "uuid": "uuid",
-  "timestamp": "...",
-  "sessionId": "uuid",
-  "cwd": "/path/to/project",
-  "gitBranch": "branch-name",
-  "version": "2.1.11",
-  "isSidechain": false,
-  "userType": "external"
-}
-```
-
-### summary
-
-Conversation summaries (used for context management).
-
-```json
-{
-  "type": "summary",
-  "summary": "text summary of conversation",
-  "leafUuid": "uuid"
-}
-```
+- `operation` - `enqueue`, `dequeue`, `remove`, `popAll`
+- `content` - present on `enqueue` and `popAll`; absent on `dequeue` / `remove`
+  - Also carries `<task-notification>` XML for agent notifications - filter those out.
+- No envelope beyond `type`, `operation`, `sessionId`, `timestamp`.
 
 ### system
 
-System-level events and metadata.
+System/meta events keyed by `subtype`. Field set varies per subtype.
 
-```json
-{
-  "type": "system",
-  "subtype": "event-type",
-  "content": "...",
-  "isMeta": true|false,
-  "level": "info",
-  "parentUuid": "uuid|null",
-  "uuid": "uuid",
-  "timestamp": "...",
-  "sessionId": "uuid",
-  "cwd": "/path/to/project",
-  "gitBranch": "branch-name",
-  "version": "2.1.11",
-  "isSidechain": false,
-  "userType": "external"
-}
-```
+- `away_summary` - prose recap of what the agent did while you were away
+- `local_command` - `.content` holds the `<command-name>` of a slash-command invocation
+- `turn_duration`, `stop_hook_summary`, `compact_boundary`, `api_error` (carries `error`), `bridge_status`, `scheduled_task_fire`
+
+### attachment
+
+Context injected into a turn, keyed by `attachment.type`. Mostly bookkeeping (`task_reminder`, `deferred_tools_delta`, `skill_listing`, `edited_text_file`, `nested_memory`, `command_permissions`, ...).
+
+- `queued_command` is search-relevant: `attachment.prompt` holds real user follow-up text - a source beyond `queue-operation`.
+
+### progress
+
+Streaming status during long tool/subagent operations (`data.type`: `hook_progress`, `agent_progress`, ...).
+High volume, low value for search; the underlying subagent output is already in the `agent-*.jsonl` files.
+
+## Session-metadata records
+
+Tiny records, useful as a cheap per-session index without parsing message bodies:
+
+- `last-prompt` - `lastPrompt`: full text of the session's most recent user prompt
+- `ai-title` - `aiTitle`: auto-generated topic label for the session
+- `custom-title` - `customTitle`: user-set label (overrides `ai-title`)
+- `agent-name` - `agentName`: readable label for a (sub)agent session
+- `pr-link` - `prNumber` / `prUrl` / `prRepository`: the PR a session opened
+- `fork-context-ref` - `parentSessionId` / `parentLastUuid` (in subagent files): links a fork back to its origin
+
+Pure bookkeeping (skip for search): `permission-mode`, `mode`, `bridge-session`, `agent-setting`, `file-history-snapshot`, `debug_claude`.
 
 ## history.jsonl schema
 
-Every user-typed message across all projects, one record per message.
-Best source for extracting what the user actually typed (conversation JSONL files mix user messages with system context, skill expansions, and tool results).
+One record per user-typed message, across all projects.
+The simplest source for "what did the user type", though pasted content is abbreviated.
 
 ```json
-{
-  "display": "the full user-typed message text",
-  "pastedContents": {"1": {"id": "int", "type": "text", "contentHash": "hex"}},
-  "timestamp": 1765934747869,
-  "project": "/Users/foo/project",
-  "sessionId": "uuid"
-}
+{"display": "the typed text", "pastedContents": {}, "project": "/abs/path", "sessionId": "uuid", "timestamp": 1765934747869}
 ```
 
-- `display` - the complete message text as typed by the user
-- `pastedContents` - references to pasted text blocks (content stored by hash, not inline)
-  - Messages referencing pasted content show `[Pasted text #1 +N lines]` in `display`
+- `display` - the message as typed; pasted blocks show as `[Pasted text #1 +N lines]`
+- `project` - absolute project path (matches the conversation file's `cwd`, not the encoded dir name)
+- `sessionId` - present on recent records; older records and bare slash-commands (e.g. `/mcp status`) may omit it
 - `timestamp` - epoch milliseconds
-- `project` - absolute path to the project directory
-- `sessionId` - maps to `{sessionId}.jsonl` in the project's conversation directory
-- Slash commands (e.g. `/model`) also appear here
+- `pastedContents` - map keyed `"1"`, `"2"`, ... per pasted block; `{}` when none. Two variants:
+  - by reference: `{"id": 1, "type": "text", "contentHash": "hex"}` (text stored elsewhere by hash)
+  - inline: `{"id": 1, "type": "text", "content": "full pasted text"}`
+  - `id` is an integer and may be `null`.
+- Slash commands also appear here.
 
-## Code references
+## Extracting user-typed messages
 
-### Useful shell one-liners
+Three sources, by completeness:
 
-```bash
-# List keys from first record
-head -1 file.jsonl | jq -c 'keys'
-
-# Find and pretty-print a specific record type
-grep '"type":"user"' file.jsonl | head -1 | jq '.'
-
-# Show record structure without large content fields
-grep '"type":"assistant"' file.jsonl | head -1 | jq 'del(.message.content)'
-
-# Search across all files in a project folder, extract the JSON part
-grep '"type":"summary"' *.jsonl | head -1 | cut -d: -f2- | jq '.'
-
-# Count records by type
-jq -r '.type' file.jsonl | sort | uniq -c | sort -rn
-
-# List all unique record types across all files
-cat *.jsonl | jq -r '.type' | sort -u
-```
-
-### Extracting user messages
-
-Three data sources, combined for completeness:
-
-1. `history.jsonl` - has every message with timestamps, but pasted content shows as `[Pasted text #1 +N lines]`
-2. `queue-operation` records (in conversation JSONL) - full text of follow-up messages including pasted content
-3. `parentUuid=null` user records (in conversation JSONL) - full text of initial session messages (reconstruct from single-char string blocks)
-
-Quick approach (history.jsonl only, loses pasted content):
-
-```bash
-python3 -c "
-import json, sys
-with open('$HOME/.claude/history.jsonl') as f:
-    for line in f:
-        r = json.loads(line)
-        if r.get('project') == sys.argv[1]:
-            d = r.get('display', '')
-            if d and not (d.startswith('/') and ' ' not in d):
-                print(d)
-" /path/to/project
-```
-
-Full approach (resolves pasted content):
+1. `history.jsonl` - every message with timestamps; pasted content abbreviated.
+2. `queue-operation` `content` and `queued_command` `attachment.prompt` - full follow-up text including pasted content.
+3. `parentUuid: null` `user` records - the full initial prompt of each session.
 
 ```python
 import json
 from pathlib import Path
 
-def extract_user_messages(
-    project_path: str,
-    *,
-    exclude_sessions: set[str] | None = None,
-) -> list[tuple[int, str]]:
-    """Return [(timestamp, message)] for all user-typed messages in a project."""
-    history = Path("~/.claude/history.jsonl").expanduser()
-    exclude = exclude_sessions or set()
-    encoded = project_path.replace("/", "-")
-    convo_dir = Path("~/.claude/projects").expanduser() / encoded
+HISTORY = Path("~/.claude/history.jsonl").expanduser()
 
-    # Collect full-text follow-ups from queue-operation records
-    queue_msgs: dict[tuple[str, str], str] = {}  # (session_id, timestamp) -> content
-    initial_msgs: dict[str, str] = {}  # session_id -> initial message text
-    for jsonl_file in convo_dir.glob("*.jsonl"):
-        sid = jsonl_file.stem
-        if sid in exclude or sid.startswith("agent-"):
+
+def typed_messages(project_path: str) -> list[str]:
+    """Every user-typed message for a project, oldest first."""
+    out: list[tuple[int, str]] = []
+    for line in HISTORY.read_text().splitlines():
+        record = json.loads(line)
+        if record.get("project") != project_path:
             continue
-        with open(jsonl_file) as f:
-            for line in f:
-                record = json.loads(line.strip() or "{}")
-                rtype = record.get("type")
-                if rtype == "queue-operation" and "content" in record:
-                    content = record["content"].strip()
-                    if content and not content.startswith("<task-notification>"):
-                        queue_msgs[(sid, record.get("timestamp", ""))] = content
-                elif rtype == "user" and not record.get("parentUuid"):
-                    blocks = record.get("message", {}).get("content", [])
-                    if blocks and isinstance(blocks[0], str):
-                        full = "".join(b for b in blocks if isinstance(b, str))
-                        pos = full.rfind("</system-reminder>")
-                        msg = full[pos + 18:].strip() if pos >= 0 else full.strip()
-                        if msg and sid not in initial_msgs:
-                            initial_msgs[sid] = msg
+        display = (record.get("display") or "").strip()
+        if display and not (display.startswith("/") and " " not in display):
+            out.append((record.get("timestamp", 0), display))
+    out.sort()
+    return [text for _, text in out]
+```
 
-    # Build list from history, replacing with full text where available
-    messages: list[tuple[int, str]] = []
-    seen_initial: set[str] = set()
-    with open(history) as f:
-        for line in f:
-            record = json.loads(line.strip() or "{}")
-            if record.get("project") != project_path:
-                continue
-            sid = record.get("sessionId", "")
-            if sid in exclude:
-                continue
-            display = record.get("display", "").strip()
-            ts = record.get("timestamp", 0)
-            if not display or (display.startswith("/") and " " not in display):
-                continue
-            text = display
-            if sid not in seen_initial:
-                seen_initial.add(sid)
-                if sid in initial_msgs:
-                    text = initial_msgs[sid]
+```python
+import json
+from pathlib import Path
+
+
+def session_user_messages(jsonl_path: str | Path) -> list[str]:
+    """Full user-typed text (initial prompt + follow-ups) for one session, in order."""
+    out: list[tuple[str, str]] = []
+    for line in Path(jsonl_path).read_text().splitlines():
+        if not line.strip():
+            continue
+        record = json.loads(line)
+        rtype = record.get("type")
+        if rtype == "queue-operation" and record.get("operation") in ("enqueue", "popAll"):
+            content = (record.get("content") or "").strip()
+            if content and not content.startswith("<task-notification>"):
+                out.append((record.get("timestamp", ""), content))
+        elif rtype == "user" and record.get("parentUuid") is None:
+            content = record.get("message", {}).get("content")
+            if isinstance(content, str):
+                text = content
+            elif isinstance(content, list):
+                text = "".join(
+                    b.get("text", "")
+                    for b in content
+                    if isinstance(b, dict) and b.get("type") == "text"
+                )
             else:
-                for (qsid, _qts), qcontent in queue_msgs.items():
-                    if qsid == sid and display[:30].lower().replace(" ", "") == qcontent[:30].lower().replace(" ", ""):
-                        text = qcontent
-                        break
-            messages.append((ts, text))
-    messages.sort(key=lambda x: x[0])
-    return messages
+                text = ""
+            if text.strip():
+                out.append((record.get("timestamp", ""), text.strip()))
+    out.sort()
+    return [text for _, text in out]
+```
+
+## Searching
+
+Useful shell one-liners (records have no spaces after colons, so the compact patterns match):
+
+```bash
+head -1 file.jsonl | jq -c keys                                  # keys of the first record
+grep '"type":"user"' file.jsonl | head -1 | jq                   # first record of a type
+grep '"type":"assistant"' file.jsonl | head -1 | jq 'del(.message.content)'  # structure, minus bulk
+jq -r .type file.jsonl | sort | uniq -c | sort -rn               # count records by type
+cat *.jsonl | jq -rR 'fromjson? | .type' | sort -u               # all types in a dir (tolerates non-JSON)
+grep -h '"type":"queue-operation"' *.jsonl | head -1 | jq        # first match across files (-h drops filename)
+```
+
+Keyword search across a project's files:
+
+```python
+import json
+import sys
+from pathlib import Path
+
+
+def search(base_path: str | Path, keyword: str):
+    """Yield (filename, line_no, record_type) for lines containing keyword."""
+    needle = keyword.lower()
+    for fpath in Path(base_path).glob("*.jsonl"):
+        with fpath.open() as f:
+            for line_no, line in enumerate(f, 1):
+                if needle not in line.lower():
+                    continue
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                yield fpath.name, line_no, record.get("type")
+
 
 if __name__ == "__main__":
-    import sys
-    for _ts, msg in extract_user_messages(sys.argv[1]):
-        print(msg)
-```
-
-### Finding conversations by keyword
-
-```python
-import json
-from concurrent.futures import ThreadPoolExecutor
-from pathlib import Path
-from typing import TypedDict
-
-class SearchResult(TypedDict):
-    file: str
-    line: int
-    type: str | None
-
-def search_conversations(
-    base_path: str | Path,
-    keyword: str,
-    *,
-    parallel: bool = False,
-) -> list[SearchResult]:
-    keyword_lower = keyword.lower()
-    files = list(Path(base_path).glob('*.jsonl'))
-
-    def search_file(fpath: Path) -> list[SearchResult]:
-        results: list[SearchResult] = []
-        with open(fpath) as f:
-            for line_num, line in enumerate(f, 1):
-                if keyword_lower in line.lower():
-                    record = json.loads(line)
-                    results.append({
-                        'file': fpath.name,
-                        'line': line_num,
-                        'type': record.get('type'),
-                    })
-        return results
-
-    if parallel and len(files) > 1:
-        with ThreadPoolExecutor() as executor:
-            all_results = executor.map(search_file, files)
-        return [r for batch in all_results for r in batch]
-    return [r for fpath in files for r in search_file(fpath)]
-
-if __name__ == '__main__':
-    import sys
-    for result in search_conversations(sys.argv[1], sys.argv[2]):
-        print(f"{result['file']}:{result['line']} ({result['type']})")
+    for name, line_no, rtype in search(sys.argv[1], sys.argv[2]):
+        print(f"{name}:{line_no} ({rtype})")
 ```

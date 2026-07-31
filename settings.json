@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/home/nei/.claude/hooks/bash-to-eternal-history.sh"
+            "command": "~/.claude/hooks/bash-to-eternal-history.sh"
           }
         ]
       },

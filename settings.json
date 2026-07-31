@@ -19,6 +19,17 @@
             "command": "/home/nei/.claude/hooks/bash-to-eternal-history.sh"
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/markdownlint-edited-file.sh",
+            "timeout": 30,
+            "statusMessage": "Linting markdown"
+          }
+        ]
       }
     ]
   },

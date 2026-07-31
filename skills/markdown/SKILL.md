@@ -8,10 +8,8 @@ description: Always use this skill when writing or editing markdown files!
   - State facts directly and cut everything that doesn't add information.
   - Assume the reader is smart enough to infer context and figure things out.
 - Use ATX-style headings (i.e., `# Heading 1`, `## Heading 2`, etc.) instead of Setext-style (`Heading 1\n=========`).
-- Use `markdownlint` to lint markdown files.
-  - `markdownlint --disable MD013 -- <somefile.md>`
-  - if not installed, install with `npm install -g markdownlint-cli`
-  - `markdownlint --disable MD013 --fix <somefile.md>` to auto-fix issues.
+- `markdownlint` is your friend.
+  - Fix whatever it reports; `markdownlint --disable MD013 --fix -- <somefile.md>` auto-fixes most of it.
 - Nest supplementary details.
   - When a list item has supplementary information that extends the line or interrupts the main point, move it to a nested list item.
   - Main point stays short and scannable.
@@ -65,7 +63,7 @@ Prefer bulletpoint lists; they're more easily editable by humans.
 Whenever one of the columns of a table is a key/indexing field, this works well.
 
 | id | mission | market cap |
-|---|---|---|
+| --- | --- | --- |
 | `apple` | to create technology that empowers people and enriches their lives. | $3.93T |
 | `meta` | to build the future of human connection and the technology that makes it possible. | $1.72T |
 

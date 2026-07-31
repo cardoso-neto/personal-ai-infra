@@ -1,16 +1,43 @@
+# claude code runtime state; regenerable
+backups/
+cache/
+daemon/
 debug/
 file-history/
 ide/
+jobs/
 paste-cache/
 plans/
 plugins/
-projects/
 session-env/
+sessions/
 shell-snapshots/
 statsig/
+tasks/
+teams/
 telemetry/
 tests/
 todos/
-settings.local.json
+.last-cleanup
+.last-update-result.json
+daemon-auth-cooldown
+daemon-auth-status.json
+daemon.lock
+daemon.log
+daemon.status.json
+gh-pr-status-cache.json
+history.jsonl
+mcp-needs-auth-cache.json
+policy-limits.json
+remote-settings.json
 stats-cache.json
+
+# agent trajectories; never delete, see README
+projects/
+
+# machine-local config and secrets
+settings.local.json
 .credentials.json
+
+# scratch space
+scratch/

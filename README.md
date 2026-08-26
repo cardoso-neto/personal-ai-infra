@@ -29,12 +29,12 @@ It is gitignored because it is large and full of proprietary work, not because i
   - Prune `shell-snapshots/`, `jobs/`, `plugins/cache/`, `file-history/`, and `todos/` instead; all regenerate.
   - Those are ~110M combined, which is the entirety of the reclaimable space that matters.
 - Keep them backed up off this disk.
-  - `./backup-transcripts.sh` mirrors them gzipped, incrementally, deleting nothing.
-    - Destination defaults to `~/claude-transcript-backups`; override with `CLAUDE_TRANSCRIPT_BACKUP_DIR`.
-    - 1.1G of transcripts compresses to 329M. First run takes ~4 min, later runs ~3s.
-  - The default destination is the same physical disk, which protects against `rm -rf` but not against disk loss.
-    - Point it at an external drive or sync the result off-machine to get real durability.
-  - Whatever the destination, it must be private; transcripts contain source code from client work.
+  - `~/cardoso-neto/agent-logs/sync-agent-logs.sh` archives them, hourly via cron at `:17`.
+    - It rsyncs `projects/` and `history.jsonl` into a git-annex repo, then commits. Codex sessions too.
+    - No `--delete`: once a transcript is archived it stays archived, even if the local copy goes.
+  - That repo has no annex remotes, so it is still one copy on this disk.
+    - It protects against `rm -rf ~/.claude` but not against disk loss. Add a remote to get real durability.
+  - Wherever it lands, it must be private; transcripts contain source code from client work.
 
 ## philosophy
 

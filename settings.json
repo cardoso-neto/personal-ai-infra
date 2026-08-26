@@ -4,11 +4,13 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
+    "defaultMode": "bypassPermissions",
     "additionalDirectories": [
       "context"
     ]
   },
   "model": "opus",
+  "disableClaudeAiConnectors": true,
   "hooks": {
     "PostToolUse": [
       {
@@ -37,14 +39,23 @@
     "type": "command",
     "command": "bash ~/.claude/statuslines/statusline.sh"
   },
+  "enabledPlugins": {},
+  "syntaxHighlightingDisabled": false,
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "awaySummaryEnabled": false,
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
   },
   "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "verbose": false,
+  "preferredNotifChannel": "auto",
   "teammateMode": "tmux",
-  "voiceEnabled": true,
-  "verbose": true
+  "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": true
 }

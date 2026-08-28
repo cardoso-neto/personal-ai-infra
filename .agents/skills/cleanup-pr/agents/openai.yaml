@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cleanup PR"
+  short_description: "Clean up or split a pull request"
+  default_prompt: "Use $cleanup-pr to make this pull request easier to review."

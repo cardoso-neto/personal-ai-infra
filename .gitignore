@@ -1,43 +1,51 @@
-# claude code runtime state; regenerable
-backups/
-cache/
-daemon/
-debug/
-file-history/
-ide/
-jobs/
-paste-cache/
-plans/
-plugins/
-session-env/
-sessions/
-shell-snapshots/
-statsig/
-tasks/
-teams/
-telemetry/
-tests/
-todos/
-.last-cleanup
-.last-update-result.json
-daemon-auth-cooldown
-daemon-auth-status.json
-daemon.lock
-daemon.log
-daemon.status.json
-gh-pr-status-cache.json
-history.jsonl
-mcp-needs-auth-cache.json
-policy-limits.json
-remote-settings.json
-stats-cache.json
+# Claude Code runtime state; regenerable
+.claude/backups/
+.claude/cache/
+.claude/daemon/
+.claude/debug/
+.claude/file-history/
+.claude/ide/
+.claude/jobs/
+.claude/paste-cache/
+.claude/plans/
+.claude/plugins/
+.claude/session-env/
+.claude/sessions/
+.claude/shell-snapshots/
+.claude/statsig/
+.claude/tasks/
+.claude/teams/
+.claude/telemetry/
+.claude/tests/
+.claude/todos/
+.claude/.last-cleanup
+.claude/.last-update-result.json
+.claude/daemon-auth-cooldown
+.claude/daemon-auth-status.json
+.claude/daemon.lock
+.claude/daemon.log
+.claude/daemon.status.json
+.claude/gh-pr-status-cache.json
+.claude/history.jsonl
+.claude/mcp-needs-auth-cache.json
+.claude/policy-limits.json
+.claude/remote-settings.json
+.claude/stats-cache.json
 
-# agent trajectories; never delete, see README
-projects/
+# Agent trajectories; never delete, see README
+.claude/projects/
 
-# machine-local config and secrets
-settings.local.json
-.credentials.json
+# Claude Code machine-local config and secrets
+.claude/settings.local.json
+.claude/.credentials.json
+.claude/scratch/
 
-# scratch space
-scratch/
+# Codex runtime state; only the instruction link is versioned
+.codex/*
+!.codex/AGENTS.md
+
+# Pi runtime state; only the instruction link is versioned
+.pi/*
+!.pi/agent/
+.pi/agent/*
+!.pi/agent/AGENTS.md

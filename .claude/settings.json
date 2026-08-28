@@ -4,10 +4,7 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
-    "defaultMode": "bypassPermissions",
-    "additionalDirectories": [
-      "context"
-    ]
+    "defaultMode": "bypassPermissions"
   },
   "model": "opus",
   "disableClaudeAiConnectors": true,

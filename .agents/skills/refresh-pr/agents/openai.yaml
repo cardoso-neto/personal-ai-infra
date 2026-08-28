@@ -1,0 +1,4 @@
+interface:
+  display_name: "Refresh PR"
+  short_description: "Bring a pull request back to ready"
+  default_prompt: "Use $refresh-pr to refresh this pull request."

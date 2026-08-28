@@ -1,0 +1,4 @@
+interface:
+  display_name: "Land PR"
+  short_description: "Safely land a ready pull request"
+  default_prompt: "Use $land-pr to land this pull request."

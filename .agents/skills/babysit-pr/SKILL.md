@@ -1,8 +1,7 @@
 ---
 name: babysit-pr
-description: Use when the user asks to monitor, watch, or babysit a PR.
+description: Use when the user asks to monitor or watch a PR.
 ---
-
 # Babysit PR
 
 - Use `refresh-pr`, then wait for new reviews or checks and repeat.

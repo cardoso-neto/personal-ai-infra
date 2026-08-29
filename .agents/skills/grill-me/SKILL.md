@@ -1,6 +1,7 @@
 ---
 name: grill-me
 description: Interview the user relentlessly about a plan or design until reaching shared understanding. Use when user wants to get grilled on their design or mentions "grill me".
+argument-hint: "[topic]"
 ---
 # Grill Me
 

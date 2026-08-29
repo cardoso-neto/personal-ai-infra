@@ -9,7 +9,8 @@ description: Always use this skill when writing or editing markdown files!
   - Assume the reader is smart enough to infer context and figure things out.
 - Use ATX-style headings (i.e., `# Heading 1`, `## Heading 2`, etc.) instead of Setext-style (`Heading 1\n=========`).
 - `markdownlint` is your friend.
-  - Fix whatever it reports; `markdownlint --disable MD013 --fix -- <somefile.md>` auto-fixes most of it.
+  - `markdownlint --disable MD013 --fix -- <somefile.md>` to auto-fix issues.
+  - If not installed, install with `npm install -g markdownlint-cli`
 - Nest supplementary details.
   - When a list item has supplementary information that extends the line or interrupts the main point, move it to a nested list item.
   - Main point stays short and scannable.
@@ -21,6 +22,8 @@ description: Always use this skill when writing or editing markdown files!
 - When writing text, use semantic linebreaks, after full stops.
   - Avoid hard-wrapping paragraphs at a fixed column-width.
   - It's painful to maintain; deleting one word forces every following line to shift.
+- Do not abuse markup using **bold** and similar everywhere; it's annoying.
+  - `Backticks` are fine; they're useful.
 
 ## numbered lists should be contiguous
 

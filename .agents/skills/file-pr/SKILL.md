@@ -12,7 +12,7 @@ description: Use when the user asks to file, open, or create a PR.
   - Good: `Retry Vermont RSS outages patiently`
 - Open the description with the problem in terms of the user's request, then briefly explain the solution.
   - No implementation inventory.
-  - Keep the description lean.
+  - Keep the description lean and succinct.
   - Include material constraints, risks, or omissions; omit details evident from the diff.
   - State the verification actually performed, preferably with a command reviewers can rerun.
   - Link the originating issue or conversation when it provides useful context.

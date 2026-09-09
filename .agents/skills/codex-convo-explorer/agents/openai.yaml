@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Conversation Explorer"
+  short_description: "Search and inspect local Codex conversations"
+  default_prompt: "Use $codex-convo-explorer to find and reconstruct relevant details from my local Codex conversation history."

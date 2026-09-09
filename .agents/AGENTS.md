@@ -1,6 +1,7 @@
 # Instructions
 
 - Read @~/.agents/USER.md to know more about me.
+- Keep all available harness component sources under `~/upstream/org/repo` and link each in this file.
 
 ## Writing
 
@@ -34,3 +35,6 @@
     - closed source :(
   - grok
   - muse
+    - SDK/protocol: `~/upstream/meta-models/muse-code-sdk`
+    - Official examples: `~/upstream/meta-models/meta-model-cookbook/04_muse_code`
+    - Host source: `mslsrc/tbh` per the SDK's `publish-anchor.json`; not accessible with current GitHub credentials.

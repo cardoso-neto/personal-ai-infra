@@ -33,4 +33,4 @@
   - claude code
     - closed source :(
   - grok
-  - muse
+  - muse (SDK/protocol: `~/upstream/meta-models/muse-code-sdk`; CLI implementation not included)

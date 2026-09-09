@@ -1,6 +1,6 @@
 ---
 name: pi-convo-explorer
-description: Inspect Pi session JSONL, reconstruct conversation branches, and interpret handoff event streams.
+description: Explore Pi conversations.
 ---
 
 # Pi conversation explorer

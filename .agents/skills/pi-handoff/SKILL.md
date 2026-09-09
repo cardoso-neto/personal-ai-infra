@@ -1,6 +1,6 @@
 ---
 name: pi-handoff
-description: Delegate tasks to Pi non-interactively with persistent sessions and full tool access.
+description: Delegate tasks to Pi.
 ---
 
 # Pi handoff
@@ -17,16 +17,12 @@ pi -p \
   --model gpt-5.6-luna \
   --thinking low \
   < "$prompt" | tee "$events"
-
-jq -er '
-  select(.type == "agent_end") | .messages[-1]
-  | select(.role == "assistant" and .stopReason == "stop")
-  | [.content[] | select(.type == "text") | .text] | join("\n")
-' "$events" > "$result"
 ```
 
-- Check both process and extraction status; JSON mode can exit zero after a model error.
-  - Inspect `stopReason` and `errorMessage` on the last assistant message if extraction fails.
+- Keep the raw JSONL stream in `$events`; callers can periodically inspect completed lines for messages and tool activity while Pi runs.
+- The final `agent_end.messages[-1]` contains the response; read its `content` blocks of type `text`.
+  - Check process status and the final message's `stopReason` / `errorMessage`; JSON mode can exit zero after a model error.
+  - `stopReason: "stop"` indicates normal completion.
 - `openai-codex` uses the OpenAI subscription login; `openai` selects API billing instead.
 - Pi's built-in tools run without sandboxing or permission prompts.
   - `--approve` trusts project-local settings and extensions for this run; it is not a tool-permission bypass.

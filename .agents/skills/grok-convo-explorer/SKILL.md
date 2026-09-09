@@ -1,6 +1,6 @@
 ---
 name: grok-convo-explorer
-description: Inspect Grok Build session transcripts, tool trajectories, and lineage under ~/.grok/sessions/.
+description: Explore Grok conversations.
 ---
 
 # Grok Convo Explorer

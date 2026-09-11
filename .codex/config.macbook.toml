@@ -1,0 +1,1857 @@
+model = "gpt-6-astra"
+model_reasoning_effort = "high"
+personality = "pragmatic"
+service_tier = "default"
+max_threads = 15
+
+notify = ["/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+
+[projects."/Users/neicardosoneto/quorum/quorum-site"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/data-scraping"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/neurohive/agents/scooter"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.claude"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/tmp.O2cShVRjGw/workspace"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-pluggable-agent-driver"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.codex"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto--claude/e6e5f136-9aea-480e-b061-7124d792ca3d/scratchpad"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-datachecks-billgaps"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/514ec1f6-9302-434b-aa62-f6553ae88b50/scratchpad/codex-test"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/ERNIE-Image-Turbo-Test"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-swallow"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-abstain"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-active-bill-audit"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta/.claude/worktrees/audit-review-fixes-2"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/325e3af4-e1c7-4d73-9fd4-96daf8af05fd/scratchpad/review/cutover"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/325e3af4-e1c7-4d73-9fd4-96daf8af05fd/scratchpad/review/schema"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/325e3af4-e1c7-4d73-9fd4-96daf8af05fd/scratchpad/review/api"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/325e3af4-e1c7-4d73-9fd4-96daf8af05fd/scratchpad/review/concurrency"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/quorum-site-worktree"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/325e3af4-e1c7-4d73-9fd4-96daf8af05fd/scratchpad/final-review/cutover"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/325e3af4-e1c7-4d73-9fd4-96daf8af05fd/scratchpad/final-review/integration"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/325e3af4-e1c7-4d73-9fd4-96daf8af05fd/scratchpad/final-review/regression"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-la"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-fl"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-mn"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-sc"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ct"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ia"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ky"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-mo"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ks"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ok"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-resilience"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-tn"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-hi"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-correlator-path"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-il"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-zero-bill"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-us"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-neicardosoneto-quorum-actacollecta/5a9b188b-a0de-439a-8b2b-8b5b89866a1f/scratchpad/codex"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ri"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ar"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-md"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ne"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-de"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-pr"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-dc"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-id"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-nc"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-sd"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-wy"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-wv"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-audit-oh"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-pr-review"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/neurohive/deslop/agent-vs-subagent"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-vote-identity"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/wt-audit-findings"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-bill-dupes"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-codex-driver"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/cardoso-neto/agent-logs"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/upstream"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/cardoso-neto"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-quasar-finding-publish"]
+trust_level = "trusted"
+
+[projects."/private/tmp/codex-handoff-skill.BDqUqu/workspace"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.agents"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/quorum-site-structured-ak"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/neurohive"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/neurohive/hive-swarm"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/Documents/Codex/resume"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/Documents/Codex/2026-08-19/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/Downloads"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/cardoso-neto/super-system-stuff"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-missing-hearings-calibration"]
+trust_level = "trusted"
+
+[projects."/private/tmp/missing-hearings-calibration-20260825/in-codex3/source"]
+trust_level = "trusted"
+
+[projects."/private/tmp/missing-hearings-calibration-20260825/ct-codex3/source"]
+trust_level = "trusted"
+
+[projects."/private/tmp/missing-hearings-calibration-20260825/me-codex3/source"]
+trust_level = "trusted"
+
+[projects."/private/tmp/missing-hearings-calibration-20260825/in-codex3/judge"]
+trust_level = "trusted"
+
+[projects."/private/tmp/missing-hearings-calibration-20260825/ct-codex3/judge"]
+trust_level = "trusted"
+
+[projects."/private/tmp/missing-hearings-calibration-20260825/me-codex3/judge"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-3cddeyyt"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-okdnqk45"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-cxuxmugq"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-judge-_a466u37"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-judge-_jl0ztsp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-judge-_1rnhd35"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-9v1k1cy4"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-a9y5d1_r"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-vpwz7yzn"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-judge-s_ox0mp0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-judge-34vwutr_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-judge-hfv9xc_q"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-zev13hfk"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-uumcukde"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-1iwhnc18"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-bbdled8o"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-_1ym4qfh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-2cxnsfjp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-m3p2828x"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-5dv_7icj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-3v0d1tlm"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-f4szbgpi"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-0_fu55yh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-tmrdqd0q"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-lmv8oplx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-x1a0jy2z"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-p2zf6oh6"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-3kti0r9p"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-lzenukh9"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-86_var7g"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-f2jdd8nb"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-02l0k43f"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-km1gli0c"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-ve7yb8ii"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-2d4rpmxz"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-t2z5wdz2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-yb07h6lj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-aowbi2nt"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-d4ru5ru5"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-905k9b2l"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-y45zv9ev"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-5ol087g0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-742s2uha"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-s3b115d2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-btr1nhgw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-8uocx_hh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-g0hmw5qp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-moxkwjec"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-u4oc1jmm"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-6bh8aqd5"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-vfcsy3b9"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-sfi9s99f"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-p31f4jt0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-1q0d4cd7"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-1yk6fplw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-9b1d0nk5"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-gyzlqvsw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-ta_2785j"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-9fiw35pf"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-ha6rlz86"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-ku1m_nsj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-jfp0ar9i"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-gdszkcf6"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-0ki60b34"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-frlku7id"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-a5ty_5v7"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-vqjg92vl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-qigak5gf"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-zxeyv59z"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-0ysqyvlz"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-l5luv4mw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-4fyxjnkl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-dcrc9kdv"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-b1f5a0zg"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-nj6sp7ut"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-9n81lvoy"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-mj_5ep0p"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-dhq00qmt"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-j7n9zl62"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-2o7hrw6q"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-m097zhxx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-fdznybis"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-iihb6yld"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-xu6tu9ez"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-q91o74qu"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-16v8wv_q"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-f3dthao9"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-a3869fdf"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-08n9ft0g"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-xks0j4_b"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-vuxo8yl2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-2x4u7xfx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-vt4nh9jv"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-sx3lghdr"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-4s5y4d52"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-nt55cbyd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-5v8ugpkc"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-uomm7vsz"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-4s4qg56t"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-1rr78b3r"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-0aukged2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-q8embb_8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-zpcvr1gr"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-8wij_iww"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-1wnxoy8a"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-3a07j5d3"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-uf1t1w4r"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-qjka78ls"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-7r_vshyj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-8u43xl23"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-dew5iitv"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-4wz11fpg"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-vhwso6nd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-vbkxavcj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-422nsvhr"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-lgf52s2u"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-x60iwj1v"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-neo94o_a"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-wh1jdr2r"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-jekno7bz"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-277r4yr8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-55ae_gku"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-0_hq_y04"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-suhrttx2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-hdyi61ay"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-jsbtbrqq"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-148g91i1"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-i6oyqyin"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-gj7750bh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-9iwh7g9g"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-wpcm_xwj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-266g_aj7"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-jk46o8qv"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-66a2rgfh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-source-zmn32xgi"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/missing-hearings-verdict-m_e2cd7n"]
+trust_level = "trusted"
+
+[projects."/private/tmp/acta-comments-worktree.taKxVP"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.Trash/.agents-backup-2026-08-28"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/cardoso-neto/personal-ai-infra"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-fix-co-bill-text-versions"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/al"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/ak"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/co"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/il"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/mi"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/mn"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/nj"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/oh"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/nc"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/ok"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/sd"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/ut"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/wa"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/wi"]
+trust_level = "trusted"
+
+[projects."/private/tmp/quorum-table-expansion.oIPdhI/wy"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-rhode_island"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-alabama"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-arizona"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-arkansas"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-delaware"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-georgia"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-illinois"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-indiana"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-pennsylvania"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-north_dakota"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-oklahoma"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-south_carolina"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-nevada"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-ohio"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-north_carolina"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-new_york"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-new_jersey"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-iowa"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-kansas"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-maine"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-massachusetts"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-minnesota"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-missouri"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-montana"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-nebraska"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-texas"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-utah"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-vermont"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-virginia"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-washington"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-west_virginia"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-federal"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/quorum-site-parse-cache"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/quorum-site-prune-fixtures"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/neurohive/website"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/neurohive/blog"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/neurohive/benchmarks"]
+trust_level = "trusted"
+
+[projects."/private/tmp/seeing-via-geometry-luna-HroV8U/004"]
+trust_level = "trusted"
+
+[projects."/private/tmp/seeing-via-geometry-luna-HroV8U/001"]
+trust_level = "trusted"
+
+[projects."/private/tmp/seeing-via-geometry-luna-HroV8U/006"]
+trust_level = "trusted"
+
+[projects."/private/tmp/seeing-via-geometry-luna-rest-oKXs1P/003"]
+trust_level = "trusted"
+
+[projects."/private/tmp/seeing-via-geometry-luna-rest-oKXs1P/005"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001-qjlk8wpy"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-001-h2h5t1vw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-002-y24qd3to"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-002-yfttjc4h"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-003-umcyp8bw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-003-taogigwh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-004-4l3k2i8w"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-004-jufwdbj2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-005-khwev5so"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-005-1ufwx050"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-006-lk90igap"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-006-ktmfd2_2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-001-kdby6nif"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-002-1mu6iw3v"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-003-t2bz3b7i"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-004-cvs8heez"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-005-swuzb7eo"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-006-hhzqrlwp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-007-5jgasnbd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-008-7lqp44h_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-009-l1odpacl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-010-xsfqe1k7"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-011-x3vl_wbb"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-012-fo8ltbx0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-013-qmzaf1zo"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-014-vq1spj5h"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-015-bhr0cosr"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-016-49my4juw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-017-jeepsyqo"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-018-uw9onsc7"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-019-qo48wqd4"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-020-omc7tmlj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-021-2ots1fe0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-022-kg8phsww"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-023-0cbryl5n"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-024-7eaufrku"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-025-p7zg52k3"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-026-ohs0z_3w"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-027-cfrxiji3"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-028-pp3hp8g2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-029-uhb5kfvb"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-030-738pmrt4"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-031-9nrhm8bd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-032-ayv2icd8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-033-10ukliep"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-034-1u4a5pc3"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-035-8ibg8zy8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-036-vd_29e5x"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-037-67olj7v3"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-038-4h1e1sfn"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-039-x9na8b89"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-040-jy_tanwc"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-041-8rnaahby"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-042-0wwem0nx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001-757t0j4k"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-002-_grf01y0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-003-wvgkn87v"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-004-5pcofcrs"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-005-7m6f36gs"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-006-bzy07e68"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-007-c6twm9z1"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-008-nvervn1f"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009-zozr3y_i"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-010-asl8rl5c"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-011-88g2ju3a"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012-fq_w5o5e"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013-4ee79old"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-014-6iv4j7l8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-015-wk7vv42w"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016-3mej2uyz"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017-cqn2l67d"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-018-rvmga60t"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-019-49y8n6x_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-020-bmzkgfvl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-021-pg_r34qw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-022-jtoq5n58"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023-s311u3qu"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-024-9r7gcqwg"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-025-vxtg625r"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-026-q8e729v7"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-027-mshjwdb5"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-028-qczs2wbi"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-029-skbxgpfw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030-t9ibz57k"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-031-u_u4ac4o"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-032-fhsftat9"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-033-i23257fd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-034-6_2yqljr"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-035-uv19cnnc"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-036-j_i92m9v"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-037-p24dvilw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-038-aj_mqlgr"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-039-968oymux"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040-qys3pwte"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041-dtox7yu4"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-042-js5q_evv"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-010-s_kmqswd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-016-x290vh2i"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-028-ovwem7jg"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-032-_ocw7zwy"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-038-lde8aalr"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-010-6jkaeo83"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-016-yq3sk6fl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-028-_51kvdid"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-032-8v9jzf_h"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-038-um7f8amo"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-010-19y19slj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-016-t8xd2o9_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-028-n0e4st6j"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-032-luwg2qtm"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-luna-038-29fl_wma"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/cardoso-neto/wpp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-007-g4oj6rks"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-019-a1j7jnlb"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-032-ioyc01is"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-008-my_gpog8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-020-s_wruh88"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-033-ehgj3p47"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-009-bq8fvfry"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-034-jrdw7k4j"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-010-mshpebl1"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-021-21cbpq9d"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-035-rycbtsua"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-011-4wd7wxsf"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-036-blrs5m77"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-012-ttc0hv8m"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-022-seve5qy6"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-013-8p_uxqgf"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-037-iiugccma"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-014-jxzks1vx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-015-ch4v9rlu"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-038-6bg7r1du"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-016-6u_k42t0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-039-plsv5qon"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-017-poit4enu"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-040-ojt81z4o"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-018-ek1ztqid"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-023-f6vjuf52"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-041-ryzg1vzt"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-042-p4ja2_in"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-024-fn96_2md"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-025-zpqymxwg"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-026-bd17qsbx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-027-h5fqdxnl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-028-o795xm66"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-029-ws9tmnmm"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-sol-030-9xh1eiuh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.canon-kbzwrh0h"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.rel-ump8vswp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.shuffle-2rt_dhvt"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.merge-fcf8tx1e"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.origin-liqt9thq"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.start-y_1of7p6"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.flip-y-f9ou3u2i"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.implicit-sfbv2vda"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.scale-k4nmsa6h"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001.use-pz3vjroi"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.canon-7dg8846m"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.rel-s5xshbaf"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.shuffle-utlq1dp9"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.merge-xzdqaiyi"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.origin-mxj2c67t"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.start-efouvhac"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.flip-y-78mbibqd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.implicit-glkabwf0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.scale-0154e7su"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009.use-vnpcclgx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.canon-r533_5vl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.rel-tmdq5ri1"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.shuffle-m4uc8ajw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.merge-nzlb91wf"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.origin-lrqwtqyb"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.start-vim0458f"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.flip-y-c1dk7b7v"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.implicit-qmji79uk"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.scale-5rx25l83"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012.use-n3py1fix"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.canon-cyjsbc02"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.rel-o1rsjdtp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.shuffle-h63po8kn"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.merge-4rmvrzxy"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.origin-1oxmbqhh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.start-34ok13l_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.flip-y-kojyna29"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.implicit-v63ix8hv"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.scale-3gjpof_o"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013.use-bew8zqyu"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.canon-vmcnyog3"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.rel-blgovx88"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.shuffle-hsu8xeo0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.merge-pmdkpccd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.origin-e24cbwsp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.start-d9jkq8fc"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.flip-y-knphxb52"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.implicit-a_6yx8qb"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.scale-jx6q20wk"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016.use-hz46o4y_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.canon-gzsporwd"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.rel-yb9s35j_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.shuffle-52ymjph6"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.merge-_b0t__jt"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.origin-pf4fvgfi"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.start-n57ezm27"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.flip-y-wy691qdj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.implicit-in_ok9wy"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.scale-bk5hc2hx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017.use-awfs4148"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.canon-pp7ub50f"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.rel-44pchhg4"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.shuffle-be4ayvxc"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.merge-977_gwcc"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.origin-pm07nh7w"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.start-a65zh8ms"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.flip-y-j131uwa_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.implicit-4k5an8wg"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.scale-1cfh6b2l"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023.use-5ce1iqme"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.canon-3j8svuky"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.rel-s79b6x4x"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.shuffle-gipdgy1h"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.merge-lb5sbukc"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.origin-dppuqh3c"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.start-hfsamg1f"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.flip-y-tamaz_vi"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.implicit-kfs2dsgi"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.scale-stzhemc6"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030.use-4tsbbop6"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.canon-uryt96iu"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.rel-c57dkfca"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.shuffle-n0gp9pwa"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.merge-m88xelvl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.origin-0ri6jq9u"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.start-1nzlgpfq"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.flip-y-2oduou_7"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.implicit-_2i7mqlk"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.scale-wb1tpykk"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040.use-j_o5f43t"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.canon-2ccqfem3"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.rel-02lp65ej"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.shuffle-1zij_ra9"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.merge-m1eu54o9"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.origin-brsmxekg"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.start-6n7q41jv"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.flip-y-cucgwzo0"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.implicit-46m3gwhy"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.scale-v81uxike"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041.use-eme8jf3n"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-001-rseofqc6"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-002-2r0g2zur"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-003-x2lhrd0v"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-004-cnl0vpzh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-005-83wx2n9x"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-006-uzuk1o1q"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-007-mx4hnati"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-008-hownu2bn"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-009-71frzm8m"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-010-utx072b9"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-011-imkq9ihk"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-012-zfio1oer"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-013-eyx7aphj"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-014-v7w_381z"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-015-70jhq2h_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-016-7s8647_e"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-017-su9mxeeh"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-018-ze70o0_b"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-019-5ee6zb5c"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-020-9vdy9a59"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-021-st1o7tqz"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-021-sm17gcl8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-022-kxf251e8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-023-dm3ed5l7"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-024-wzzm2tne"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-025-d0ed_8hw"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-026-ayooe9ob"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-027-eepozoip"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-028-yddgo5z8"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-029-1xbpyyft"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-030-dimd5n2q"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-031-_ofvy3xp"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-032-fhwiumzk"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-033-fcgra6qx"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-034-pgb9nm5k"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-035-efxy8zas"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-036-47xo_xx2"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-037-edbp74kl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-038-n8vwqdm_"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-039-vs7vk3_m"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-040-tosh93uc"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-041-rrmpv_nl"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/7y/dzchf9ds3s56ch5ky6bjp6sw0000gn/T/svg-gpt-5.6-terra-042-913d2ttk"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.t3/worktrees/actacollecta/t3code-16589355"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.t3/worktrees/actacollecta/t3code-fc51be4f"]
+trust_level = "trusted"
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "pull-request-number", "branch-changes", "context-used", "codex-version", "weekly-limit"]
+status_line_use_colors = true
+terminal_title = ["thread-title"]
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+gpt-6-astra = 4
+
+[features]
+# cmux-codex-hooks-feature-78f1e4ba-66df-4d35-93c1-67fdf1cbb7df begin
+hooks = true
+# cmux-codex-hooks-feature-78f1e4ba-66df-4d35-93c1-67fdf1cbb7df end
+js_repl = false
+prevent_idle_sleep = true
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/neicardosoneto/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/neicardosoneto/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[desktop]
+ambient-suggestions-enabled = true
+preventSleepWhileRunning = true
+keepRemoteControlAwakeWhilePluggedIn = true
+git-show-sidebar-pr-icons = true
+conversationDetailMode = "STEPS_COMMANDS"
+followUpQueueMode = "queue"
+dock-icon-preference = "codex-system"
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/neicardosoneto/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/neicardosoneto/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_TINYSKY_ENABLED = "0"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.825.51511"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.825.51511/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_SERVICE_PATH = "/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+
+[mcp_servers.cua_repl]
+command = "/Applications/ChatGPT.app/Contents/MacOS/ChatGPT"
+enabled = false
+
+# cmux-codex-hook-trust-f5cc24da-7a09-4b20-a756-89e7786f6738 begin
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:pre_tool_use:0:0"]
+trusted_hash = "sha256:74d8d761a653371657b0e8364b6174894d16852104dae0b492dd4cf9450e77ca"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:permission_request:0:0"]
+trusted_hash = "sha256:0c0774b4b945ac10660d183a5fee921a21c8d365efda112e25f89c224733b43f"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:f1b0d0f083970647f5aa0a77075ee001b06523e0c356ef5152cddeca02cbf840"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:pre_compact:0:0"]
+trusted_hash = "sha256:bdc75d8161eaf5787c83444c1225b6da74bc213f5270ad66acd5a8eeca089ede"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:post_compact:0:0"]
+trusted_hash = "sha256:4661b44e315fa7221e87a1f0abdbe573f88095b348ff6eb71726152ff5be0baa"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:5d4d9946d3d06bba2e3d07b1b791a23a8f6240109026425276f91d9d45abcd77"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:subagent_start:0:0"]
+trusted_hash = "sha256:3bbc28140375419695f28112b924e425c43c516f9cab390b17fe013c38a57edf"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:subagent_stop:0:0"]
+trusted_hash = "sha256:86d5b52c1e19fd2c74f0145848c8a72c65a83b1aff022b0fd88a54cd10dd2b83"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:f0f6847c83fff445f8a6046fc64a0e594ae0c8182080d43c88d30864b6ec4dd0"
+[hooks.state."/Users/neicardosoneto/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:acec72c8be1ef9e637dd4471024414f4dd8f5eb3f3a1960d687b8d2b6ebf5717"
+
+[shell_environment_policy.set]
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f,89b6b07b3c7e2344f20d65930fb27b3f418aace8bc62d7abb2a97a2291ffec39"
+# cmux-codex-hook-trust-f5cc24da-7a09-4b20-a756-89e7786f6738 end

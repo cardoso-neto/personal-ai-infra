@@ -40,9 +40,10 @@
 .claude/.credentials.json
 .claude/scratch/
 
-# Codex runtime state; only the instruction link is versioned
+# Codex runtime state; only declarative configuration is versioned
 .codex/*
 !.codex/AGENTS.md
+!.codex/config.*.toml
 
 # Pi runtime state; only the instruction link is versioned
 .pi/*

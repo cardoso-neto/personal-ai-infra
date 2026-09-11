@@ -11,7 +11,7 @@ The repository mirrors the managed parts of the home directory.
   - Claude Code settings, hooks, and status lines.
   - Relative links expose the canonical instructions, agents, and skills.
 - `.codex/`
-  - Codex's global instruction link.
+  - Codex's global instruction link and machine-specific declarative configuration.
 - `.pi/agent/`
   - Pi's global instruction link.
 

@@ -1,0 +1,84 @@
+max_threads = 15
+personality = "pragmatic"
+model = "gpt-6-astra"
+model_reasoning_effort = "medium"
+model_verbosity = "low"
+[projects."/home/nei/rabbit/codex"]
+trust_level = "trusted"
+
+[projects."/home/nei/quorum/webscraper-agent"]
+trust_level = "trusted"
+
+[projects."/home/nei/quorum/actacollecta2"]
+trust_level = "trusted"
+
+[projects."/home/nei/neurohive/upstream/pi-mono"]
+trust_level = "trusted"
+
+[projects."/home/nei/rabbit"]
+trust_level = "trusted"
+
+[projects."/home/nei/neurohive/website"]
+trust_level = "trusted"
+
+[projects."/home/nei/neurohive/vigil/openclaw"]
+trust_level = "trusted"
+
+[projects."/home/nei/jaqueline"]
+trust_level = "trusted"
+
+[projects."/home/nei"]
+trust_level = "trusted"
+
+[projects."/home/nei/neurohive/vigil"]
+trust_level = "trusted"
+
+[projects."/home/nei/.codex"]
+trust_level = "trusted"
+
+[projects."/home/nei/cardoso-neto"]
+trust_level = "trusted"
+
+[projects."/home/nei/cardoso-neto/git-annex-remote-manyzips"]
+trust_level = "trusted"
+
+[projects."/home/nei/cardoso-neto/git-annex-remote-manytars"]
+trust_level = "trusted"
+
+[projects."/home/nei/neurohive/vigil/openclaw-worktrees"]
+trust_level = "trusted"
+
+[projects."/home/nei/Music"]
+trust_level = "trusted"
+
+[projects."/home/nei/neurohive/benchmarks"]
+trust_level = "trusted"
+
+[projects."/home/nei/quorum/actacollecta"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "git-branch", "branch-changes", "context-used", "codex-version", "estimated-thread-cost"]
+status_line_use_colors = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 3
+"gpt-5.6-sol" = 4
+gpt-6-astra = 2
+
+[features]
+hooks = true
+
+[hooks.state]
+
+[hooks.state."/home/nei/.codex/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:5986c7e013f70b9f369ca6e559bee8cb423a5ce91cb2ab0131da53262b18cf88"
+
+[hooks.state."/home/nei/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:7ed0c588635367dfa9e7af5d6ea98136e0b7d0a917f9118382371c156083a992"
+
+[hooks.state."/home/nei/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:29a9cb962d4f0e1def58ecb64a3b7d277a5451ca57e9f3bd7c51baf7febe68f6"

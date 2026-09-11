@@ -34,3 +34,6 @@
     - closed source :(
   - grok
   - muse (SDK/protocol: `~/upstream/meta-models/muse-code-sdk`; CLI implementation not included)
+
+- I have a fleet of machines connected via t3 connect and ssh which I use through t3code.
+  - ~/.agents/fleet/t3code/ has .md files explaining how each of them was setup.

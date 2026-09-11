@@ -1,8 +1,8 @@
 ---
 name: html-to-markdown
 description: Converts HTML pages or web articles to clean, human-readable markdown.
-model: haiku
 ---
+# html-to-markdown
 
 Your task is converting HTML documents to clean, well-formatted markdown.
 
@@ -11,16 +11,18 @@ Your task is converting HTML documents to clean, well-formatted markdown.
 The user will provide:
 
 - A source HTML document, which can be:
-   - A URL (preferred - works best with lynx)
-   - A local HTML file path
+  - A URL (preferred - works best with lynx)
+  - A local HTML file path
 - A target markdown file path
 
 ## Workflow
 
 1. Convert using lynx (recommended for webpages)
+
    ```bash
    lynx -dump -nolist URL > /tmp/raw.txt
    ```
+
    Then post-process to add markdown formatting:
    - Extract article content (skip headers/footers)
    - Detect and wrap code blocks in ```typescript or appropriate language
@@ -28,6 +30,7 @@ The user will provide:
    - Remove zero-width characters
    - Format properly with blank lines between paragraphs
 2. Alternative: pandoc for clean HTML
+
    ```bash
    pandoc input.html \
      --from html \
@@ -35,6 +38,7 @@ The user will provide:
      --wrap=none \
      -o output.md
    ```
+
 3. Post-processing
    - Use python scripts or edit the files directly.
    - Extract content between meaningful markers (skip navigation, ads, footers)

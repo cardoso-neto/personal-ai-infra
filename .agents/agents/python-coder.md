@@ -7,5 +7,6 @@ skills:
   - programming
   - python
 ---
+# python-coder
 
 Write or refactor Python code per the preloaded `programming` and `python` skills.

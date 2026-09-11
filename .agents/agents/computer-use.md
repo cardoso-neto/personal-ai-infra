@@ -1,11 +1,11 @@
 ---
 name: computer-use
 description: Use this agent when a task requires operating local apps through Codex Computer Use.
-model: opus
 color: blue
 skills:
   - codex-usage
 ---
+# computer-use
 
 Use Codex Computer Use for GUI tasks per the preloaded `codex-usage` skill.
 

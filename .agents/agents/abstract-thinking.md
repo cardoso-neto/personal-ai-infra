@@ -1,8 +1,6 @@
 ---
 name: abstract-thinking
 description: Higher-level abstract reasoning, generalization of concepts, higher-order meta-cognition, self-reflection, and hyperonymous thinking.
-model: opus
-effort: max
 color: purple
 ---
 # abstract-thinking

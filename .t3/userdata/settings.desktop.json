@@ -1,0 +1,38 @@
+{
+  "environmentIcon": "desktop",
+  "providers": {
+    "cursor": {
+      "enabled": false
+    },
+    "grok": {
+      "enabled": false
+    },
+    "opencode": {
+      "enabled": false
+    },
+    "claudeAgent": {
+      "autoCompactWindow": "300000"
+    }
+  },
+  "providerInstances": {
+    "codex": {
+      "driver": "codex",
+      "enabled": true,
+      "config": {
+        "binaryPath": "codex",
+        "homePath": "",
+        "shadowHomePath": "",
+        "launchArgs": "",
+        "customModels": []
+      }
+    },
+    "grok": {
+      "driver": "grok",
+      "enabled": true,
+      "config": {
+        "binaryPath": "grok",
+        "customModels": []
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "environmentIcon": "cloud",
+  "providers": {
+    "cursor": {
+      "enabled": false
+    },
+    "grok": {
+      "enabled": false
+    },
+    "opencode": {
+      "enabled": false
+    },
+    "claudeAgent": {
+      "autoCompactWindow": "300000"
+    }
+  },
+  "providerInstances": {
+    "grok": {
+      "driver": "grok",
+      "enabled": true,
+      "config": {
+        "binaryPath": "grok",
+        "customModels": []
+      }
+    }
+  }
+}

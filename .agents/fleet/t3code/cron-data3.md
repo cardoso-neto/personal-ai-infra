@@ -4,14 +4,25 @@ Persistent Ubuntu VM with a private T3 Code instance for `cardoso-neto`, accesse
 
 ## Access
 
-For maintenance from a trusted workstation:
+For maintenance from the MacBook or desktop:
+
+```sh
+ssh cron-data3
+```
+
+The client alias connects as the local `nei` administrator with a dedicated key and sends TCP port 22 through `tailscale nc`.
+It therefore does not depend on MagicDNS, the corporate VPN's DNS, or its routes.
+
+Teleport remains available as a fallback:
 
 ```sh
 tsh ssh cardoso-neto@cron-data3
 sudo -Hu t3-cardoso-neto /bin/bash
 ```
 
-T3 sessions already run as `t3-cardoso-neto`.
+Direct SSH sessions run as `nei`, which has passwordless `sudo` for maintenance.
+Teleport sessions run as the synthesized `cardoso-neto` account.
+T3 sessions run as `t3-cardoso-neto`.
 Do not use `tsh` inside them.
 The account has a `nologin` shell, so maintenance requires an explicit shell.
 
@@ -20,6 +31,7 @@ The account has a `nologin` shell, so maintenance requires an explicit shell.
 Paths beginning with `~` refer to the T3 user's home.
 
 - Home: `/var/lib/t3code/cardoso-neto`
+- Direct SSH administrator home: `/home/nei`
 - Repositories: `/srv/t3code/cardoso-neto/src/<org>/<repo>`
   - The scheduled `~/.local/bin/fetch-repos` fetches and prunes remote refs; it does not update checkouts.
 - Personal agent configuration: `~/.agents`, linked to its source checkout.

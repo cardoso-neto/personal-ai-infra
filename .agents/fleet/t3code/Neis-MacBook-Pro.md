@@ -7,6 +7,14 @@ T3 Connect provides remote access; the server listens on `127.0.0.1:3773`.
 T3 and its agents run as `neicardosoneto`.
 Keep the Mac logged in and awake for access.
 
+SSH to Cron Data 3 through Tailscale, independently of the corporate VPN:
+
+```sh
+ssh cron-data3
+```
+
+The alias uses `~/.ssh/id_ed25519_cron_data3` and `/opt/homebrew/bin/tailscale nc`.
+
 ## Locations
 
 - Personal repositories: `~/cardoso-neto/<repo>`.

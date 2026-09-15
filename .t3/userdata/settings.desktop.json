@@ -15,17 +15,6 @@
     }
   },
   "providerInstances": {
-    "codex": {
-      "driver": "codex",
-      "enabled": true,
-      "config": {
-        "binaryPath": "codex",
-        "homePath": "",
-        "shadowHomePath": "",
-        "launchArgs": "",
-        "customModels": []
-      }
-    },
     "grok": {
       "driver": "grok",
       "enabled": true,

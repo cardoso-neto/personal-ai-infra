@@ -20,11 +20,27 @@ tsh ssh cardoso-neto@cron-data3
 sudo -Hu t3-cardoso-neto /bin/bash
 ```
 
-Direct SSH sessions run as `nei`, which has passwordless `sudo` for maintenance.
+The `cron-data3` SSH alias runs as `nei`, which has passwordless `sudo` for maintenance.
 Teleport sessions run as the synthesized `cardoso-neto` account.
 T3 sessions run as `t3-cardoso-neto`.
 Do not use `tsh` inside them.
-The account has a `nologin` shell, so maintenance requires an explicit shell.
+
+### VS Code from the MacBook or desktop
+
+T3's Open in VS Code action uses `cron-data3-agent.tailb524d8.ts.net`.
+Both clients' `~/.ssh/config` map that hostname and `cron-data3-agent` to `t3-cardoso-neto` at `100.114.70.83`, using each client's own `~/.ssh/id_ed25519_cron_data3`.
+The ProxyCommand is `/opt/homebrew/bin/tailscale nc %h %p` on the MacBook and `/usr/bin/tailscale nc %h %p` on the desktop (`mp600-4tb`).
+This bypasses MagicDNS and preserves `ssh cron-data3` as the `nei` maintenance login.
+Other clients need the equivalent SSH configuration.
+
+```sh
+ssh cron-data3-agent.tailb524d8.ts.net
+```
+
+The T3 account uses `/bin/bash` and accepts both clients' dedicated SSH public keys in `~/.ssh/authorized_keys`.
+Its password remains locked; SSH password and keyboard-interactive authentication are disabled on the server.
+VS Code runs as the repository owner and shares files, Git state, tools, and credentials with T3 agents.
+Coordinate edits and Git operations with running agents.
 
 ## Locations
 

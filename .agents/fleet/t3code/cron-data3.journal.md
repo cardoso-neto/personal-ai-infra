@@ -1,5 +1,22 @@
 # Cron Data 3 installation journal
 
+## 2026-09-16: Block reverse SSH to personal machines
+
+- Replaced the default unrestricted network grant through the Tailscale API with grants excluding Cron Data 3 → desktop/MacBook TCP port 22. Covered IPv4 and IPv6; kept other TCP ports, UDP, and ICMP available between these machines.
+- Validated the candidate and its embedded allow/deny tests before applying it with an ETag condition.
+- Live probes from Cron Data 3 to both personal machines' IPv4 and IPv6 SSH endpoints timed out after application.
+- Verified desktop and MacBook SSH to Cron Data 3 with `sudo -n id` returning root. Desktop → MacBook SSH and MacBook → desktop TCP port 22 remained reachable.
+- Original policy, applied policy response, and management script are on the desktop under `~/.local/state/tailscale-policy/`. API credentials remain outside the repository.
+
+## 2026-09-13: Tailscale host provisioning
+
+- Installed Tailscale 1.102.4 from the official signed Ubuntu 24.04 package repository.
+- Enabled and started the system `tailscaled` service.
+- Created the unprivileged `quorum-agent` account with home `/var/lib/quorum-agent` and shell `/bin/bash`.
+- Enrollment requires a Quorum work identity; the current backend state is `NeedsLogin`.
+- Tailscale SSH, subnet advertisements, and the test from the MacBook remain pending.
+- The Mac's baseline route to the VM's private address used its LAN interface, and a direct TCP connection to the VM's private SSH port failed.
+
 ## Earlier host provisioning
 
 Root Bash history records compiler/database/geospatial dependencies and document-processing tools, including OCR, PDF utilities, LibreOffice, and FFmpeg.

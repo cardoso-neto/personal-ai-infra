@@ -71,3 +71,14 @@ Use T3's **Update server** action for upgrades.
 Put service environment overrides in `t3code.service.d/` rather than editing the generated unit.
 
 Setup decisions and history: [installation journal](cron-data3.journal.md).
+
+## Tailscale
+
+Tailscale 1.102.4 is installed from its official Ubuntu repository, and `tailscaled` is enabled and running.
+The VM is enrolled in the tailnet; regular OpenSSH is used through Tailscale rather than Tailscale SSH.
+MacBook-to-VM and desktop-to-VM access are verified.
+
+As of 2026-09-16, tailnet network grants block Cron Data 3 from initiating TCP port 22 connections to the desktop and MacBook, for both Tailscale IPv4 and IPv6 addresses. Desktop-to-MacBook access remains allowed. Both personal machines can still use `ssh cron-data3` with passwordless sudo as `nei`.
+The policy identifies these machines by their Tailscale IP addresses; update its IP sets if a machine is re-enrolled with different addresses. Embedded policy tests protect both the blocked and allowed directions.
+
+The earlier `quorum-agent` account remains unprivileged, has no sudo grant, and is not used for the direct SSH path.

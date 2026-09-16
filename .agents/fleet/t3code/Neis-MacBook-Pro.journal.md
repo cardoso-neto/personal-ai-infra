@@ -1,5 +1,22 @@
 # Nei's MacBook Pro installation journal
 
+## 2026-09-14: Tailscale service started
+
+- Nei started the system service with `sudo /opt/homebrew/bin/brew services start tailscale`.
+- Verified that the client can contact Tailscale and that its state is `NeedsLogin`.
+- Requested enrollment as `neis-macbook-agent` with DNS changes and subnet acceptance disabled for the initial SSH test.
+- Network diagnostics succeeded, including UDP connectivity and reachability of Tailscale relays.
+- Account enrollment and the Mac-to-VM test remain pending.
+
+## 2026-09-13: LAN SSH verified; Tailscale installation started
+
+- Connected from `mp600-4tb` with `ssh neicardosoneto@Neis-MacBook-Pro.local` using the existing key.
+- Verified macOS 26.3.1 and hostname `Neis-MBP`.
+- Installed the Homebrew Tailscale 1.102.4 formula.
+- `sudo -n true` returned `sudo: a password is required`.
+  Service startup requires local administrator authentication.
+- Quorum tailnet enrollment and the Mac-to-VM SSH test remain pending.
+
 ## By 2026-09-07: T3 setup and verification
 
 - Installed T3 globally through Homebrew's npm prefix, with lifecycle scripts allowed for `msgpackr-extract` and `node-pty`.

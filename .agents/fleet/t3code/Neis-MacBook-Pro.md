@@ -25,6 +25,9 @@ ssh cron-data3
 
 The alias uses `~/.ssh/id_ed25519_cron_data3` and `/opt/homebrew/bin/tailscale nc`.
 
+For production EC2 operations without the corporate VPN, use `ssh ansible-tower-prod`.
+See [minion access through Cron Data 3](cron-data3.md#production-aws-access-through-the-minion).
+
 ## Tailscale
 
 Tailscale 1.102.4 was installed through Homebrew on 2026-09-13.

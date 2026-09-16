@@ -1,5 +1,13 @@
 # Cron Data 3 installation journal
 
+## 2026-09-16: Storage and minion access
+
+- Expanded root EBS from 200 to 512 GiB and grew partition 1 and ext4 online.
+- Rechecked the secondary volume was empty and unused, unmounted it normally, removed its exact fstab entry, then detached and deleted `vol-051599b22f8257791`.
+- Preserved the videos directory on the root filesystem with its original ownership and permissions.
+- Configured `ssh ansible-tower-prod` on the MacBook and desktop through `ProxyJump cron-data3`; verified both connections and the minion's AWS role with the corporate VPN off.
+- Access details live in [the host notes](cron-data3.md#production-aws-access-through-the-minion); personal Tailnet setup stays out of the shared work repository.
+
 ## 2026-09-16: Block reverse SSH to personal machines
 
 - Replaced the default unrestricted network grant through the Tailscale API with grants excluding Cron Data 3 → desktop/MacBook TCP port 22. Covered IPv4 and IPv6; kept other TCP ports, UDP, and ICMP available between these machines.

@@ -25,6 +25,20 @@ Teleport sessions run as the synthesized `cardoso-neto` account.
 T3 sessions run as `t3-cardoso-neto`.
 Do not use `tsh` inside them.
 
+### Production AWS access through the minion
+
+From the MacBook or desktop, run `ssh ansible-tower-prod`.
+The alias uses `ProxyJump cron-data3` over Tailnet, then connects to `AnsibleTowerMinionProd` at `10.1.3.139` as `nei`.
+It needs neither the corporate VPN nor a Teleport session.
+
+The minion account has a locked password and no sudo membership.
+It accepts each client's `~/.ssh/id_ed25519_cron_data3` public key only from cron-data3's private IP, `10.1.3.84`; private keys stay on the clients.
+The minion's ED25519 host key is pinned under `HostKeyAlias ansible-tower-prod` (fingerprint `SHA256:KtU3oRn5X4nFqjEgkxDr2TsQgX3M6V+bvrRhSi+k+GQ`).
+
+Run `aws sts get-caller-identity` on the minion to verify role `AnsibleTowerMinion` in account `596070161069`; use `--region us-east-1` for EC2 commands.
+Instance: `i-0a31dbb209e9b1ce8`.
+Fallback: `tsh ssh <github-user>@AnsibleTowerMinionProd` over the VPN.
+
 ### VS Code from the MacBook or desktop
 
 T3's Open in VS Code action uses `cron-data3-agent.tailb524d8.ts.net`.
@@ -58,6 +72,11 @@ Paths beginning with `~` refer to the T3 user's home.
 - T3 logs: `~/t3/userdata/logs/`
 - User service units and overrides: `~/.config/systemd/user/`
 - Scheduled maintenance: the user's `crontab -l`; scripts in `~/.local/bin/`, logs in `~/.local/state/`.
+
+## Storage
+
+Instance `i-0efffc16d12632a34` in `us-east-1` uses a 512 GiB gp3 root volume, `vol-0f24b1c05971a68f8`, with ext4 on `/dev/nvme0n1p1`.
+The videos directory, `/webapps/quorum-site/quorum_data/videos`, is on the root filesystem (`quorum_user:webapps`, `0755`); its former secondary EBS volume was deleted on 2026-09-16.
 
 ## Services
 

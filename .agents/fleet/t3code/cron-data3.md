@@ -64,6 +64,11 @@ Paths beginning with `~` refer to the T3 user's home.
 - Direct SSH administrator home: `/home/nei`
 - Repositories: `/srv/t3code/cardoso-neto/src/<org>/<repo>`
   - The scheduled `~/.local/bin/fetch-repos` fetches and prunes remote refs; it does not update checkouts.
+- Shared project data: `~/data/<project>/`
+  - Use this location for reusable generated data that must be available to every project worktree.
+  - Keep the data outside repositories and worktree hubs.
+  - Store Slack channel dumps in `~/data/<project>/slack-dumps/<channel>/`.
+    For example: `~/data/actacollecta/slack-dumps/agent-as-a-service/`.
 - Personal agent configuration: `~/.agents`, linked to its source checkout.
 - VM instructions: `~/agents/AGENTS.md`
   - Also embedded in `~/.codex/config.toml`; keep these aligned when editing VM guidance.

@@ -1,8 +1,8 @@
 ---
-name: source-worktrees
-description: Use this skill when working with software installed or run from local source checkouts that use git worktree hubs.
+name: run-local-forks
+description: Run locally modified forks of open source projects using worktree hubs.
 ---
-# Source Worktree Layout
+# Run Local Forks
 
 ## structure
 
@@ -30,13 +30,3 @@ description: Use this skill when working with software installed or run from loc
 - from the dev worktree, you'd run `git merge feature/something fix/something` to octopus merge all the topic branches into dev.
   - if everything works, do not merge dev into prod, but instead merge the topic branches directly into prod.
   - this prevents git history from being polluted with long-lived branches being merged everywhere (not meaningful).
-
-## cleanup
-
-- `git fetch -p` from `bare/` prunes deleted `origin/*` refs and reveals dead worktrees.
-- a branch is safe to delete when `git log <branch> ^origin/master` is empty.
-  - squash-merged branches need `branch -D` (`-d` rejects with "not fully merged" because squash made different commits).
-- when using git-annex, `git worktree remove` fails (`'.git' is not a .git file`) because `.git` is a symlink.
-  - manual fallback: `rm -rf <worktree> bare/worktrees/<name>; git worktree prune -v`.
-    - make sure no unstaged changes are lost before deleting.
-    - this is destructive and cannot be undone, so double-check before running and ask for approval.

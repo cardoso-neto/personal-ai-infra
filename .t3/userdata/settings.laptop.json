@@ -1,5 +1,14 @@
 {
   "environmentIcon": "laptop",
+  "defaultProjectScripts": [
+    {
+      "id": "worktree-map",
+      "name": "Worktree Map",
+      "command": "git -C \"${T3CODE_WORKTREE_PATH:-${T3CODE_PROJECT_ROOT:-$PWD}}\" worktree list",
+      "icon": "configure",
+      "runOnWorktreeCreate": false
+    }
+  ],
   "providers": {
     "cursor": {
       "enabled": false

@@ -78,6 +78,32 @@ Paths beginning with `~` refer to the T3 user's home.
 - User service units and overrides: `~/.config/systemd/user/`
 - Scheduled maintenance: the user's `crontab -l`; scripts in `~/.local/bin/`, logs in `~/.local/state/`.
 
+## Google Drive
+
+Configured and verified on 2026-09-24 for `nei.cardoso@quorum.us` (Nei Cardoso, Quorum).
+
+- Client: `rclone`, remote `employer-drive:`.
+- Linux user: `t3-cardoso-neto`.
+- Scope: full Google Drive access (`drive`), subject to the account's file permissions.
+- Root: the account's My Drive; no specific Shared Drive is configured.
+- Credentials: `/var/lib/t3code/cardoso-neto/.config/rclone/rclone.conf`, mode `0600`.
+  - Contains the OAuth access and refresh tokens; keep its contents out of Git and chat.
+  - Agents and commands running as this Linux user share the connection independently of ChatGPT authentication.
+  - Credentials persist across sessions and VM restarts; rclone refreshes access automatically while the Google grant remains valid.
+
+Verify access without printing file names:
+
+```sh
+rclone lsf employer-drive: --max-depth 1 --dirs-only >/dev/null
+```
+
+Setup verification also queried Google Drive's account metadata to confirm the email above.
+File listing succeeded; no write test was performed.
+
+If Google revokes the grant, run `rclone config reconnect employer-drive:` on the VM and answer `n` to automatic browser configuration.
+Run the displayed `rclone authorize` command on the Mac, sign in with the work account, and paste the complete result into the VM's `config_token>` prompt.
+Paste only the token between the output markers, without terminal escape characters; answer `n` to Shared Drive to retain the current root.
+
 ## Storage
 
 Instance `i-0efffc16d12632a34` in `us-east-1` uses a 512 GiB gp3 root volume, `vol-0f24b1c05971a68f8`, with ext4 on `/dev/nvme0n1p1`.

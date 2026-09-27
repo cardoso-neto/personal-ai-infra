@@ -23,7 +23,8 @@ codex exec \
 
 - Parse `$events` as JSONL; read `$result` for the final response.
 - Capture `.thread_id` from the first event (`thread.started`) to resume the session later with `codex exec resume <id>`.
-- Sessions persist as `$CODEX_HOME/sessions/<YYYY>/<MM>/<DD>/rollout-<timestamp>-<thread_id>.jsonl` (default `~/.codex`).
+- Keep every session in `~/.codex/sessions/<YYYY>/<MM>/<DD>/rollout-<timestamp>-<thread_id>.jsonl`.
+  - Never override `CODEX_HOME`, use a temporary Codex home, or use `--ephemeral` for handoffs.
   - Its `turn_context` events record the effective model and reasoning effort; the JSON event stream does not.
 - Add `--output-schema <schema.json>` when the caller requires a machine-validated response.
 - Keep `-c model_reasoning_effort=medium`; without it runs can default to `none`.

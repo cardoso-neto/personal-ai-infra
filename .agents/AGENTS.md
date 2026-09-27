@@ -52,3 +52,5 @@
 - If you encounter difficulties, ask for help and relay the error messages to me.
   - You can install any dependencies you need.
   - And I can install them for you if sudo is needed.
+- Prefer doublechecking agent output you read.
+  - e.g.: codereview feedback from agents can be hallucinated, misguided, worsen quality, or expand scope and we should discard those.

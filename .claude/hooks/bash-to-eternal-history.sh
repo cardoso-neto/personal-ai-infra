@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
-# Appends Claude Code Bash tool commands to a separate eternal history file.
-# Used as a PostToolUse hook for the Bash tool.
+# Grok uses camelCase input; Claude and Codex use snake_case.
 
-HISTFILE="$HOME/.agents_eternal_history"
-
-input=$(cat)
-command_text=$(echo "$input" | jq -r '.tool_input.command // empty' 2>/dev/null)
-
-if [[ -n "$command_text" ]]; then
-    printf '#%s\n%s\n' "$(date +%s)" "$command_text" >> "$HISTFILE"
-fi
+command_text=$(jq -r '.tool_input.command // .toolInput.command // empty | select(type == "string")' 2>/dev/null) || exit 0
+[[ -n "$command_text" ]] || exit 0
+printf '#%s\n%s\n' "$(date +%s)" "$command_text" >> "$HOME/.agents_eternal_history"

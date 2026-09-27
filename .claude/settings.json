@@ -1,12 +1,16 @@
 {
   "cleanupPeriodDays": 99999,
   "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8317",
+    "ANTHROPIC_API_KEY": "",
+    "ANTHROPIC_AUTH_TOKEN": "",
+    "CLAUDE_CODE_OAUTH_TOKEN": ""
   },
   "permissions": {
     "defaultMode": "bypassPermissions"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "disableClaudeAiConnectors": true,
   "hooks": {
     "PostToolUse": [
@@ -15,7 +19,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/bash-to-eternal-history.sh"
+            "command": "bash \"$HOME/.claude/hooks/bash-to-eternal-history.sh\""
           }
         ]
       },
@@ -54,5 +58,6 @@
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "apiKeyHelper": "/bin/cat \"$HOME/.config/cliproxyapi/client.key\""
 }

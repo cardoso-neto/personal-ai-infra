@@ -1,0 +1,31 @@
+[cli]
+installer = "npm"
+auto_update = true
+
+[auth]
+disable_api_key_auth = true
+
+[models]
+default = "grok-4.7"
+default_reasoning_effort = "low"
+
+[ui]
+max_thoughts_width = 120
+fork_secondary_model = "grok-build"
+yolo = false
+compact_mode = false
+permission_mode = "always-approve"
+theme = "groknight"
+group_tool_verbs = false
+combine_queued_prompts = true
+voice_capture_mode = "toggle"
+voice_stt_language = "en"
+hunk_tracker_mode = "all_dirty"
+
+[marketplace]
+default_skills_installs_purged = true
+official_marketplace_auto_installed = true
+
+[[marketplace.sources]]
+name = "xAI Official"
+git = "https://github.com/xai-org/plugin-marketplace.git"

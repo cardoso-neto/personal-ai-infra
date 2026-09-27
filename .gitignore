@@ -44,6 +44,11 @@
 .codex/*
 !.codex/AGENTS.md
 !.codex/config.*.toml
+!.codex/hooks.json
+
+# Grok runtime state; only declarative configuration is versioned
+.grok/*
+!.grok/config.toml
 
 # Pi runtime state; only the instruction link is versioned
 .pi/*

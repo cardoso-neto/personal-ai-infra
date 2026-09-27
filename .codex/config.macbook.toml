@@ -1,306 +1,18 @@
-model = "gpt-6-astra"
-model_reasoning_effort = "high"
+model_provider = "cliproxyapi"
+model = "gpt-6-sol"
+model_reasoning_effort = "medium"
 personality = "pragmatic"
 service_tier = "default"
 max_threads = 15
 
 notify = ["/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+model_verbosity = "low"
+approvals_reviewer = "user"
 
 [projects."/Users/neicardosoneto/quorum/quorum-site"]
 trust_level = "trusted"
 
 [projects."/Users/neicardosoneto"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/data-scraping"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/neurohive/agents/scooter"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/.claude"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-pluggable-agent-driver"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/.codex"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-datachecks-billgaps"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/ERNIE-Image-Turbo-Test"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-swallow"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-abstain"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-active-bill-audit"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/quorum-site-worktree"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-la"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-fl"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-mn"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-sc"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ct"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ia"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ky"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-mo"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ks"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ok"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-resilience"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-tn"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-hi"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-correlator-path"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-il"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-zero-bill"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-us"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ri"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ar"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-md"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-ne"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-de"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-pr"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-dc"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-id"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-nc"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-sd"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-wy"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-wv"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-audit-oh"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-pr-review"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/neurohive/deslop/agent-vs-subagent"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-vote-identity"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/wt-audit-findings"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-bill-dupes"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-codex-driver"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/cardoso-neto/agent-logs"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/upstream"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/cardoso-neto"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-quasar-finding-publish"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/.agents"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/quorum-site-structured-ak"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/neurohive"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/neurohive/hive-swarm"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/Documents/Codex/resume"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/Downloads"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/cardoso-neto/super-system-stuff"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-missing-hearings-calibration"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/cardoso-neto/personal-ai-infra"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-fix-co-bill-text-versions"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-rhode_island"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-alabama"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-arizona"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-arkansas"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-delaware"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-georgia"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-illinois"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-indiana"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-pennsylvania"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-north_dakota"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-oklahoma"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-south_carolina"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-nevada"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-ohio"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-north_carolina"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-new_york"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-new_jersey"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-iowa"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-kansas"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-maine"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-massachusetts"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-minnesota"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-missouri"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-montana"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-nebraska"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-texas"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-utah"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-vermont"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-virginia"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-washington"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-west_virginia"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/actacollecta-aid293-federal"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/quorum-site-parse-cache"]
-trust_level = "trusted"
-
-[projects."/Users/neicardosoneto/quorum/quorum-site-prune-fixtures"]
 trust_level = "trusted"
 
 [projects."/Users/neicardosoneto/neurohive/website"]
@@ -313,6 +25,27 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/neicardosoneto/cardoso-neto/wpp"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/upstream/openai/evals"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.t3"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/actacollecta"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/Documents/Codex/resume"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/cardoso-neto/agent-logs"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/aidlc-docs"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/quorum/quorum-site-worktree"]
 trust_level = "trusted"
 
 [plugins."google-calendar@openai-curated"]
@@ -345,19 +78,20 @@ enabled = true
 [plugins."visualize@openai-bundled"]
 enabled = true
 
-[plugins."sites@openai-bundled"]
-enabled = true
-
 [plugins."browser@openai-bundled"]
 enabled = true
 
 [plugins."codex-app-tools@openai-bundled"]
 enabled = true
 
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
 [tui]
 status_line = ["model-with-reasoning", "current-dir", "pull-request-number", "branch-changes", "context-used", "codex-version", "weekly-limit"]
 status_line_use_colors = true
 terminal_title = ["thread-title"]
+screen_reader_detection_done = true
 
 [tui.model_availability_nux]
 "gpt-5.5" = 4
@@ -365,9 +99,7 @@ terminal_title = ["thread-title"]
 gpt-6-astra = 4
 
 [features]
-# cmux-codex-hooks-feature-78f1e4ba-66df-4d35-93c1-67fdf1cbb7df begin
 hooks = true
-# cmux-codex-hooks-feature-78f1e4ba-66df-4d35-93c1-67fdf1cbb7df end
 js_repl = false
 prevent_idle_sleep = true
 
@@ -400,13 +132,13 @@ NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/neicardosoneto/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
 CODEX_HOME = "/Users/neicardosoneto/.codex"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
-BROWSER_USE_TINYSKY_ENABLED = "0"
-NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
-NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
-NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.825.51511"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.825.51511/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.908.70816"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.908.70816/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
 
@@ -419,32 +151,22 @@ enabled = false
 [mcp_servers.openaiDeveloperDocs]
 url = "https://developers.openai.com/mcp"
 
-[mcp_servers.cua_repl]
-command = "/Applications/ChatGPT.app/Contents/MacOS/ChatGPT"
-enabled = false
-
-# cmux-codex-hook-trust-f5cc24da-7a09-4b20-a756-89e7786f6738 begin
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:pre_tool_use:0:0"]
-trusted_hash = "sha256:74d8d761a653371657b0e8364b6174894d16852104dae0b492dd4cf9450e77ca"
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:permission_request:0:0"]
-trusted_hash = "sha256:0c0774b4b945ac10660d183a5fee921a21c8d365efda112e25f89c224733b43f"
 [hooks.state."/Users/neicardosoneto/.codex/hooks.json:post_tool_use:0:0"]
-trusted_hash = "sha256:f1b0d0f083970647f5aa0a77075ee001b06523e0c356ef5152cddeca02cbf840"
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:pre_compact:0:0"]
-trusted_hash = "sha256:bdc75d8161eaf5787c83444c1225b6da74bc213f5270ad66acd5a8eeca089ede"
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:post_compact:0:0"]
-trusted_hash = "sha256:4661b44e315fa7221e87a1f0abdbe573f88095b348ff6eb71726152ff5be0baa"
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:session_start:0:0"]
-trusted_hash = "sha256:5d4d9946d3d06bba2e3d07b1b791a23a8f6240109026425276f91d9d45abcd77"
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:subagent_start:0:0"]
-trusted_hash = "sha256:3bbc28140375419695f28112b924e425c43c516f9cab390b17fe013c38a57edf"
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:subagent_stop:0:0"]
-trusted_hash = "sha256:86d5b52c1e19fd2c74f0145848c8a72c65a83b1aff022b0fd88a54cd10dd2b83"
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:user_prompt_submit:0:0"]
-trusted_hash = "sha256:f0f6847c83fff445f8a6046fc64a0e594ae0c8182080d43c88d30864b6ec4dd0"
-[hooks.state."/Users/neicardosoneto/.codex/hooks.json:stop:0:0"]
-trusted_hash = "sha256:acec72c8be1ef9e637dd4471024414f4dd8f5eb3f3a1960d687b8d2b6ebf5717"
+trusted_hash = "sha256:ce6429a8f4dd589fec2b88fb6b19dc2291dbbd65b494acc0822dcda8ba8527b5"
 
 [shell_environment_policy.set]
 NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f,89b6b07b3c7e2344f20d65930fb27b3f418aace8bc62d7abb2a97a2291ffec39"
-# cmux-codex-hook-trust-f5cc24da-7a09-4b20-a756-89e7786f6738 end
+
+[model_providers.cliproxyapi]
+name = "CLIProxyAPI"
+base_url = "http://127.0.0.1:8317/v1"
+wire_api = "responses"
+supports_websockets = false
+
+[model_providers.cliproxyapi.auth]
+command = "/bin/cat"
+args = ["/Users/neicardosoneto/.config/cliproxyapi/client.key"]
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+"gpt-5.6-sol" = "gpt-6-sol"

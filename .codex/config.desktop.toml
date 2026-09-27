@@ -1,8 +1,12 @@
+model_provider = "cliproxyapi"
 max_threads = 15
 personality = "pragmatic"
-model = "gpt-6-astra"
+model = "gpt-6-sol"
 model_reasoning_effort = "medium"
 model_verbosity = "low"
+approvals_reviewer = "user"
+service_tier = "default"
+
 [projects."/home/nei/rabbit/codex"]
 trust_level = "trusted"
 
@@ -57,28 +61,51 @@ trust_level = "trusted"
 [projects."/home/nei/quorum/actacollecta"]
 trust_level = "trusted"
 
+[projects."/home/nei/neurohive/hivegym"]
+trust_level = "trusted"
+
+[projects."/home/nei/quorum/quorum-site-worktrees"]
+trust_level = "trusted"
+
+[projects."/home/nei/cardoso-neto/t3code-cli"]
+trust_level = "trusted"
+
+[projects."/home/nei/neurohive/datasets"]
+trust_level = "trusted"
+
+[projects."/home/nei/cardoso-neto/agent-logs"]
+trust_level = "trusted"
+
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"
+"gpt-5.6-sol" = "gpt-6-sol"
 
 [tui]
-status_line = ["model-with-reasoning", "current-dir", "git-branch", "branch-changes", "context-used", "codex-version", "estimated-thread-cost"]
+status_line = ["model-with-reasoning", "current-dir", "pull-request-number", "branch-changes", "context-used", "codex-version", "weekly-limit"]
 status_line_use_colors = true
+terminal_title = ["thread-title"]
+screen_reader_detection_done = true
 
 [tui.model_availability_nux]
-"gpt-5.5" = 3
+"gpt-5.5" = 4
 "gpt-5.6-sol" = 4
-gpt-6-astra = 2
+gpt-6-astra = 4
+
 
 [features]
 hooks = true
-
-[hooks.state]
+js_repl = false
+prevent_idle_sleep = true
 
 [hooks.state."/home/nei/.codex/hooks.json:post_tool_use:0:0"]
-trusted_hash = "sha256:5986c7e013f70b9f369ca6e559bee8cb423a5ce91cb2ab0131da53262b18cf88"
+trusted_hash = "sha256:ce6429a8f4dd589fec2b88fb6b19dc2291dbbd65b494acc0822dcda8ba8527b5"
 
-[hooks.state."/home/nei/.codex/hooks.json:user_prompt_submit:0:0"]
-trusted_hash = "sha256:7ed0c588635367dfa9e7af5d6ea98136e0b7d0a917f9118382371c156083a992"
+[model_providers.cliproxyapi]
+name = "CLIProxyAPI"
+base_url = "http://127.0.0.1:8317/v1"
+wire_api = "responses"
+supports_websockets = false
 
-[hooks.state."/home/nei/.codex/hooks.json:stop:0:0"]
-trusted_hash = "sha256:29a9cb962d4f0e1def58ecb64a3b7d277a5451ca57e9f3bd7c51baf7febe68f6"
+[model_providers.cliproxyapi.auth]
+command = "/bin/cat"
+args = ["/home/nei/.config/cliproxyapi/client.key"]

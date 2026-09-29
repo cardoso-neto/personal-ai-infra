@@ -3,7 +3,7 @@ model = "gpt-6-sol"
 model_reasoning_effort = "medium"
 personality = "pragmatic"
 service_tier = "default"
-max_threads = 15
+agents.max_concurrent_threads_per_session = 15
 
 notify = ["/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 model_verbosity = "low"

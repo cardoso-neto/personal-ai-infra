@@ -47,4 +47,6 @@ Do not also install the graphical Tailscale client while using this daemon.
 The LaunchAgent starts at login and restarts T3 after failure.
 Inspect it for the service command and environment; use `t3 service status` and `t3 connect status` for status.
 
+Harness and T3 updates: [machine updater](../../../../super-system-stuff/hosts/mbp/bin/autoupdate.sh).
+
 Setup decisions and repair history: [installation journal](Neis-MacBook-Pro.journal.md).

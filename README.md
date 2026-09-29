@@ -3,6 +3,8 @@
 Version-controlled instructions and reusable resources for agent harnesses.
 The repository mirrors the managed parts of the home directory.
 
+General machine infrastructure belongs in [super-system-stuff](../super-system-stuff/).
+
 ## Structure
 
 - `.agents/`

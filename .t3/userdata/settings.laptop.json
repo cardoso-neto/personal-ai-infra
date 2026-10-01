@@ -1,5 +1,5 @@
 {
-  "environmentIcon": "laptop",
+  "continueThreadsAfterServerUpdate": true,
   "defaultProjectScripts": [
     {
       "id": "worktree-map",
@@ -9,7 +9,43 @@
       "runOnWorktreeCreate": false
     }
   ],
+  "projectSettingsOverrides": {
+    "19e63d0b-8dad-416b-8804-8bcce4079266": {
+      "defaultModelSelection": {
+        "instanceId": "codex",
+        "model": "gpt-5.6-sol",
+        "options": [
+          {
+            "id": "reasoningEffort",
+            "value": "medium"
+          },
+          {
+            "id": "serviceTier",
+            "value": "default"
+          }
+        ]
+      }
+    }
+  },
+  "projectSettingsFolded": true,
+  "sidebarAutoSettleAfterDays": null,
+  "environmentIcon": "laptop",
+  "textGenerationModelSelection": {
+    "instanceId": "codex",
+    "model": "gpt-6-luna",
+    "options": [
+      {
+        "id": "reasoningEffort",
+        "value": "low"
+      },
+      {
+        "id": "serviceTier",
+        "value": "default"
+      }
+    ]
+  },
   "providers": {
+    "claudeAgent": {},
     "cursor": {
       "enabled": false
     },
@@ -18,8 +54,7 @@
     },
     "opencode": {
       "enabled": false
-    },
-    "claudeAgent": {}
+    }
   },
   "providerInstances": {
     "grok": {
@@ -28,6 +63,14 @@
       "config": {
         "binaryPath": "grok",
         "customModels": []
+      }
+    },
+    "antigravity": {
+      "driver": "antigravity",
+      "enabled": true,
+      "config": {
+        "authMethod": "oauth-personal",
+        "binaryPath": "/Users/neicardosoneto/.local/share/antigravity-acp/1.2.1/agy_acp_server.par"
       }
     }
   }

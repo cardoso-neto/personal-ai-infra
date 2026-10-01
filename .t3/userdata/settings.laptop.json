@@ -19,9 +19,7 @@
     "opencode": {
       "enabled": false
     },
-    "claudeAgent": {
-      "autoCompactWindow": "300000"
-    }
+    "claudeAgent": {}
   },
   "providerInstances": {
     "grok": {

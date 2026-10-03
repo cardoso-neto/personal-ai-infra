@@ -1,5 +1,13 @@
 # Cron Data 3 installation journal
 
+## 2026-09-27: CLIProxyAPI usage keeper
+
+- Installed CPA Usage Keeper v1.15.8 as the `cpa-usage-keeper.service` user unit on `127.0.0.1:8318`; details in [the CLIProxyAPI notes](cliproxyapi.md#usage-keeper).
+- Chose the checksum-verified release binary over rootless Docker, matching the proxy's install; it ingests in `subscribe` mode as the proxy's only usage collector.
+- A `sed -i` edit of the proxy's `config.yaml` dropped the proxy's config-file watch; the file was restored in place and the restart deferred to Nei.
+  - See [Config watch incident, resolved](cliproxyapi.md#config-watch-incident-resolved).
+- Adding 8318 to the Mac tunnel briefly broke it (bad plist argument order), cutting the Mac's proxy-routed Claude traffic until it was fixed.
+
 ## 2026-09-16: Storage and minion access
 
 - Expanded root EBS from 200 to 512 GiB and grew partition 1 and ext4 online.

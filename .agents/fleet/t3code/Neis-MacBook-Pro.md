@@ -37,6 +37,9 @@ Do not also install the graphical Tailscale client while using this daemon.
 
 ## Locations
 
+Shared Claude/OpenAI access uses a persistent SSH tunnel to Cron Data 3.
+See [CLIProxyAPI client commands and operations](cliproxyapi.md).
+
 - Personal repositories: `~/cardoso-neto/<repo>`.
 - Upstream repositories: `~/upstream/<org>/<repo>`.
 - Personal instructions and skills: `~/.agents`; follow its symlink to the source repository.

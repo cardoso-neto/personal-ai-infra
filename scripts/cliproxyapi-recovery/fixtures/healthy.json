@@ -1,0 +1,26 @@
+{
+  "auth": {
+    "id": "test",
+    "name": "test.json",
+    "auth_index": "index",
+    "provider": "codex",
+    "disabled": false,
+    "unavailable": false,
+    "id_token": {
+      "chatgpt_account_id": "test-account"
+    },
+    "cooldowns": []
+  },
+  "quota": {
+    "body": "{\"rate_limit\": {\"allowed\": true, \"limit_reached\": false, \"primary_window\": {\"used_percent\": 1}, \"secondary_window\": null}}"
+  },
+  "probe": {
+    "body": "data: {\"type\": \"response.completed\", \"response\": {\"status\": \"completed\", \"output\": [{\"type\": \"message\"}]}}\n\n"
+  },
+  "expected": {
+    "calls": [
+      "auth-files"
+    ],
+    "exit": 0
+  }
+}

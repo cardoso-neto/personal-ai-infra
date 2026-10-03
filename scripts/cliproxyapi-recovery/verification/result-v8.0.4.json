@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "tested_at": "2026-09-30",
+  "binary_version": "8.0.4",
+  "binary_commit": "d33f63f8",
+  "binary_built_at": "2026-09-29T00:13:20Z",
+  "binary_sha256": "b8afdd468432ba2ccf5a02f4666b6c063bd8e13a75f3b0a224650a0ec9219d5c",
+  "binary": "/var/lib/t3code/cardoso-neto/.local/opt/cliproxyapi/8.0.4/cli-proxy-api",
+  "environment": "cron-data3-agent, separate process and temporary config, random loopback ports",
+  "credentials": "Synthetic preferred and fallback Codex API entries; no production keys read",
+  "checks": [
+    "Higher priority preferred credential selected initially",
+    "Synthetic preferred 429 fails over within the same request",
+    "Preferred credential skipped while cooldown is active",
+    "Preferred credential automatically returns after 10-second cooldown floor expires",
+    "Recovered upstream remains skipped before a synthetic one-hour reset deadline",
+    "POST /v0/management/reset-quota restores preferred routing immediately"
+  ],
+  "upstream_calls": ["preferred", "preferred", "fallback", "fallback", "preferred", "preferred", "fallback", "fallback", "preferred"],
+  "limits": [
+    "Tests HTTP Responses routing with synthetic Codex API credentials; not real OAuth provider limits",
+    "Does not exercise persistent OAuth auth-file cooldowns across restart",
+    "Does not exercise native WebSocket continuation or client replay"
+  ],
+  "remote_artifacts": "/tmp/cpa-failover-La8qdq",
+  "run": "ssh cron-data3-agent 'node --input-type=module -' < scripts/cliproxyapi-recovery/verification/failover.mjs"
+}

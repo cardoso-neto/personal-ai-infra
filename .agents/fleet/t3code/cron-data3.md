@@ -78,6 +78,29 @@ Paths beginning with `~` refer to the T3 user's home.
 - User service units and overrides: `~/.config/systemd/user/`
 - Scheduled maintenance: the user's `crontab -l`; scripts in `~/.local/bin/`, logs in `~/.local/state/`.
 
+## Trajectory backups
+
+The `t3-cardoso-neto` account archives Codex, Claude, and Grok sessions hourly at minute 7.
+The repository is `/srv/t3code/cardoso-neto/src/cardoso-neto/agent-logs`, with this host's captures under `data/hosts/cron-data3`.
+The cron log is `~/.local/state/agent-logs/agent-logs-sync.log`.
+
+The desktop's `agent-logs-mp600.timer` runs at minute 27 and exchanges git-annex payloads with this VM in both directions.
+Its `cron-data3` Git remote connects as the T3 account through `cron-data3-agent.tailb524d8.ts.net`.
+The desktop also exchanges payloads with the MacBook.
+GitHub receives Git history and annex metadata only (`remote.origin.annex-ignore=true`).
+
+Captures preserve files removed from live agent directories and use locked annex links to avoid duplicate working copies.
+Grok's transient `*.lock` files are excluded.
+The VM needs no outbound SSH access to the personal machines; the existing Tailnet restriction remains in place.
+
+The first historical seed runs on the desktop as `agent-logs-seed-cron-data3.service`.
+It resumes interrupted transfers, checks the packed archive's SHA-256, and runs a full annex integrity check on the VM.
+During seeding, the desktop temporarily sets `remote.cron-data3.annex-ignore=true` so routine backups do not compete with the initial transfer.
+The seed service restores it to `false` after verification and starts the normal sync service.
+Progress is in the desktop's `~/.local/state/agent-logs/cron-data3-seed.log`; successful completion creates `cron-data3-seed-complete` in the same directory.
+The service uses the Mac's existing VPN route for the initial transfer when available and falls back to Tailnet.
+Normal hourly replication uses Tailnet directly with SSH compression.
+
 ## Google Drive
 
 Configured and verified on 2026-09-24 for `nei.cardoso@quorum.us` (Nei Cardoso, Quorum).
@@ -111,6 +134,11 @@ The videos directory, `/webapps/quorum-site/quorum_data/videos`, is on the root 
 
 ## Services
 
+CLIProxyAPI runs as a separate user service for shared Claude/OpenAI routing.
+See [CLIProxyAPI operations and subscription logins](cliproxyapi.md).
+The persistent five-minute [subscription recovery check](cliproxyapi.md#automatic-subscription-recovery) detects early quota resets and clears verified stale cooldowns; its source and systemd units are in [scripts/cliproxyapi-recovery](../../../scripts/cliproxyapi-recovery/).
+CPA Usage Keeper, its usage dashboard, runs beside it as `cpa-usage-keeper.service`; see [Usage keeper](cliproxyapi.md#usage-keeper).
+
 `t3code.service` and `docker.service` are systemd user services owned by `t3-cardoso-neto`.
 For service commands from an administrator session, set `XDG_RUNTIME_DIR=/run/user/992` and `DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/992/bus` after switching users.
 
@@ -128,7 +156,11 @@ Tailscale 1.102.4 is installed from its official Ubuntu repository, and `tailsca
 The VM is enrolled in the tailnet; regular OpenSSH is used through Tailscale rather than Tailscale SSH.
 MacBook-to-VM and desktop-to-VM access are verified.
 
-As of 2026-09-16, tailnet network grants block Cron Data 3 from initiating TCP port 22 connections to the desktop and MacBook, for both Tailscale IPv4 and IPv6 addresses. Desktop-to-MacBook access remains allowed. Both personal machines can still use `ssh cron-data3` with passwordless sudo as `nei`.
-The policy identifies these machines by their Tailscale IP addresses; update its IP sets if a machine is re-enrolled with different addresses. Embedded policy tests protect both the blocked and allowed directions.
+As of 2026-09-28, the device uses `tag:cron-data3`, administered by `nei.cardoso.neto@gmail.com`.
+Tailnet grants block Cron Data 3 from initiating TCP port 22 connections to Nei's personal devices while retaining its other TCP, UDP, and ICMP access to them.
+Nei's personal devices retain full access to Cron Data 3 and each other.
+Cron Data 3 and Genesis have unrestricted access to each other, and Cron Data 3 has no grant to Martin's personal devices.
+The grants identify servers by tags and personal devices by user identity; embedded tests also cover the current IPv4 and IPv6 addresses.
+See [Genesis's tailnet policy notes](genesis.md#tailscale) for the shared policy and verification.
 
 The earlier `quorum-agent` account remains unprivileged, has no sudo grant, and is not used for the direct SSH path.

@@ -1,0 +1,16 @@
+[Unit]
+Description=Recheck stale CLIProxyAPI subscription quota cooldowns
+After=cliproxyapi.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 %h/.local/lib/cliproxyapi-recovery/recover.py
+TimeoutStartSec=240
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=yes
+RestrictSUIDSGID=yes

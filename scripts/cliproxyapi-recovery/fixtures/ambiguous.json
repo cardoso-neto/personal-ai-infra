@@ -1,0 +1,35 @@
+{
+  "auth": {
+    "id": "test",
+    "name": "test.json",
+    "auth_index": "index",
+    "provider": "codex",
+    "disabled": false,
+    "unavailable": true,
+    "id_token": {
+      "chatgpt_account_id": "test-account"
+    },
+    "cooldowns": [
+      {
+        "scope": "credential",
+        "reason": "credential_quota",
+        "retry_at": "2030-01-01T00:00:00Z",
+        "remaining_seconds": 100
+      }
+    ]
+  },
+  "quota": {
+    "body": "{\"unknown\": \"UPSTREAM_SECRET\"}"
+  },
+  "probe": {
+    "body": "data: {\"type\": \"response.completed\", \"response\": {\"status\": \"completed\", \"output\": [{\"type\": \"message\"}]}}\n\n"
+  },
+  "expected": {
+    "calls": [
+      "auth-files",
+      "quota"
+    ],
+    "exit": 1
+  },
+  "error_stage": "quota"
+}

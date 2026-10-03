@@ -21,6 +21,13 @@ General machine infrastructure belongs in [super-system-stuff](../super-system-s
 
 Runtime state, credentials, sessions, caches, and machine-local settings are not versioned.
 
+## CLIProxyAPI on cron-data3
+
+> 🤖 GPT-6 via Codex on behalf of Nei Cardoso
+
+- [Operations and automatic subscription recovery](.agents/fleet/t3code/cliproxyapi.md#automatic-subscription-recovery): deployed paths, five-minute systemd timer, safety checks, logs, and incident diagnosis.
+- [Recovery helper, systemd units, and tests](scripts/cliproxyapi-recovery/): source for the safeguard that detects restored subscription quota and clears stale local cooldowns.
+
 ## Transcripts
 
 `~/.claude/projects/` holds every Claude Code session transcript as JSONL.

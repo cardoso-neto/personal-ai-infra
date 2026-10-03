@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "tested_at": "2026-09-28",
+  "binary_version": "7.3.17",
+  "environment": "cron-data3, separate process and temporary config, random loopback ports",
+  "credentials": "Synthetic preferred and fallback Codex API entries; no production keys read",
+  "checks": [
+    "Higher priority preferred credential selected initially",
+    "Synthetic preferred 429 fails over within the same request",
+    "Preferred credential skipped while cooldown is active",
+    "Preferred credential automatically returns after 10-second cooldown floor expires",
+    "Recovered upstream remains skipped before a synthetic one-hour reset deadline",
+    "POST /v0/management/reset-quota restores preferred routing immediately"
+  ],
+  "upstream_calls": ["preferred", "preferred", "fallback", "fallback", "preferred", "preferred", "fallback", "fallback", "preferred"],
+  "limits": [
+    "Tests HTTP Responses routing with synthetic Codex API credentials; not real OAuth provider limits",
+    "Does not exercise persistent OAuth auth-file cooldowns across restart",
+    "Does not exercise native WebSocket continuation or client replay"
+  ],
+  "remote_artifacts": "/tmp/cpa-failover-m4L2qg",
+  "run": "sudo node failover.mjs"
+}

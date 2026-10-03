@@ -1,0 +1,53 @@
+{
+  "auth": {
+    "id": "test",
+    "name": "test.json",
+    "auth_index": "index",
+    "provider": "codex",
+    "disabled": false,
+    "unavailable": true,
+    "id_token": {
+      "chatgpt_account_id": "test-account"
+    },
+    "cooldowns": [
+      {
+        "scope": "credential",
+        "reason": "credential_quota",
+        "retry_at": "2030-01-01T00:00:00Z",
+        "remaining_seconds": 100
+      }
+    ]
+  },
+  "quota": {
+    "body": "{\"rate_limit\": {\"allowed\": true, \"limit_reached\": false, \"primary_window\": {\"used_percent\": 1}, \"secondary_window\": null}}"
+  },
+  "probe": {
+    "body": "data: UPSTREAM_SECRET"
+  },
+  "expected": {
+    "calls": [
+      "auth-files",
+      "quota",
+      "probe"
+    ],
+    "exit": 1
+  },
+  "error_stage": "probe",
+  "expected_probe": {
+    "model": "gpt-6-luna",
+    "instructions": "Reply briefly.",
+    "store": false,
+    "stream": true,
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "Reply OK."
+          }
+        ]
+      }
+    ]
+  }
+}

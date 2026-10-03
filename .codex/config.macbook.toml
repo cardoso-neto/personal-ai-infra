@@ -1,6 +1,6 @@
 model_provider = "cliproxyapi"
-model = "gpt-6-sol"
-model_reasoning_effort = "medium"
+model = "gpt-6.1-sol"
+model_reasoning_effort = "low"
 personality = "pragmatic"
 service_tier = "default"
 agents.max_concurrent_threads_per_session = 15
@@ -8,6 +8,7 @@ agents.max_concurrent_threads_per_session = 15
 notify = ["/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 model_verbosity = "low"
 approvals_reviewer = "user"
+approval_policy = "never"
 
 [projects."/Users/neicardosoneto/quorum/quorum-site"]
 trust_level = "trusted"
@@ -46,6 +47,18 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/neicardosoneto/quorum/quorum-site-worktree"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/cardoso-neto/personal-ai-infra"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/Documents/Codex/2026-09-28/i-h"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/neurohive/datasets"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/Downloads"]
 trust_level = "trusted"
 
 [plugins."google-calendar@openai-curated"]
@@ -87,8 +100,11 @@ enabled = true
 [plugins."unified-computer-use@openai-bundled"]
 enabled = true
 
+[plugins."code-review@openai-bundled"]
+enabled = true
+
 [tui]
-status_line = ["model-with-reasoning", "current-dir", "pull-request-number", "branch-changes", "context-used", "codex-version", "weekly-limit"]
+status_line = ["model-with-reasoning", "current-dir", "pull-request-number", "branch-changes", "context-used", "codex-version", "weekly-limit", "fast-mode"]
 status_line_use_colors = true
 terminal_title = ["thread-title"]
 screen_reader_detection_done = true
@@ -97,6 +113,7 @@ screen_reader_detection_done = true
 "gpt-5.5" = 4
 "gpt-5.6-sol" = 4
 gpt-6-astra = 4
+"gpt-6.1-sol" = 4
 
 [features]
 hooks = true
@@ -131,16 +148,16 @@ NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_n
 NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/neicardosoneto/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
 CODEX_HOME = "/Users/neicardosoneto/.codex"
-BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
 BROWSER_USE_TINYSKY_ENABLED = "1"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.908.70816"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.908.70816/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.928.20755"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.928.20755/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app"
-CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 
 [mcp_servers.computer-use]
 command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
@@ -161,7 +178,7 @@ NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbf
 name = "CLIProxyAPI"
 base_url = "http://127.0.0.1:8317/v1"
 wire_api = "responses"
-supports_websockets = false
+supports_websockets = true
 
 [model_providers.cliproxyapi.auth]
 command = "/bin/cat"

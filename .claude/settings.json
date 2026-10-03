@@ -1,4 +1,5 @@
 {
+  "apiKeyHelper": "/bin/cat \"$HOME/.config/cliproxyapi/client.key\"",
   "cleanupPeriodDays": 99999,
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
@@ -10,7 +11,7 @@
   "permissions": {
     "defaultMode": "bypassPermissions"
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "disableClaudeAiConnectors": true,
   "hooks": {
     "PostToolUse": [
@@ -44,6 +45,11 @@
   "syntaxHighlightingDisabled": false,
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
   "awaySummaryEnabled": false,
   "tui": "fullscreen",
   "voice": {
@@ -54,10 +60,12 @@
   "theme": "dark",
   "verbose": false,
   "preferredNotifChannel": "auto",
+  "switchModelsOnFlag": false,
+  "autoContinueAtUsageLimit": true,
+  "fileCheckpointingEnabled": false,
   "teammateMode": "tmux",
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "voiceEnabled": true,
-  "apiKeyHelper": "/bin/cat \"$HOME/.config/cliproxyapi/client.key\""
+  "voiceEnabled": true
 }

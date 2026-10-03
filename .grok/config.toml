@@ -1,6 +1,6 @@
 [cli]
-installer = "npm"
 auto_update = true
+installer = "internal"
 
 [auth]
 disable_api_key_auth = true

@@ -32,3 +32,10 @@
   Check equivalent paths if terminal creation fails after an update.
 - Verified the environment endpoint, live relay registration in the service log, agent authentication, and a real pseudo-terminal spawn.
   `t3 connect status` reports saved state; it alone does not confirm a live tunnel.
+
+## 2026-10-03: Grok npm copy removed
+
+Grok ran from `~/.grok/bin`, but `npm update --global` also maintained `@xai-official/grok` under `/opt/homebrew/lib/node_modules`.
+Its postinstall rewrote the shared `~/.grok/config.toml` to `installer = "npm"`, which sent `grok update` through npm on every machine.
+Uninstalled the npm copy, dropped Grok from `autoupdate.sh`'s npm steps, and let `grok update` record `installer = "internal"`.
+Homebrew has no xAI Grok formula; its `grok` is an unrelated regex tool.

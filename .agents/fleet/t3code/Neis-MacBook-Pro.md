@@ -40,6 +40,8 @@ Do not also install the graphical Tailscale client while using this daemon.
 - Personal repositories: `~/cardoso-neto/<repo>`.
 - Upstream repositories: `~/upstream/<org>/<repo>`.
 - Personal instructions and skills: `~/.agents`; follow its symlink to the source repository.
+- Grok: native install in `~/.grok/bin`; `~/.local/bin/grok` links to `~/.grok/bin/grok`.
+  - Do not install `@xai-official/grok` through npm; its postinstall rewrites the shared `~/.grok/config.toml` to `installer = "npm"`.
 - T3 state: `~/.t3/userdata`; runtime: `~/.t3/runtime`.
 - LaunchAgent: `~/Library/LaunchAgents/com.t3tools.t3code.service.plist`.
 - Service log: `~/.t3/userdata/logs/boot-service.log`.

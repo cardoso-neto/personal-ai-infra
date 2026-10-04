@@ -20,6 +20,8 @@ ssh genesis
   A DHCP reservation or static address has not been verified.
 - SSH key login from the MacBook is verified using `~/.ssh/id_ed25519`.
   Its public key is installed in `/home/nei/.ssh/authorized_keys` on Genesis, outside the declarative NixOS configuration.
+- `mp600-4tb` has the same `genesis` and `genesis-lan` aliases (with `/usr/bin/tailscale nc`), verified 2026-10-03.
+  Its `~/.ssh/id_ed25519.pub` was appended to the same `authorized_keys`; the previous file is `authorized_keys.before-mp600-20261003`.
 - SSH ED25519 host-key fingerprint: `SHA256:TvCspPnk6xihEZbCn7/jDDSlm0v06lWC26/m9vTpfDs`.
 - `nei` and `martin` belong to `wheel`; sudo requires a password.
 - DNS for `genesis.neurohive.dev` has not been configured as part of this setup.
@@ -68,6 +70,10 @@ Pairing tokens are not stored in fleet docs.
 Verified clients:
 
 - MacBook desktop app, paired 2026-09-28.
+- MacBook desktop app as an SSH environment (alias `genesis`), added 2026-10-03.
+  - It reuses the running service (`~/.t3/ssh-launch/*/managed` is `external`, port `3773`); no second server starts.
+  - Each connect issues a fresh 30-day session over SSH, so this client never needs manual re-pairing.
+  - Old sessions accumulate in `t3 auth session list` until they expire.
 - Pixel 10 Pro (`pixel-10-pro`), paired 2026-10-03.
   - Replaces the 2026-09-28 Android pairing, whose session was revoked.
   - The phone must be signed in to Tailscale as `nei.cardoso.neto@gmail.com`; otherwise pairing fails with a transport error.

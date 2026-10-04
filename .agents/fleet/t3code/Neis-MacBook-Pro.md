@@ -45,6 +45,8 @@ See [CLIProxyAPI client commands and operations](cliproxyapi.md).
 - Personal instructions and skills: `~/.agents`; follow its symlink to the source repository.
 - Grok: native install in `~/.grok/bin`; `~/.local/bin/grok` links to `~/.grok/bin/grok`.
   - Do not install `@xai-official/grok` through npm; its postinstall rewrites the shared `~/.grok/config.toml` to `installer = "npm"`.
+- Muse: launcher, binary, and update state in `~/.local/opt/muse`; `~/.local/bin/muse` links to the launcher.
+  - Its installer appends a `PATH` line for whatever directory it ran in; remove it from `.zshrc` after reinstalling.
 - T3 state: `~/.t3/userdata`; runtime: `~/.t3/runtime`.
 - LaunchAgent: `~/Library/LaunchAgents/com.t3tools.t3code.service.plist`.
 - Service log: `~/.t3/userdata/logs/boot-service.log`.

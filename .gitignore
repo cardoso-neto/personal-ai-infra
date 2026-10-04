@@ -55,3 +55,10 @@
 !.pi/agent/
 .pi/agent/*
 !.pi/agent/AGENTS.md
+
+# Claude Code's sync of claude.ai skills and its replaced versions; regenerable
+.agents/skills/synced/
+.agents/skills/.trash/
+
+# Python bytecode
+__pycache__/

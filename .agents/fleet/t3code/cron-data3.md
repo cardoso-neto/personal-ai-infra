@@ -144,6 +144,7 @@ CPA Usage Keeper, its usage dashboard, runs beside it as `cpa-usage-keeper.servi
 For service commands from an administrator session, set `XDG_RUNTIME_DIR=/run/user/992` and `DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/992/bus` after switching users.
 
 T3 listens on `127.0.0.1:3773`; T3 Connect provides remote access.
+Agent-activity publishing (push notifications and Live Activities) was enabled on 2026-10-04 with `t3 connect publish`, without a restart.
 Docker is rootless, using `DOCKER_HOST=unix:///run/user/992/docker.sock`.
 
 Use T3's **Update server** action for upgrades.

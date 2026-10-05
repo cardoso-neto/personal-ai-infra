@@ -73,8 +73,9 @@ Paths beginning with `~` refer to the T3 user's home.
 - VM instructions: `~/agents/AGENTS.md`
   - Also embedded in `~/.codex/config.toml`; keep these aligned when editing VM guidance.
 - User executables: `~/.local/bin`
-- T3 state: `~/t3/`
-- T3 logs: `~/t3/userdata/logs/`
+- T3 state: `~/.t3/`, the CLI's default base directory.
+  - `~/t3` is a compatibility symlink: worktree paths, Codex project entries, and T3's database still use the old path.
+- T3 logs: `~/.t3/userdata/logs/`
 - User service units and overrides: `~/.config/systemd/user/`
 - Scheduled maintenance: the user's `crontab -l`; scripts in `~/.local/bin/`, logs in `~/.local/state/`.
 

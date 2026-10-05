@@ -1,5 +1,13 @@
 # Cron Data 3 installation journal
 
+## 2026-10-04: T3 base directory moved to `~/.t3`
+
+- Renamed `~/t3` to `~/.t3` and left `~/t3 -> .t3`, so the running server, agents, and stored absolute paths kept working.
+  - The desktop app's SSH launcher only detects a running server through `~/.t3/userdata/server-runtime.json`; with the old path it would start a second server.
+- Updated `t3code.service` (`T3CODE_HOME`, `ExecStart`, log paths) and the nightly `t3 update --base-dir`; ran `daemon-reload` without restarting.
+  - Backups: `t3code.service.before-dot-t3-20261004` and `~/.local/state/t3code-update/crontab.before-dot-t3-20261004`.
+- Verified: same server PID, environment endpoint 200, T3 Connect tunnel and running agents unaffected, and the CLI resolves this install without `--base-dir`.
+
 ## 2026-09-27: CLIProxyAPI usage keeper
 
 - Installed CPA Usage Keeper v1.15.8 as the `cpa-usage-keeper.service` user unit on `127.0.0.1:8318`; details in [the CLIProxyAPI notes](cliproxyapi.md#usage-keeper).

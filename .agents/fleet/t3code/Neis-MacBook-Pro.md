@@ -2,58 +2,46 @@
 
 ## Access
 
-Sign in to [app.t3.codes](https://app.t3.codes) as `nei.neto@hotmail.com` and select `Nei's MacBook Pro` (shown with a typographic apostrophe).
-T3 Connect provides remote access; the server listens on `127.0.0.1:3773`.
-T3 and its agents run as `neicardosoneto`.
-Keep the Mac logged in and awake for access.
+- [app.t3.codes](https://app.t3.codes): account `nei.neto@hotmail.com`, environment `Nei's MacBook Pro` (shown with a typographic apostrophe).
+- T3 and agents run as `neicardosoneto`.
+  Keep the Mac logged in and awake for remote access.
+- LAN SSH from `mp600-4tb`: `ssh neicardosoneto@Neis-MacBook-Pro.local`.
+  Use mDNS rather than a saved DHCP address.
+- SSH aliases, keys, and transports: `~/.ssh/config`.
+  - `ssh cron-data3`: maintenance login over Tailscale, independent of the corporate VPN.
+  - `ssh ansible-tower-prod`: production EC2 access through Cron Data 3; see [minion access](cron-data3.md#production-aws-access-through-the-minion).
+- Administrator commands require a password; unattended SSH does not provide sudo access.
+- Tailscale daemon: `/Library/LaunchDaemons/sh.brew.tailscale.plist`; CLI: `/opt/homebrew/bin/tailscale`.
+  Do not also install the graphical client while using this daemon.
 
-LAN SSH from `mp600-4tb` works with its existing SSH key:
+## T3
 
-```sh
-ssh neicardosoneto@Neis-MacBook-Pro.local
-```
-
-Use the mDNS name rather than a saved DHCP address.
-The Mac reports its hostname as `Neis-MBP`.
-Administrator commands require a password; unattended SSH does not provide sudo access.
-
-SSH to Cron Data 3 through Tailscale, independently of the corporate VPN:
-
-```sh
-ssh cron-data3
-```
-
-The alias uses `~/.ssh/id_ed25519_cron_data3` and `/opt/homebrew/bin/tailscale nc`.
-
-For production EC2 operations without the corporate VPN, use `ssh ansible-tower-prod`.
-See [minion access through Cron Data 3](cron-data3.md#production-aws-access-through-the-minion).
-
-## Tailscale
-
-Tailscale 1.102.4 was installed through Homebrew on 2026-09-13.
-The system service `sh.brew.tailscale` is running, and the machine is enrolled in the tailnet.
-Access to `cron-data3` through Tailscale is verified.
-Do not also install the graphical Tailscale client while using this daemon.
-
-## Locations
-
-Shared Claude/OpenAI access uses a persistent SSH tunnel to Cron Data 3.
-See [CLIProxyAPI client commands and operations](cliproxyapi.md).
-
-- Personal repositories: `~/cardoso-neto/<repo>`.
-- Upstream repositories: `~/upstream/<org>/<repo>`.
-- Personal instructions and skills: `~/.agents`; follow its symlink to the source repository.
-- Grok: native install in `~/.grok/bin`; `~/.local/bin/grok` links to `~/.grok/bin/grok`.
-  - Do not install `@xai-official/grok` through npm; its postinstall rewrites the shared `~/.grok/config.toml` to `installer = "npm"`.
-- Muse: launcher, binary, and update state in `~/.local/opt/muse`; `~/.local/bin/muse` links to the launcher.
-  - Its installer appends a `PATH` line for whatever directory it ran in; remove it from `.zshrc` after reinstalling.
-- T3 state: `~/.t3/userdata`; runtime: `~/.t3/runtime`.
-- LaunchAgent: `~/Library/LaunchAgents/com.t3tools.t3code.service.plist`.
+- Desktop app: `/Applications/T3 Code (Alpha).app`.
+- CLI: `/opt/homebrew/bin/t3`.
+- State: `~/.t3/userdata`; runtime: `~/.t3/runtime`.
+- Service definition and environment: `~/Library/LaunchAgents/com.t3tools.t3code.service.plist`.
 - Service log: `~/.t3/userdata/logs/boot-service.log`.
+- Status: `t3 service status` and `t3 connect status`.
 
-The LaunchAgent starts at login and restarts T3 after failure.
-Inspect it for the service command and environment; use `t3 service status` and `t3 connect status` for status.
+## Updates
 
-Harness and T3 updates: [machine updater](../../../../super-system-stuff/hosts/mbp/bin/autoupdate.sh).
+- Script: [machine updater](../../../../super-system-stuff/hosts/mbp/bin/autoupdate.sh).
+  Inspect it for update channels, power checks, and app restart behavior.
+- Scheduler: `~/Library/LaunchAgents/local.nei.machine-autoupdate.plist`.
+  Source installer: [autoupdate-install.sh](../../../../super-system-stuff/hosts/mbp/install/autoupdate-install.sh).
+- Runner: `~/.local/bin/job-runner`; [source and logging commands](../../../../super-system-stuff/shared/job-runner/README.md).
+- Logs: macOS Unified Logging, subsystem `local.nei.jobs`, job `machine-autoupdate`.
+- Lock state: `~/Library/Caches/machine-autoupdate`.
 
-Setup decisions and repair history: [installation journal](Neis-MacBook-Pro.journal.md).
+## Other locations
+
+- Personal repositories: `~/cardoso-neto/<repo>`; upstream: `~/upstream/<org>/<repo>`.
+- Personal instructions and skills: `~/.agents`; follow its symlink to the source repository.
+- Harness configuration: `~/.claude`, `~/.codex`, and `~/.grok`.
+- Shared Claude/OpenAI access: [CLIProxyAPI commands, tunnel, and configuration](cliproxyapi.md).
+- Grok: native install in `~/.grok/bin`; `~/.local/bin/grok` links to `~/.grok/bin/grok`.
+  - Avoid the npm package `@xai-official/grok`; its postinstall changes `~/.grok/config.toml` to `installer = "npm"`.
+- Muse: launcher, binary, and update state in `~/.local/opt/muse`; `~/.local/bin/muse` links to the launcher.
+  - Its installer appends a `PATH` line for its working directory; remove that line from `.zshrc` after reinstalling.
+
+Historical repairs: [installation journal](Neis-MacBook-Pro.journal.md).

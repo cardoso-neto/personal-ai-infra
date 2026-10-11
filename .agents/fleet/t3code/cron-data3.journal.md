@@ -1,5 +1,13 @@
 # Cron Data 3 installation journal
 
+## 2026-10-07: Capacity resize
+
+Resized on 2026-10-07 to `m8a.12xlarge`: AMD EPYC 9R45, 48 physical cores/vCPUs, one thread per core, and 192 GiB nominal RAM.
+Linux reports approximately 185 GiB usable RAM.
+The root disk, private IP, and existing `6.17.0-1012-aws` kernel were preserved for the resize.
+Existing backfill concurrency and CPU affinity `0-27` remain unchanged.
+The ENI's established TCP idle timeout is explicitly 432000 seconds, preserving the previous instance's behavior.
+
 ## 2026-10-04: T3 base directory moved to `~/.t3`
 
 - Renamed `~/t3` to `~/.t3` and left `~/t3 -> .t3`, so the running server, agents, and stored absolute paths kept working.
@@ -13,7 +21,7 @@
 - Installed CPA Usage Keeper v1.15.8 as the `cpa-usage-keeper.service` user unit on `127.0.0.1:8318`; details in [the CLIProxyAPI notes](cliproxyapi.md#usage-keeper).
 - Chose the checksum-verified release binary over rootless Docker, matching the proxy's install; it ingests in `subscribe` mode as the proxy's only usage collector.
 - A `sed -i` edit of the proxy's `config.yaml` dropped the proxy's config-file watch; the file was restored in place and the restart deferred to Nei.
-  - See [Config watch incident, resolved](cliproxyapi.md#config-watch-incident-resolved).
+  - See [Config file watch](cliproxyapi.md#config-file-watch).
 - Adding 8318 to the Mac tunnel briefly broke it (bad plist argument order), cutting the Mac's proxy-routed Claude traffic until it was fixed.
 
 ## 2026-09-16: Storage and minion access

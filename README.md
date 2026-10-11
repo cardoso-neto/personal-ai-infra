@@ -23,9 +23,10 @@ Runtime state, credentials, sessions, caches, and machine-local settings are not
 
 ## CLIProxyAPI on cron-data3
 
-> 🤖 GPT-6 via Codex on behalf of Nei Cardoso
+> 🤖 gpt-6.1-sol via Codex on behalf of Nei Cardoso
 
-- [Operations and automatic subscription recovery](.agents/fleet/t3code/cliproxyapi.md#automatic-subscription-recovery): deployed paths, five-minute systemd timer, safety checks, logs, and incident diagnosis.
+- [Fleet pointers](.agents/fleet/t3code/README.md): machine access, configuration, maintenance scripts, and logs.
+- [Proxy operations and subscription recovery](.agents/fleet/t3code/cliproxyapi.md#automatic-subscription-recovery): deployed paths, services, logs, and diagnostics.
 - [Recovery helper, systemd units, and tests](scripts/cliproxyapi-recovery/): source for the safeguard that detects restored subscription quota and clears stale local cooldowns.
 
 ## Transcripts

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arch Review"
+  short_description: "Review a pull request's architectural decisions"
+  default_prompt: "Use $arch-review to review the architecture of this pull request."

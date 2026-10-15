@@ -43,6 +43,8 @@
   - muse (SDK/protocol: `~/upstream/meta-models/muse-code-sdk`; CLI implementation not included)
 - metaharness
   - t3code (`~/upstream/pingdotgg/t3code`)
+    - t3code-cli (`cardoso-neto/t3code-cli`)
+      - Agents can use its `t3c` CLI to create and drive t3code threads programmatically.
 
 - I have a fleet of machines connected via t3 connect and ssh which I use through t3code.
   - ~/.agents/fleet/t3code/ has .md files explaining how each of them was setup.

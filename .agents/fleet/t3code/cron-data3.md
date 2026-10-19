@@ -29,7 +29,11 @@ Coordinate edits with running agents.
 
 ## Files and tools
 
-- Repositories: `/srv/t3code/cardoso-neto/src/<org>/<repo>`.
+- Shared Git and annex stores: `/src/bare/<org>/<repo>`.
+- Reference checkouts: `/src/read/<org>/<repo>`, detached and read-only, refreshed from `origin/master` hourly.
+  T3 projects point here; agents can search these copies when exploring repositories.
+  Editing belongs in T3-managed worktrees.
+- Existing checkouts with local changes remain at their old paths until their work is reconciled.
 - Shared project data: `~/data/<project>/`; keep reusable data outside worktrees.
 - Personal instructions and skills: `~/.agents`, linked to the source checkout.
 - VM-specific instructions: `~/agents/AGENTS.md` and Codex's `~/.codex/config.toml`.
@@ -69,8 +73,10 @@ For host journal access, use `sudo journalctl _UID="$t3_service_uid" _SYSTEMD_US
 - Schedules and update commands: the T3 account's `crontab -l`; also inspect `systemctl --user list-timers --all`.
 - T3 update output: `~/.local/state/t3code-update/latest.log`.
 - Other maintenance output: `~/.local/state/`; helper scripts: `~/.local/bin/`.
-- Repository fetch helper: `~/.local/bin/fetch-repos`; fetching does not advance checkouts.
-- Agent log archive: `/srv/t3code/cardoso-neto/src/cardoso-neto/agent-logs/sync-agent-logs.sh`.
+- Repository helpers: `~/.local/bin/add-src` and `~/.local/bin/update-src`, maintained in [super-system-stuff/shared/src](https://github.com/cardoso-neto/super-system-stuff/tree/master/shared/src).
+  `update-src` discovers shared bare repositories and refreshes their reference checkouts hourly at minute 17.
+- Agent log archive: `~/.agent-logs/sync-agent-logs.sh`, scheduled hourly at minute 7.
+  Its writable worktree is under the account's home; the old `/srv/t3code/cardoso-neto/src/cardoso-neto/agent-logs` path is a compatibility symlink.
   Host data: `data/hosts/cron-data3`; run log: `~/.local/state/agent-logs/agent-logs-sync.log`.
 - Manual T3 upgrades: use the client's Update server action; restarting the service interrupts active work.
 

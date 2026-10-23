@@ -1,6 +1,7 @@
 # Instructions
 
 - Read @~/.agents/USER.md to know more about me.
+- Read @~/.agents/TOOLS.md for useful utilities and local tool notes.
 - Most tasks are better tackled by breaking them down and handing them off to focused subagents.
 
 ## Writing

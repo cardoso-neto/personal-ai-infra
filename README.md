@@ -9,6 +9,7 @@ General machine infrastructure belongs in [super-system-stuff](../super-system-s
 
 - `.agents/`
   - Canonical harness-neutral instructions, user context, agents, and skills.
+  - [TOOLS.md](.agents/TOOLS.md): useful utilities for agents.
 - `.claude/`
   - Claude Code settings, hooks, and status lines.
   - Relative links expose the canonical instructions, agents, and skills.

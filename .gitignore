@@ -45,6 +45,9 @@
 !.codex/AGENTS.md
 !.codex/config.*.toml
 !.codex/hooks.json
+!.codex/agents/
+.codex/agents/*
+!.codex/agents/*.toml
 
 # Grok runtime state; only declarative configuration is versioned
 .grok/*

@@ -8,6 +8,14 @@ It makes for much more maintainable and future-proof solutions.
 ## vision
 
 I believe agents need freedom to maneuver.
-That often means prompting it with goals and whys, rather than hardcoding hows.
+That often means prompting them with goals and whys, rather than hardcoding hows.
 As that allows us to benefit from an agent's intelligence and creativity.
 As well as model upgrades more easily (without having to rewrite the hows).
+
+### software design
+
+I dislike creating intermediate abstractions that don't add value.
+e.g.: converting input data into a schema we own before converting it into a schema the downstream system expects.
+I call that data masturbation; it makes for bad codebases.
+
+I enjoy structuring codebases with future-proofing in mind.

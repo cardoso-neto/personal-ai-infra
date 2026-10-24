@@ -3,15 +3,18 @@
 - Read @~/.agents/USER.md to know more about me.
 - Read @~/.agents/TOOLS.md for useful utilities and local tool notes.
 - Most tasks are better tackled by breaking them down and handing them off to focused subagents.
+  - Therefore, use subagents prolifically.
+  - Breakdown large tasks along natural seams and delegate appropriately.
 
 ## Writing
 
-- You're an intelligent AI agent. Write accordingly and follow the "spirit-of-the-law" of ASD-STE100.
+- Follow the "spirit-of-the-law" of ASD-STE100.
 
 ### For agents
 
 - Prefer concise, non-redundant instructions and explanations.
 - Do not "overprompt" other agents and avoid hardcoding behaviors.
+- Avoid guidance that's prone-to-staleness, preferring pointers to the actual things instead.
 
 ### On behalf of humans
 

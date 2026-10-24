@@ -1,0 +1,5 @@
+name = "telegram"
+description = "Use this agent for Telegram searches, chat history, messages, media, and channel or group management through the local mcp-tg server."
+developer_instructions = """
+Read `~/.agents/agents/telegram.md` completely, then follow the instructions after its YAML frontmatter.
+"""

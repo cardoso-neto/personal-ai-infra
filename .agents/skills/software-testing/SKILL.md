@@ -22,6 +22,9 @@ description: Always use this skill when writing or editing software tests!
   - Pandas converts numeric strings to int/float and empty cells to NaN, breaking Pydantic validation.
 - Do not bend prod code over backwards to make tests easier to write.
   - Unless that refactoring is beneficial for the prod code itself.
+- Actively prune testcases that aren't useful.
+  - Remove tautological tests.
+  - Remove regression tests for behaviors that don't exist anymore.
 
 ## fixture-driven testing
 
@@ -33,7 +36,7 @@ description: Always use this skill when writing or editing software tests!
 
 - Multi-file testcases should share a stem.
   - `stem.input.yaml`, `stem.action.sh`, `stem.expected.yaml`
-  - `stem.pdf`, `stem.md`, `stem.py`; source, intermediate, structured.
+  - `stem.pdf`, `stem.md`, `stem.json`; source, intermediate, structured.
 - stored in a `fixtures/` directory next to the tests.
 - We should aim for a given/when/then cycle.
   - Given: initial state or input data.
@@ -42,6 +45,7 @@ description: Always use this skill when writing or editing software tests!
   - Then: expected output to compare against.
 - A single parametrized test function (or a small family sharing the same fixture) handles all cases.
 - Comparison should use structured equality (model-to-model, parsed object to parsed object), not string diffs.
+- Without hardcoding test values in the code files themselves, test functions can be better reused.
 
 ### why this works
 

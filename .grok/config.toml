@@ -1,6 +1,7 @@
 [cli]
 auto_update = true
 installer = "internal"
+channel = "stable"
 
 [auth]
 disable_api_key_auth = true

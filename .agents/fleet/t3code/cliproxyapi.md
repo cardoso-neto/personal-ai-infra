@@ -8,20 +8,28 @@ Use the deployed config, service units, and management API for current versions,
 
 ## Access and client settings
 
-- Local API: `http://127.0.0.1:8317` on the VM, MacBook, and `mp600-4tb`.
-  - The MacBook and desktop use SSH tunnels.
+- Local API on Cron Data 3: `http://127.0.0.1:8317`.
 - Private HTTPS: `https://cron-data3-agent.tailb524d8.ts.net` through Tailscale Serve.
-  - [Genesis](genesis.md#provider-configuration) uses this endpoint directly.
+  - The MacBook, `mp600-4tb`, and [Genesis](genesis.md#provider-configuration) use this endpoint directly for inference.
+  - Codex uses the `/v1` API base; Claude uses the base URL without that suffix.
   - Inspect the proxy mapping with `sudo tailscale serve status` on the VM.
 - Management console: `/management.html` on either endpoint; management API: `/v0/management`.
   - Management uses `~/.config/cliproxyapi/admin.key` on the VM, separate from inference keys.
 - Each client's `~/.config/cliproxyapi/` contains `client.key`, `client.json`, and `client.env`.
   - `client.env` exports `CLIPROXY_BASE_URL` and `CLIPROXY_API_KEY`.
-- Ordinary `claude` and `codex` use their saved proxy configuration.
-  - Claude: `~/.claude/settings.json`, `ANTHROPIC_BASE_URL`, and `apiKeyHelper` reading `client.key`.
-  - Codex: `~/.codex/config.toml`, provider `cliproxyapi`, and `auth.command` reading `client.key`.
-  - Genesis uses `/run/current-system/sw/bin/cat` for credential helpers; other clients use `/bin/cat`.
+  - `aliases.sh` defines explicit `claude-proxy` and `codex-proxy` commands using the private HTTPS endpoint.
+  - New shells load the updated aliases; existing shells can reload them with `. ~/.config/cliproxyapi/aliases.sh`.
+- Ordinary `claude` and `codex` use direct provider access and their own saved logins.
+  - Their user settings contain no proxy endpoint or credential helper.
   - Write through existing settings/config symlinks when editing them.
+- T3 Code supplies proxy configuration per provider instance in Settings -> Providers.
+  - Claude keeps its existing config directory; T3 supplies `ANTHROPIC_BASE_URL` and a sensitive `ANTHROPIC_API_KEY`.
+  - Codex keeps its shared home and sessions, with separate API-key authentication in `~/.codex-t3/cliproxyapi/auth.json`.
+  - Its T3 launch arguments select `cliproxyapi`, set `requires_openai_auth=true`, and use file credential storage.
+  - These API-key connections have no native subscription quota; the hub supplies the pooled account limits.
+- T3's Usage providers entry `Cron Data 3` is stored on the MacBook environment.
+  - Usage -> Limits shows the hub's accounts across connected environments.
+  - Migration backups and the local configuration manifest are under `~/.config/cliproxyapi/`.
 
 ## Server operations
 
@@ -56,7 +64,11 @@ Edit it in place or through the management API; replacing its inode with `sed -i
 After replacement, restart the service to restore the watch.
 Restarts interrupt active streams, including requests from running agents.
 
-## Client tunnels
+## Legacy client tunnels
+
+New remote inference sessions use Tailscale HTTPS without SSH forwarding.
+Keep the existing tunnels available for sessions started with a localhost endpoint until those sessions are restarted or resumed with the new settings.
+The MacBook also uses its tunnel for the usage keeper dashboard on port `8318`.
 
 - MacBook: `~/Library/LaunchAgents/com.nei.cliproxy-tunnel.plist`.
   - Error log: `~/Library/Logs/cliproxy-tunnel.log`.
@@ -65,6 +77,15 @@ Restarts interrupt active streams, including requests from running agents.
 - `mp600-4tb`: `~/.config/systemd/user/cliproxy-tunnel.service`.
   - Inspect with `systemctl --user status cliproxy-tunnel.service`.
   - Forwards port `8317`.
+
+### Diagnose a stalled legacy tunnel
+
+A listening port does not prove that the SSH tunnel forwards requests.
+First check the affected client's endpoint: a client configured for private HTTPS does not use this tunnel.
+Check `curl --max-time 5 http://127.0.0.1:8317/` and compare with `https://cron-data3-agent.tailb524d8.ts.net/`.
+If the local request times out while the private HTTPS endpoint responds, reconnect the Mac tunnel with `launchctl kickstart -k "gui/$(id -u)/com.nei.cliproxy-tunnel"`.
+This closes existing streams through that tunnel.
+Retest the local endpoint and a small inference request before concluding that agent latency has recovered.
 
 ## Subscription logins
 
@@ -104,7 +125,7 @@ Keep cooldown persistence enabled; inspect recovery failures before manually cle
 
 - Dashboard: `http://127.0.0.1:8318` on the VM or MacBook; the desktop tunnel does not forward this port.
 - Password: `~/.config/cliproxyapi/usage-keeper.password` on the VM.
-  - Also in the MacBook's `~/quorum/actacollecta/.env.shush` as `CRON_DATA3_USAGE_PASSWORD`, beside `CRON_DATA3_USAGE_URL`.
+  - Also in the MacBook's `~/quorum/actacollecta/.env.ops.shush` as `CRON_DATA3_USAGE_PASSWORD`, beside `CRON_DATA3_USAGE_URL`.
 - Binary: `~/.local/bin/cpa-usage-keeper`, linked into `~/.local/opt/cpa-usage-keeper/`.
 - Settings: `~/.config/cliproxyapi/usage-keeper.env`.
 - Unit: `~/.config/systemd/user/cpa-usage-keeper.service`.

@@ -1,4 +1,4 @@
-model_provider = "cliproxyapi"
+model_provider = "openai"
 agents.max_concurrent_threads_per_session = 100
 personality = "pragmatic"
 model = "gpt-6-astra"
@@ -99,16 +99,6 @@ prevent_idle_sleep = true
 
 [hooks.state."/home/nei/.codex/hooks.json:post_tool_use:0:0"]
 trusted_hash = "sha256:ce6429a8f4dd589fec2b88fb6b19dc2291dbbd65b494acc0822dcda8ba8527b5"
-
-[model_providers.cliproxyapi]
-name = "CLIProxyAPI"
-base_url = "http://127.0.0.1:8317/v1"
-wire_api = "responses"
-supports_websockets = true
-
-[model_providers.cliproxyapi.auth]
-command = "/bin/cat"
-args = ["/home/nei/.config/cliproxyapi/client.key"]
 
 [desktop]
 followUpQueueMode = "steer"

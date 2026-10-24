@@ -27,6 +27,35 @@ T3's Open in VS Code hostname uses the `cron-data3-agent` SSH entry.
 VS Code and T3 agents share the same account, repositories, tools, and credentials.
 Coordinate edits with running agents.
 
+### Quorum internal access through the tailnet
+
+Cron Data 3 routes internal Quorum traffic for Nei's tailnet devices without OpenVPN.
+The MacBook and desktop accept these subnet routes:
+
+- `10.1.0.0/20`: legacy production VPC, including RDS.
+- `10.22.0.0/16`: staging Kubernetes API.
+- `10.23.0.0/16`: production Kubernetes and database web UI.
+- `10.30.0.0/16`: internal tools, including Teleport.
+- `172.31.0.0/16`: legacy VPC peering destination.
+
+The tailnet approves these routes on `cron-data3-agent`.
+A grant allows `nei.cardoso.neto@gmail.com` to reach them only through `tag:cron-data3`.
+Other members and Genesis have no grant to these subnets.
+Existing restrictions on connections from Cron Data 3 to personal machines remain in place.
+
+Subnet SNAT uses the VM's `10.1.3.84` address.
+Persistent forwarding is in `/etc/sysctl.d/99-quorum-agent-routing.conf`.
+No OpenVPN session, exit node, AWS route changes, or tailnet DNS overrides are required.
+The tested service names resolve through public DNS to private addresses.
+Teleport, AWS, and application authentication still apply.
+Public destinations routed by OpenVPN are outside this setup.
+
+To enable route acceptance on another Linux client, run `tailscale set --accept-routes=true` as its Tailscale operator or with sudo.
+To stop using the routes on a client, set `--accept-routes=false`.
+To disable the router, run `sudo tailscale set --advertise-routes=` on Cron Data 3.
+Revoke its subnet route approvals and remove the corresponding grant when retiring the setup.
+Policy and route snapshots are on the desktop under `~/.local/state/quorum-subnet-router/20261021/`.
+
 ## Files and tools
 
 - Shared Git and annex stores: `/src/bare/<org>/<repo>`.
@@ -34,6 +63,14 @@ Coordinate edits with running agents.
   T3 projects point here; agents can search these copies when exploring repositories.
   Editing belongs in T3-managed worktrees.
 - Existing checkouts with local changes remain at their old paths until their work is reconciled.
+- Shared repository access: the `src` group can read `/src/read` and write Git metadata under `/src/bare`.
+  Add new human and T3 accounts to this group; keep reference refreshes under `t3-cardoso-neto`.
+  Setgid directories, default ACLs, and `core.sharedRepository=group` preserve access for new metadata.
+  Temporary named user ACLs give existing sessions the same access until their groups refresh.
+  Remove these ACLs after all user managers and sessions have refreshed; also remove an account's named ACLs if revoking its access before then.
+  Change evidence and bridge notes: `~/.local/state/src-migration-20261019/shared-access/`.
+- Global repository helpers: `/usr/local/bin/add-src` and `/usr/local/bin/update-src`.
+  System Git configuration includes `/src/git-trust.config`; the reference owner maintains this file.
 - Shared project data: `~/data/<project>/`; keep reusable data outside worktrees.
 - Personal instructions and skills: `~/.agents`, linked to the source checkout.
 - VM-specific instructions: `~/agents/AGENTS.md` and Codex's `~/.codex/config.toml`.
@@ -53,6 +90,9 @@ Coordinate edits with running agents.
 - Environment overrides: `~/.config/systemd/user/t3code.service.d/`, including `tools.conf` for PATH and Docker access.
 - Rootless Docker: `docker.service` in the same user manager.
 - Tailscale daemon: system `tailscaled.service`; inspect `tailscale status` and `tailscale serve status` for connectivity.
+- Private Tailscale HTTPS: `https://cron-data3-agent.tailb524d8.ts.net:8443` maps to T3 at `http://127.0.0.1:3773`.
+  Inspect `tailscale serve status` before changes; HTTPS port `443` serves CLIProxyAPI.
+- The VM's LAN address is inside the corporate VPC and has no direct path from the home LAN.
 
 From the maintenance login, inspect a user service with:
 

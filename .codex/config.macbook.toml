@@ -1,4 +1,4 @@
-model_provider = "cliproxyapi"
+model_provider = "openai"
 model = "gpt-6.1-sol"
 model_reasoning_effort = "low"
 personality = "pragmatic"
@@ -59,6 +59,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/neicardosoneto/Downloads"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.t3/worktrees/actacollecta/t3code-6c02dcb2"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.t3/worktrees/actacollecta/t3code-bad65f88"]
 trust_level = "trusted"
 
 [plugins."google-calendar@openai-curated"]
@@ -154,8 +160,8 @@ NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.928.20755"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.928.20755/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.1013.31256"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.1013.31256/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 
@@ -174,16 +180,9 @@ trusted_hash = "sha256:ce6429a8f4dd589fec2b88fb6b19dc2291dbbd65b494acc0822dcda8b
 [shell_environment_policy.set]
 NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f,89b6b07b3c7e2344f20d65930fb27b3f418aace8bc62d7abb2a97a2291ffec39"
 
-[model_providers.cliproxyapi]
-name = "CLIProxyAPI"
-base_url = "http://127.0.0.1:8317/v1"
-wire_api = "responses"
-supports_websockets = true
-
-[model_providers.cliproxyapi.auth]
-command = "/bin/cat"
-args = ["/Users/neicardosoneto/.config/cliproxyapi/client.key"]
-
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"
 "gpt-5.6-sol" = "gpt-6-sol"
+
+[projects."/Users/neicardosoneto/cardoso-neto/telegraphema"]
+trust_level = "trusted"

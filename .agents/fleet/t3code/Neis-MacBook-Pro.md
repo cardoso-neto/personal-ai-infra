@@ -22,6 +22,10 @@
 - Service definition and environment: `~/Library/LaunchAgents/com.t3tools.t3code.service.plist`.
 - Service log: `~/.t3/userdata/logs/boot-service.log`.
 - Status: `t3 service status` and `t3 connect status`.
+- Native network binding: `T3CODE_HOST` in the service plist's `EnvironmentVariables`.
+  Reload the launch agent after changing its environment; restarting interrupts active sessions.
+- Private HTTPS access: inspect `tailscale serve status` for the T3 mapping on port 8443.
+  Mobile clients can learn native LAN and Tailscale routes through T3 Connect.
 
 ## Updates
 
@@ -32,6 +36,8 @@
 - Runner: `~/.local/bin/job-runner`; [source and logging commands](../../../../super-system-stuff/shared/job-runner/README.md).
 - Logs: macOS Unified Logging, subsystem `local.nei.jobs`, job `machine-autoupdate`.
 - Lock state: `~/Library/Caches/machine-autoupdate`.
+- Failed runs report to fresh T3 threads in `super-system-stuff` through the [finding reporter](../../../../super-system-stuff/shared/t3-findings/README.md).
+  Private webhook config: `~/.config/t3-findings/webhook.json`; pending reports: `~/.local/state/t3-findings`.
 
 ## Other locations
 

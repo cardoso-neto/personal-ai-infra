@@ -1,17 +1,11 @@
 {
-  "apiKeyHelper": "/bin/cat \"$HOME/.config/cliproxyapi/client.key\"",
   "cleanupPeriodDays": 99999,
   "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8317",
-    "ANTHROPIC_API_KEY": "",
-    "ANTHROPIC_AUTH_TOKEN": "",
-    "CLAUDE_CODE_OAUTH_TOKEN": ""
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
     "defaultMode": "bypassPermissions"
   },
-  "model": "opus",
   "disableClaudeAiConnectors": true,
   "hooks": {
     "PostToolUse": [

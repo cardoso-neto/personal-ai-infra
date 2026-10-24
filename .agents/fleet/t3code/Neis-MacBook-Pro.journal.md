@@ -1,5 +1,22 @@
 # Nei's MacBook Pro installation journal
 
+## 2026-10-21: Stalled inference-proxy tunnel recovered
+
+- Found the Mac's SSH tunnel listening on `127.0.0.1:8317` but returning no data in repeated 4-10 second HTTP probes.
+  The private Tailscale HTTPS endpoint responded, MP600's tunnel responded in about 0.26 seconds, and the proxy on Cron Data 3 responded locally in under a millisecond.
+- Reconnected `com.nei.cliproxy-tunnel` with `launchctl kickstart -k`.
+  Subsequent HTTP probes returned 200 in 0.29-0.77 seconds.
+  A small streamed `gpt-6.1-sol` request returned its first text in 3.14 seconds and completed successfully.
+- Confirmed public provider addresses still use the home internet route, outside the Quorum subnet routes.
+  No evidence established that the subnet setup caused the stalled tunnel or explained every historical agent delay.
+  Kept routing and provider configuration unchanged.
+- Follow-up inspection found Mac T3 provider settings already used private Tailscale HTTPS.
+  The stalled tunnel affected the localhost path; it does not establish the cause of the reported T3 thread's latency.
+- Changed `~/.config/cliproxyapi/aliases.sh`, `client.env`, and `client.json` to use private Tailscale HTTPS for new explicit proxy sessions.
+  Backups: `~/.config/cliproxyapi/backups/direct-tailscale-2026-10-21T17-31-55.909Z/`.
+  Verified authenticated model listing, a streamed GPT response, and a Codex WebSocket connection over HTTPS.
+  Left the tunnel running for existing sessions and the usage keeper dashboard.
+
 ## 2026-09-14: Tailscale service started
 
 - Nei started the system service with `sudo /opt/homebrew/bin/brew services start tailscale`.

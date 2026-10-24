@@ -21,6 +21,8 @@ Use the files and commands below for current configuration, versions, and servic
 - Runtime installations: `/home/nei/.t3/runtime/versions/`.
 - State and settings: `/home/nei/.t3/userdata/`, especially `settings.json`.
 - User service: `/home/nei/.config/systemd/user/t3code.service`.
+  - Native network binding: `/home/nei/.config/systemd/user/t3code.service.d/network.conf` sets `T3CODE_HOST=0.0.0.0`.
+  - Direct LAN and Tailscale access use the native listener; the `t3-lan-proxy` socket and service were removed.
   - Inspect its active runtime and listener with `systemctl --user cat t3code.service` and `t3 service status`.
 - Service log: `/home/nei/.t3/userdata/logs/boot-service.log`.
 - Private HTTPS endpoint: `https://genesis.tailb524d8.ts.net`.
@@ -31,7 +33,7 @@ Use the files and commands below for current configuration, versions, and servic
   - To use the existing HTTPS endpoint without changing Serve, use `t3 auth pairing create --ttl 15m --label <device> --base-url https://genesis.tailb524d8.ts.net`.
   - Sessions and expiry: `t3 auth session list`.
   - Keep pairing tokens out of these notes.
-- Direct mobile access requires Tailscale on the client.
+- Mobile can connect directly over LAN or through Tailscale; the private HTTPS endpoint requires Tailscale on the client.
   - Check [session expiry](https://github.com/pingdotgg/t3code/issues/13055) and the [publish-only mobile entry issue](https://github.com/pingdotgg/t3code/issues/6568) when troubleshooting.
   - A publish-only T3 Connect link provides activity notifications; deregistering it stops those notifications.
 
@@ -39,6 +41,7 @@ Use the files and commands below for current configuration, versions, and servic
 
 - User updater: `/home/nei/.local/bin/update-user`.
   - T3 release channel and user package upgrade commands live in this script.
+  - Maintains nei's native Claude and user-local npm Grok installation.
   - Units: `/home/nei/.config/systemd/user/update-user.timer` and `update-user.service`.
   - Schedule/status: `systemctl --user cat update-user.timer` and `systemctl --user list-timers --all`.
   - Results: `journalctl --user -u update-user.service`.
@@ -55,6 +58,22 @@ Use the files and commands below for current configuration, versions, and servic
 - Shared checkouts: `/src`; helper scripts: `/usr/local/bin/add-src`, `update-src`, and `sudo-agent`.
 - Sleep policy: `systemd.sleep.settings.Sleep` in `/etc/nixos/configuration.nix`.
 
+## Agent log archive
+
+- Runtime clone: `/src/work/cardoso-neto/agent-logs`.
+  - Shared bare/reference copies remain under `/src/bare` and `/src/read`; capture runs from the writable runtime clone.
+  - Git-annex is installed in nei's Nix profile: `/home/nei/.nix-profile/bin/git-annex`.
+- Capture command: `/home/nei/.local/bin/sync-agent-logs-host`, linked to the runtime clone's `sync-agent-logs.sh`.
+  - Archives nei's Codex, Claude, and Grok sessions under `data/hosts/genesis`.
+  - Units: `agent-logs-genesis.service` and `agent-logs-genesis.timer` in `/home/nei/.config/systemd/user/`.
+  - Inspect schedule/status with `systemctl --user cat agent-logs-genesis.timer` and `systemctl --user list-timers --all`.
+  - Inspect results with `journalctl --user -u agent-logs-genesis.service`.
+- Genesis and mp600 retain all annex history; laptop and Cron Data 3 receive their own sessions.
+  - Both archive servers pull Cron Data 3; its agent account needs no outbound SSH key.
+  - Inspect remotes with `git remote -v` and retention with `git annex wanted here` and `git annex required here` in each clone.
+  - Genesis's `mp600` SSH alias uses the home LAN; its `cron-data3-agent` alias uses Tailscale.
+  - Copy policy and transfer commands are in the archive repository's `README.md` and `sync-agent-logs.sh`.
+
 ## Network
 
 - Tailscale: system `tailscaled.service`; identity/state in `/var/lib/tailscale`.
@@ -67,6 +86,11 @@ Use the files and commands below for current configuration, versions, and servic
 ## Provider configuration
 
 - Claude: `/home/nei/.claude/settings.json`.
+  - Native binary: `/home/nei/.local/bin/claude`; versions: `/home/nei/.local/share/claude/versions/`.
+  - T3 should use the user-owned native binary directly.
+- Grok: `/home/nei/.local/bin/grok`.
+  - npm settings: `/home/nei/.npmrc`; prefix `/home/nei/.local`, `allow-scripts=@xai-official/grok`.
+  - Provider environment: `npm_config_prefix=/home/nei/.local`, `npm_config_allow_scripts=@xai-official/grok`.
 - Codex: `/home/nei/.codex/config.toml`.
 - Proxy client credentials: `/home/nei/.config/cliproxyapi/` (`client.key`, `client.json`, `client.env`).
 - Gateway and provider administration: [CLIProxyAPI on Cron Data 3](cliproxyapi.md).

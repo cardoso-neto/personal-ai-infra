@@ -1,5 +1,30 @@
 # Cron Data 3 installation journal
 
+## 2026-10-21: Quorum subnet routing
+
+- Advertised and approved the five internal subnet routes listed in [Quorum internal access](cron-data3.md#quorum-internal-access-through-the-tailnet).
+- Added a grant for Nei's identity with `via: ["tag:cron-data3"]`.
+  Preserved existing policy and tests, and added tests allowing Nei and denying Martin and Genesis access to representative internal endpoints.
+  Tailscale validated the candidate before an ETag-guarded policy update.
+- Kept default SNAT and the existing persistent IPv4 forwarding setting.
+  Enabled route acceptance on the MacBook and desktop.
+  Made no DNS, AWS routing, or EC2 source/destination-check changes.
+- With OpenVPN off on the desktop, verified Teleport's ping endpoint returned 200, the database web UI returned its expected 401, and a legacy RDS PostgreSQL port accepted a TCP connection.
+  The same checks passed on the MacBook, where the route table selected Tailscale's `utun0` rather than OpenVPN's `utun5`.
+- Both configured Kubernetes API endpoints returned their expected unauthenticated 401 responses from the MacBook and desktop, with TLS certificates verified against the kubeconfig CAs.
+- After Nei disconnected OpenVPN on the MacBook, repeated the service checks successfully on both machines.
+  The MacBook used home DNS and had no OpenVPN routes; internal subnet routes remained on Tailscale's `utun0`.
+- Policy and route snapshots: desktop `~/.local/state/quorum-subnet-router/20261021/`.
+
+## 2026-10-16: Grok npm postinstall repair
+
+- Reinstalled Grok with `npm install --global --prefix "$HOME/.local" --allow-scripts=@xai-official/grok @xai-official/grok@latest`.
+  The package and executable now agree on 1.0.62; blocked postinstall had left the executable at 1.0.25.
+- Added `npm_config_allow_scripts=@xai-official/grok` to the hourly Grok cron command, preserving its prefix, PATH, lock, and timeout.
+  Left `.npmrc` and its Claude script permission unchanged.
+- Ran the installed updater command with a minimal cron environment: exit 0, `Already up to date (1.0.62).`
+  Backups and verification logs: `~/.local/state/grok-update/repair-20261016T220607Z/`.
+
 ## 2026-10-07: Capacity resize
 
 Resized on 2026-10-07 to `m8a.12xlarge`: AMD EPYC 9R45, 48 physical cores/vCPUs, one thread per core, and 192 GiB nominal RAM.

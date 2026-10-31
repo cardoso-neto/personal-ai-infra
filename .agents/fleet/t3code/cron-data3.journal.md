@@ -1,5 +1,21 @@
 # Cron Data 3 installation journal
 
+## 2026-10-31: Rootless Docker for all agent accounts
+
+- Added separate rootless Docker daemons for `t3-quentin`, `t3-quasar`, and `nei`, with enabled user services and systemd linger.
+  Kept `t3-cardoso-neto`'s working rootless installation and selected its rootless CLI context.
+- Assigned non-overlapping subordinate UID/GID ranges to Quentin and Quasar.
+  Used existing Ubuntu Docker, RootlessKit, slirp4netns, UID mapping tools, and AppArmor support, with matching upstream rootless scripts.
+- Added `DOCKER_HOST` overrides for Quentin and Quasar's next T3 restart.
+  CLI contexts make Docker available immediately without granting access to the host daemon.
+  Provisioning did not request T3 restarts, and Quentin's service stayed running.
+  Cardoso and Quasar's T3 services restarted during the provisioning window; the initiator was not established, and both were active afterward.
+- Updated the maintenance checkout's `agent-personas/INFRA.md` and deployed runtime copies for Quentin and Quasar.
+  Their instruction links use these copies, preserving the clean shared reference and its hourly updates.
+- Verified all four accounts started PostgreSQL 16 containers, wrote rows, and queried them through localhost-published ports.
+  Removed the disposable containers after the checks; Docker Compose and rootless security checks also passed.
+- Logs and rollback evidence: `/var/tmp/cron3-rootless-docker-RkZqSnS0/`.
+
 ## 2026-10-21: Quorum subnet routing
 
 - Advertised and approved the five internal subnet routes listed in [Quorum internal access](cron-data3.md#quorum-internal-access-through-the-tailnet).

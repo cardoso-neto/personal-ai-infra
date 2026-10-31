@@ -108,6 +108,32 @@ Use the same wrapper with `systemctl --user cat` for the effective unit and over
 The unit supplies the executable and environment; the listener is `127.0.0.1:3773`.
 For host journal access, use `sudo journalctl _UID="$t3_service_uid" _SYSTEMD_USER_UNIT=t3code.service` from the maintenance login.
 
+## Rootless Docker
+
+`t3-cardoso-neto`, `t3-quentin`, `t3-quasar`, and the `nei` maintenance login each have a rootless daemon.
+Their `docker.service` user units and systemd linger are enabled.
+Each account selects the `rootless` Docker context at `unix:///run/user/$(id -u)/docker.sock`.
+Use `docker` and `docker compose` without sudo; images, containers, and volumes are separate per account.
+Docker SDKs can require `export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"` because they do not read CLI contexts.
+
+The Cardoso T3 account retains its existing private Docker 29.7.2 installation under `~/.local/bin`.
+The other three accounts use Ubuntu's Docker 29.1.3 and its packaged RootlessKit, slirp4netns, and UID mapping tools.
+Matching upstream rootless setup scripts are installed in `/usr/local/bin`; `/usr/local/bin/docker` links to `/usr/bin/docker` for the setup tool.
+AppArmor's existing `/usr/bin/rootlesskit` profile permits user namespaces.
+Quentin's subordinate UID/GID range is `558752-624287`; Quasar's is `624288-689823`.
+The existing ranges for Cardoso and Nei are unchanged.
+
+Quentin and Quasar have `t3code.service.d/docker.conf` overrides for `DOCKER_HOST`.
+These take effect on the next T3 restart; the selected CLI contexts work in existing sessions.
+Provisioning did not request a T3 restart; Quentin's service stayed running.
+Publish local test services on `127.0.0.1` with an available host port; separate daemons can otherwise select the same published port.
+
+Quentin and Quasar's three `INFRA.md` links now point to per-account copies at `~/.config/pensaplexa/INFRA.md`.
+These copies preserve the shared source's other guidance and replace the obsolete Docker restriction.
+The read-only shared reference remains unchanged so hourly source refreshes can continue.
+The corresponding source edit is in `agent-personas/INFRA.md` in the maintenance checkout; a future persona deployment can restore source-backed links after that change lands.
+Provisioning logs, original documentation, and original link targets: `/var/tmp/cron3-rootless-docker-RkZqSnS0/`.
+
 ## Updates and scheduled work
 
 - Schedules and update commands: the T3 account's `crontab -l`; also inspect `systemctl --user list-timers --all`.

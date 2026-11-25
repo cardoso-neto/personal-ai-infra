@@ -1,5 +1,7 @@
 # Genesis
 
+> 🤖 gpt-6.1-sol via Codex on behalf of Nei Cardoso
+
 NixOS host.
 Use the files and commands below for current configuration, versions, and service status.
 
@@ -49,6 +51,13 @@ Use the files and commands below for current configuration, versions, and servic
   - NixOS unit definitions: `/etc/nixos/maintenance.nix`.
   - Schedule/status: `systemctl cat update-system.timer` and `systemctl list-timers --all`.
   - Results and reboot requirements: `journalctl -u update-system.service`.
+- Tailscale updater: `update-tailscale`, managed by `/etc/nixos/tailscale-updates.nix`.
+  - Checks official stable releases hourly, with up to five minutes of delay and persistent catch-up.
+  - Uses `/etc/nixos/tailscale-package.nix`, `tailscale-version.json`, and `update-tailscale.sh` to apply checksum-verified upstream binaries through NixOS.
+  - Shares `/run/update-system.lock` with the system updater; rebuilds without upgrading the system channel.
+  - Inspect: `systemctl status update-tailscale.timer`, `journalctl -u update-tailscale.service`, or `update-tailscale --check`.
+  - Run now: `sudo systemctl start update-tailscale.service`.
+  - Native `tailscale update` is unsupported on this NixOS installation.
 - NixOS configuration: `/etc/nixos/configuration.nix` and its imports.
   - Hardware configuration: `/etc/nixos/hardware-configuration.nix`.
   - Shared source access: `/etc/nixos/src-access.nix`.
@@ -93,6 +102,8 @@ Use the files and commands below for current configuration, versions, and servic
   - Provider environment: `npm_config_prefix=/home/nei/.local`, `npm_config_allow_scripts=@xai-official/grok`.
 - Codex: `/home/nei/.codex/config.toml`.
 - Proxy client credentials: `/home/nei/.config/cliproxyapi/` (`client.key`, `client.json`, `client.env`).
-- Gateway and provider administration: [CLIProxyAPI on Cron Data 3](cliproxyapi.md).
+- Since 2026-11-03, explicit proxy clients and T3 Claude/Codex use `https://shushingface.quorum.us` with Nei's `NEI` key.
+  Existing shells must reload aliases with `. ~/.config/cliproxyapi/aliases.sh`; no retired tunnel unit is installed.
+- Gateway, key ownership, and cutover evidence: [shared CLIProxyAPI access](cliproxyapi.md#retirement-on-2026-11-03).
   - Inspect the saved provider settings for base URLs and models.
   - Keep credential contents out of logs and fleet notes.

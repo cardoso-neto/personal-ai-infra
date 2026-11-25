@@ -1,5 +1,7 @@
 # Nei's MacBook Pro
 
+> 🤖 gpt-6.1-sol via Codex on behalf of Nei Cardoso
+
 ## Access
 
 - [app.t3.codes](https://app.t3.codes): account `nei.neto@hotmail.com`, environment `Nei's MacBook Pro` (shown with a typographic apostrophe).
@@ -44,7 +46,10 @@
 - Personal repositories: `~/cardoso-neto/<repo>`; upstream: `~/upstream/<org>/<repo>`.
 - Personal instructions and skills: `~/.agents`; follow its symlink to the source repository.
 - Harness configuration: `~/.claude`, `~/.codex`, and `~/.grok`.
-- Shared Claude/OpenAI access: [CLIProxyAPI commands, tunnel, and configuration](cliproxyapi.md).
+- Shared Claude/OpenAI access: [Shushingface clients and cutover evidence](cliproxyapi.md#retirement-on-2026-11-03).
+  Since 2026-11-03, explicit proxy clients and T3 Claude/Codex use the personal `NEI` key.
+  The retired proxy launch agent is unloaded and disabled.
+  Existing shells must reload aliases with `. ~/.config/cliproxyapi/aliases.sh`.
 - Grok: native install in `~/.grok/bin`; `~/.local/bin/grok` links to `~/.grok/bin/grok`.
   - Avoid the npm package `@xai-official/grok`; its postinstall changes `~/.grok/config.toml` to `installer = "npm"`.
 - Muse: launcher, binary, and update state in `~/.local/opt/muse`; `~/.local/bin/muse` links to the launcher.

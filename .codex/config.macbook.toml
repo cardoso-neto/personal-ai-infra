@@ -1,5 +1,5 @@
 model_provider = "openai"
-model = "gpt-6.1-sol"
+model = "gpt-6.2-sol"
 model_reasoning_effort = "low"
 personality = "pragmatic"
 service_tier = "default"
@@ -106,9 +106,6 @@ enabled = true
 [plugins."unified-computer-use@openai-bundled"]
 enabled = true
 
-[plugins."code-review@openai-bundled"]
-enabled = true
-
 [tui]
 status_line = ["model-with-reasoning", "current-dir", "pull-request-number", "branch-changes", "context-used", "codex-version", "weekly-limit", "fast-mode"]
 status_line_use_colors = true
@@ -140,12 +137,13 @@ preventSleepWhileRunning = true
 keepRemoteControlAwakeWhilePluggedIn = true
 git-show-sidebar-pr-icons = true
 conversationDetailMode = "STEPS_COMMANDS"
-followUpQueueMode = "queue"
 dock-icon-preference = "codex-system"
+migratedFollowUpQueueToSteer = true
 
 [mcp_servers.node_repl]
 args = []
 command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
 startup_timeout_sec = 120
 
 [mcp_servers.node_repl.env]
@@ -160,8 +158,8 @@ NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.1013.31256"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.1013.31256/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.1111.71704"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/neicardosoneto/.codex/plugins/cache/openai-bundled/browser/26.1111.71704/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/neicardosoneto/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 
@@ -177,6 +175,9 @@ url = "https://developers.openai.com/mcp"
 [mcp_servers.telegram]
 url = "http://127.0.0.1:8787"
 
+[mcp_servers.quentin]
+url = "https://cron-data3.quorum.us:3775/mcp"
+
 [hooks.state."/Users/neicardosoneto/.codex/hooks.json:post_tool_use:0:0"]
 trusted_hash = "sha256:ce6429a8f4dd589fec2b88fb6b19dc2291dbbd65b494acc0822dcda8ba8527b5"
 
@@ -188,4 +189,7 @@ NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbf
 "gpt-5.6-sol" = "gpt-6-sol"
 
 [projects."/Users/neicardosoneto/cardoso-neto/telegraphema"]
+trust_level = "trusted"
+
+[projects."/Users/neicardosoneto/.t3/worktrees/actacollecta/me-4609-preserving-20261025"]
 trust_level = "trusted"

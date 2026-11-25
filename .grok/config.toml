@@ -7,8 +7,8 @@ channel = "stable"
 disable_api_key_auth = true
 
 [models]
-default = "grok-4.7"
-default_reasoning_effort = "low"
+default = "grok-4.7-build-fast"
+default_reasoning_effort = "high"
 
 [ui]
 max_thoughts_width = 120
